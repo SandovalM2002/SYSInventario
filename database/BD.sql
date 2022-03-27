@@ -77,12 +77,12 @@ CREATE TABLE VENTA
 go
 CREATE TABLE DETALLE_VENTA
 (
+	id_dv INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	idVenta_dv INT FOREIGN KEY REFERENCES VENTA (id_ven) NOT NULL,
 	idP_dv SMALLINT FOREIGN KEY REFERENCES PRODUCTO(id_prod) NOT NULL,
 	cantidad_dv TINYINT NOT NULL,
 	precio_dv DECIMAL(5,2) NOT NULL,
 	subTotal AS (cantidad_dv * precio_dv)
-	CONSTRAINT PK_IdVenta PRIMARY KEY (idVenta_dv)
 );
 go
 --|| STORE PROCEDURE PRODUCTO
@@ -326,3 +326,244 @@ AS BEGIN
 	ELSE
 		PRINT 'YA NO SE PUEDE MODIFICAR EL LISTADO DEL PEDIDO'
 END;
+go
+
+--|| STORE PROCEDURE MATERIAL
+CREATE OR ALTER PROC SP_VIEW_MATERIAL
+(@TIPO BIT)
+AS
+BEGIN
+	SELECT 
+	m.id_mate as [Id Material],
+	m.nombre_mate AS [Nombre],
+	m.costo_mate AS [Costo],
+	m.existencia_mate as [Existencia],
+	CASE 
+		WHEN estado_mate=0 THEN 'INACTIVO'
+		WHEN estado_mate=1 THEN 'ACTIVO'
+	END AS [Estado]
+	FROM MATERIAL as m where m.estado_mate=@TIPO
+END;
+go
+
+CREATE OR ALTER PROC SP_CREATE_MATERIAL
+(@nombre varchar(50),@costo decimal(5,2), @stock smallint)
+AS
+BEGIN
+	IF NOT EXISTS(SELECT m.nombre_mate from MATERIAL m where m.nombre_mate=@nombre)
+		INSERT INTO MATERIAL (nombre_mate,costo_mate,existencia_mate) VALUES (@nombre,@costo,@stock)
+	ELSE
+		PRINT 'ERROR'
+END;
+go
+
+CREATE OR ALTER PROC SP_UPDATE_MATERIAL
+(@ID SMALLINT,@nombre varchar(50),@costo decimal(5,2))
+AS
+BEGIN
+	IF NOT EXISTS(SELECT id_mate from MATERIAL WHERE id_mate=@ID)
+		IF NOT EXISTS(SELECT m.nombre_mate from MATERIAL m where m.nombre_mate=@nombre AND m.id_mate=@ID)
+			UPDATE MATERIAL SET nombre_mate=@nombre, costo_mate=@costo WHERE id_mate=@ID
+		ELSE
+			PRINT 'ERROR'
+	ELSE
+		PRINT 'NO EXISTE EL ID'
+END;
+go
+
+CREATE OR ALTER PROC SP_STATE_MATERIAL
+(@id SMALLINT,@tipo bit)
+AS
+BEGIN
+	IF EXISTS (SELECT id_mate FROM MATERIAL WHERE id_mate=@id)
+		UPDATE MATERIAL SET estado_mate= @tipo WHERE id_mate=@id
+	ELSE
+		PRINT 'ERROR ID'
+END;
+go
+
+--|| STORE PROCEDURE CLIENTES
+CREATE OR ALTER PROC SP_VIEW_CLIENTE
+(@TIPO BIT)
+AS
+BEGIN
+	SELECT
+	c.id_cli AS [ID Cliente],
+	c.empresa_cli AS [Nombre],
+	C.contacto_cli AS [Contacto],
+	CASE 
+		WHEN estado_cli=0 THEN 'INACTIVO'
+		WHEN estado_cli=1 THEN 'ACTIVO'
+	END AS [Estado]	
+	FROM CLIENTE c where estado_cli=@TIPO
+END;
+go
+
+CREATE OR ALTER PROC SP_CREATE_CLIENTE
+(@nombre varchar(30),@contacto VARCHAR(50))
+AS
+BEGIN
+	IF NOT EXISTS(SELECT c.empresa_cli FROM CLIENTE c where c.empresa_cli=@nombre)
+		INSERT INTO CLIENTE (empresa_cli,contacto_cli) VALUES (@nombre,@contacto)
+	ELSE
+		PRINT 'ERROR'
+END;
+go
+
+CREATE OR ALTER PROC SP_UPDATE_CLIENTE
+(@ID SMALLINT,@nombre varchar(30),@contacto varchar(50))
+AS
+BEGIN
+	IF NOT EXISTS(SELECT id_cli from CLIENTE WHERE id_cli=@ID)
+		IF NOT EXISTS(SELECT c.empresa_cli from CLIENTE c where c.empresa_cli=@nombre AND c.id_cli=@ID)
+			UPDATE CLIENTE SET empresa_cli=@nombre, contacto_cli=@contacto WHERE id_cli=@ID
+		ELSE
+			PRINT 'ERROR'
+	ELSE
+		PRINT 'NO EXISTE EL ID'
+END;
+go
+
+CREATE OR ALTER PROC SP_STATE_CLIENTE
+(@id SMALLINT,@tipo bit)
+AS
+BEGIN
+	IF EXISTS (SELECT id_cli FROM CLIENTE WHERE id_cli=@id)
+		UPDATE CLIENTE SET estado_cli= @tipo WHERE id_cli=@id
+	ELSE
+		PRINT 'ERROR ID'
+END;
+go
+
+--||STORE PROCEDURE VENTAS
+CREATE OR ALTER PROC SP_VIEW_VENTAS
+(@TIPO bit)
+AS
+BEGIN
+	SELECT
+	v.id_ven AS [ID Venta],
+	v.num_ven AS [Numero de venta],
+	v.fechaCompra_ven AS [Fecha Compra],
+	v.idCliente_ven AS [ID Cliente],
+	v.Total_ven AS [Total],
+	CASE 
+		WHEN estado=0 THEN 'Pendiente'
+		WHEN estado=1 THEN 'Completada'
+	END AS [Estado]	
+	FROM VENTA v where v.estado=@TIPO
+END;
+go
+
+CREATE OR ALTER PROC SP_CREATE_VENTA
+(@CLI SMALLINT, @total DECIMAL(8,2))
+AS
+BEGIN
+	IF EXISTS (SELECT id_cli FROM CLIENTE WHERE id_cli = @CLI AND estado_cli = 1)
+		INSERT INTO VENTA(idCliente_ven, Total_ven,estado) VALUES(@CLI,@total,1)
+	ELSE 
+		PRINT 'ERROR CON ID'
+END;
+go
+
+CREATE OR ALTER PROC SP_UPDATE_VENTA
+(@Id INT, @idcli SMALLINT, @Total DECIMAL(5,2))
+AS
+BEGIN
+	IF (@Id = (SELECT id_ven FROM VENTA WHERE id_ven = @Id) AND @idcli = (SELECT id_cli FROM CLIENTE WHERE id_cli = @idcli AND estado_cli = 1))
+		UPDATE VENTA SET idCliente_ven =@idcli, Total_ven=@Total WHERE id_ven = @Id
+	ELSE
+		PRINT 'ERROR IDENTIFICADOR'
+END;
+go
+
+CREATE OR ALTER PROC SP_STATE_VENTA
+(@Tipo TINYINT, @Id INT)
+AS
+BEGIN	
+	DECLARE @STATE TINYINT = (SELECT estado FROM VENTA WHERE id_ven = @Id)
+	IF EXISTS (SELECT id_ped FROM PEDIDO WHERE id_ped = @Id)
+		IF (@Tipo = 0)
+			BEGIN
+				UPDATE VENTA SET estado = @Tipo WHERE id_ven = @Id
+			END
+			ELSE IF (@Tipo = 1)
+			BEGIN
+				UPDATE VENTA SET estado = @Tipo WHERE id_ven = @Id
+			
+				DECLARE @COUNT INT = (SELECT MIN(DETALLE_VENTA.id_dv) FROM DETALLE_VENTA WHERE DETALLE_VENTA.idVenta_dv = @Id)
+
+				WHILE(@COUNT <= (SELECT MAX(DETALLE_VENTA.id_dv) FROM DETALLE_VENTA WHERE DETALLE_VENTA.idVenta_dv = @Id))
+				BEGIN
+					DECLARE @CANTIDAD SMALLINT = (SELECT DETALLE_VENTA.cantidad_dv FROM DETALLE_VENTA WHERE id_dv = @COUNT)
+					DECLARE @precio DECIMAL(5,2) = (SELECT DETALLE_VENTA.precio_dv FROM DETALLE_VENTA WHERE id_dv = @COUNT)
+					DECLARE @Pd SMALLINT = (SELECT DETALLE_VENTA.idP_dv FROM DETALLE_VENTA WHERE id_dv = @COUNT)	
+
+					UPDATE PRODUCTO SET existencia_prod = (SELECT existencia_prod FROM PRODUCTO WHERE id_prod =@Pd) - @CANTIDAD WHERE id_prod = @Pd
+
+					SET @COUNT = @COUNT + 1 
+				END
+			END 
+	ELSE
+		PRINT 'ERROR ID'
+END;
+go
+
+--||DETALLE VENTA	
+CREATE OR ALTER PROC SP_VIEW_DETALLE_VENTA
+(@IdVenta INT, @tipo TINYINT)
+AS BEGIN
+	IF EXISTS (SELECT id_ven FROM VENTA WHERE id_ven = @IdVenta)
+		SELECT  
+			id_dv AS [Id],
+			idVenta_dv AS [Venta],
+			idP_dv AS [Pd],
+			v.num_ven AS [Num Venta],
+			p.nombre_prod AS [Producto],
+			dv.cantidad_dv AS [Cantidad],
+			dv.precio_dv AS [Precio Unitario],
+			(dv.precio_dv * dv.cantidad_dv) AS SUBTOTAL
+		FROM DETALLE_VENTA dv INNER JOIN PRODUCTO p ON p.id_prod = dv.idP_dv
+							   INNER JOIN VENTA v ON dv.idVenta_dv = v.id_ven
+		WHERE (v.estado = @tipo AND id_ven = @IdVenta)
+	ELSE
+		PRINT 'ERROR ID'
+END;
+
+select * from DETALLE_VENTA
+go
+
+CREATE OR ALTER PROC SP_CREATE_DETALLE_VENTA
+(@Idv INT, @PD SMALLINT, @CANT TINYINT, @precio DECIMAL(5,2))
+AS BEGIN
+	IF (@Idv = (SELECT id_ven FROM VENTA WHERE id_ven = @Idv AND estado != 0) AND @PD = (SELECT id_prod FROM PRODUCTO WHERE id_prod = @PD AND estado_prod = 1))
+		
+		IF NOT EXISTS (SELECT idP_dv FROM DETALLE_VENTA WHERE idP_dv = @PD AND idVenta_dv = @Idv)
+			INSERT INTO DETALLE_VENTA(idVenta_dv,idP_dv,cantidad_dv,precio_dv)
+				VALUES (@Idv,@PD,@CANT,@precio)
+		ELSE
+			PRINT 'ERROR DUPLICADO ID DE PRODUCTO'
+	ELSE
+		PRINT 'ERROR ID'
+END;
+
+select * from DETALLE_VENTA
+go
+
+CREATE OR ALTER PROC SP_UPDATE_DETALLE_VENTA
+(@id INT, @PD SMALLINT, @CANT TINYINT, @PRECIO DECIMAL(5,2))
+AS BEGIN
+	DECLARE @PEDIDO INT = (SELECT Id_dv FROM DETALLE_VENTA WHERE  Id_dv=@id) 
+	DECLARE @PRODUCTO SMALLINT = (SELECT id_prod FROM PRODUCTO WHERE id_prod = @PD AND estado_prod = 1)
+	DECLARE @PDDUPLICADO SMALLINT = (SELECT idP_dv FROM DETALLE_VENTA WHERE idP_dv = @PD AND idVenta_dv = @PEDIDO AND id_dv != @id)
+	DECLARE @ESTADOP TINYINT = (SELECT estado FROM VENTA WHERE id_ven =@PEDIDO)
+
+	IF (@ESTADOP = 1)
+		IF EXISTS (SELECT id_dp FROM DETALLE_PEDIDO WHERE id_dp = @id)
+			IF (@MP = @MATERIAL AND @MP != @MPDUPLICADO)
+				UPDATE DETALLE_PEDIDO SET idMP_dp =@MP, cantidad_dp =@CANT, costo_unitario_dp=@COSTO, descripcion_dp=@DESC WHERE DETALLE_PEDIDO.id_dp = @id
+			ELSE PRINT 'ERROR'
+		ELSE PRINT 'ERROR ID'
+	ELSE
+		PRINT 'YA NO SE PUEDE MODIFICAR EL LISTADO DE LA VENTA'
+END;
+go
