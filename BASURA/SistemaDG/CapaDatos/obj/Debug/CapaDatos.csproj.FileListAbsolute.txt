@@ -1,0 +1,30 @@
+C:\Users\Lenovo\OneDrive\Escritorio\Tarea de Curso Base de Datos\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Lenovo\OneDrive\Escritorio\Tarea de Curso Base de Datos\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Lenovo\OneDrive\Escritorio\Tarea de Curso Base de Datos\CapaDatos\obj\Debug\CapaDatos.csprojAssemblyReference.cache
+C:\Users\Lenovo\OneDrive\Escritorio\Tarea de Curso Base de Datos\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\OneDrive\Escritorio\Tarea de Curso Base de Datos\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Lenovo\OneDrive\Escritorio\Tarea de Curso Base de Datos\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\Lenovo\OneDrive\Escritorio\ConexionBD\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Lenovo\OneDrive\Escritorio\ConexionBD\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Lenovo\OneDrive\Escritorio\ConexionBD\CapaDatos\obj\Debug\CapaDatos.csprojAssemblyReference.cache
+C:\Users\Lenovo\OneDrive\Escritorio\ConexionBD\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\OneDrive\Escritorio\ConexionBD\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Lenovo\OneDrive\Escritorio\ConexionBD\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\Lenovo\OneDrive\Escritorio\SistemaDG\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Lenovo\OneDrive\Escritorio\SistemaDG\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Lenovo\OneDrive\Escritorio\SistemaDG\CapaDatos\obj\Debug\CapaDatos.csprojAssemblyReference.cache
+C:\Users\Lenovo\OneDrive\Escritorio\SistemaDG\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\OneDrive\Escritorio\SistemaDG\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Lenovo\OneDrive\Escritorio\SistemaDG\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\franc\Documents\Sistema-DisgLosa\SistemaDG\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\franc\Documents\Sistema-DisgLosa\SistemaDG\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\franc\Documents\Sistema-DisgLosa\SistemaDG\CapaDatos\obj\Debug\CapaDatos.csprojAssemblyReference.cache
+C:\Users\franc\Documents\Sistema-DisgLosa\SistemaDG\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\franc\Documents\Sistema-DisgLosa\SistemaDG\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\franc\Documents\Sistema-DisgLosa\SistemaDG\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\Lenovo\OneDrive\Escritorio\Sistema-DisgLosa\SistemaDG\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Lenovo\OneDrive\Escritorio\Sistema-DisgLosa\SistemaDG\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Lenovo\OneDrive\Escritorio\Sistema-DisgLosa\SistemaDG\CapaDatos\obj\Debug\CapaDatos.csprojAssemblyReference.cache
+C:\Users\Lenovo\OneDrive\Escritorio\Sistema-DisgLosa\SistemaDG\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\OneDrive\Escritorio\Sistema-DisgLosa\SistemaDG\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Lenovo\OneDrive\Escritorio\Sistema-DisgLosa\SistemaDG\CapaDatos\obj\Debug\CapaDatos.pdb
