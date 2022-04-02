@@ -1,6 +1,0 @@
-D:\Proyectos\Proyecto produccion\SYSPanaderia\SGIP\DATAACCESS\bin\Debug\DATAACCESS.dll
-D:\Proyectos\Proyecto produccion\SYSPanaderia\SGIP\DATAACCESS\bin\Debug\DATAACCESS.pdb
-D:\Proyectos\Proyecto produccion\SYSPanaderia\SGIP\DATAACCESS\obj\Debug\DATAACCESS.csproj.AssemblyReference.cache
-D:\Proyectos\Proyecto produccion\SYSPanaderia\SGIP\DATAACCESS\obj\Debug\DATAACCESS.csproj.CoreCompileInputs.cache
-D:\Proyectos\Proyecto produccion\SYSPanaderia\SGIP\DATAACCESS\obj\Debug\DATAACCESS.dll
-D:\Proyectos\Proyecto produccion\SYSPanaderia\SGIP\DATAACCESS\obj\Debug\DATAACCESS.pdb

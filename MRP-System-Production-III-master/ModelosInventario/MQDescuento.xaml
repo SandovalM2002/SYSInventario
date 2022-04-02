@@ -1,0 +1,136 @@
+﻿<UserControl x:Class="LoDeProduccion.MQDescuento"
+               xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LoDeProduccion"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1080" Foreground="Black">
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="0.9*"/>
+   
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Margin="0 0 0 0">
+                <Label Content="Datos:" FontSize="20"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Grid.Row="1" >
+                <Label Content="Demanda promedio" Margin="40 0 0 0"/>
+                <TextBox x:Name="txtDemanda" Width="100" VerticalAlignment="Top" KeyDown="txtDemanda_KeyDown" />
+                <ComboBox x:Name="cmbDemanda"  SelectedIndex="0" Margin="10 0 0 0" VerticalAlignment="Top">
+                    <ComboBoxItem x:Name="itemAnual" Content="Anual"/>
+                    <ComboBoxItem x:Name="itemMensual" Content="Mensual"/>
+                    <ComboBoxItem x:Name="itemSem" Content="Semanal"/>
+                    <ComboBoxItem x:Name="itemDiaria" Content="Diaria"/>
+                </ComboBox>
+            </StackPanel >
+
+            <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 0 0 0">
+                <Label Content="Costo del pedido " Margin="52 0 0 0"/>
+                <TextBox x:Name="txtCostoPedir" Width="100" VerticalAlignment="Top" KeyDown="txtCostoPedir_KeyDown"/>
+            </StackPanel>
+
+            
+
+            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                <Label Content="Costo de mantener" Margin="45 0 0 0" />
+                <TextBox x:Name="txtCostoMan"  Width="100" VerticalAlignment="Top" Cursor="IBeam"  KeyDown="txtCostoMan_KeyDown"/>
+                <ComboBox x:Name="cmbCMant" SelectedIndex="0" Margin="10 0 0 0" VerticalAlignment="Top">
+                    <ComboBoxItem x:Name="itemAnual2" Content="Anual"/>
+                    <ComboBoxItem x:Name="itemMensual2" Content="Mensual"/>
+                    <ComboBoxItem x:Name="itemSem2" Content="Semanal"/>
+                    
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="4">
+                <Label Content="Tasa de mantenimiento (%)" Margin="2 0 0 0" />
+                <TextBox x:Name="txtTasa"  Width="100" VerticalAlignment="Top" KeyDown="txtTasa_KeyDown" />
+               
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="5" Margin="10 0 0 0">
+                <Label Content="Plazo de entrega" Margin="46 0 0 0"/>
+                <TextBox x:Name="txtPlazo" Width="100" VerticalAlignment="Top" KeyDown="txtPlazo_KeyDown"/>
+                <Label Content=" días"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="6" Margin="30 0 0 0">
+                <Label Content="Días habiles" Margin="52 0 0 0"/>
+                <TextBox x:Name="txtDias" Width="100" VerticalAlignment="Top" KeyDown="txtDias_KeyDown"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="7" Margin="30 0 0 0">
+                <Label Content="Costo del producto" Margin="12 0 0 0"/>
+                <TextBox x:Name="txtCosto" Width="100" VerticalAlignment="Top" KeyDown="txtCosto_KeyDown"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="9"  Margin="0 0 0 0">
+                <Button x:Name="btnCalcular" Content="Calcular" Width="300" Click="btnCalcular_Click"/>
+            </StackPanel>
+
+            <Grid Grid.Row="8"  Margin="0 0 0 0" Height="500" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="15*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0">
+                    <Label Content="Opciones de los proveedores" FontSize="15" FontWeight="Bold" />
+                </StackPanel>
+                <StackPanel x:Name="Inicial" Grid.Row="1" Orientation="Horizontal"  HorizontalAlignment="Left" Margin="0 0" >
+                    <ComboBox x:Name="CMB" Margin="5 0 5 0" VerticalAlignment="Top" SelectedIndex="1">
+                        <ComboBoxItem Content="Descuento"/>
+                        <ComboBoxItem Content="Precio"/>
+                    </ComboBox>
+                    <TextBox x:Name="txtCostoProducto" Width="50" VerticalAlignment="Top" KeyDown="txtCostoProducto_KeyDown"/>
+                    <Label Content="Si se compra de "/>
+                    <TextBox x:Name="txtU1" Width="50" KeyDown="txtU1_KeyDown" VerticalAlignment="Top"/>
+                    <Label Content="a"/>
+                    <TextBox x:Name="txtU2" Width="50" KeyDown="txtU2_KeyDown" VerticalAlignment="Top"/>
+                    <Label Content="unidades "/>
+                    <Button x:Name="btnAgregar"  Click="btnAgregar_Click" Margin="0 0 0 0" VerticalAlignment="Top">
+                        <materialDesign:PackIcon Kind="Check"/>
+                    </Button>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Margin="0 0 0 0" >
+                    <DataGrid x:Name="dgProveedores" ItemsSource="{Binding}" VerticalAlignment="Top" Height="170"  Width="500" AutoGenerateColumns="False"
+                          Background="#FFB4B7CA" RowHeight="35"  CanUserReorderColumns="False" CanUserSortColumns="False"
+                          GridLinesVisibility="Horizontal" CanUserResizeColumns="False" Margin=" 5 0 5 0" IsReadOnly="True" 
+                      CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Descuento" Binding="{Binding Descuento}" Foreground="Black"   Width="100" />
+                            <DataGridTextColumn Header="Precio" Binding="{Binding Precio}" Foreground="Black" Width="80" />
+                            <DataGridTextColumn Header="Entre   Cantidad" Binding="{Binding Cantidad1}" Foreground="Black" Width="150" />
+                            <DataGridTextColumn Header="a   Cantidad" Binding="{Binding Cantidad2}" Foreground="Black" Width="150" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+            </Grid>
+            
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Label Content="Resultados:" x:Name="lblR" FontSize="25" HorizontalAlignment="Center" Margin="0 10 0 0" Visibility="Hidden"/>
+            <TextBlock Margin="20 60 0 0" Visibility="Hidden"  x:Name="txtResultados"/>
+        </Grid>
+    </Grid>
+</UserControl>
