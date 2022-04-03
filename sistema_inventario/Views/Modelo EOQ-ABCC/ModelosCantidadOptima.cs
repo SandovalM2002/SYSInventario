@@ -31,8 +31,6 @@ namespace Views.Modelo_EOQ_ABCC
             }
         }
 
-      
-
         private void rbCostoMant_CheckedChanged(object sender, EventArgs e)
         {
             if (txtTasaMant.Enabled==true)
