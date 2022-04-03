@@ -30,8 +30,8 @@ namespace Views.Modelo_EOQ_ABCC
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -69,10 +69,12 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
@@ -156,9 +158,11 @@ namespace Views.Modelo_EOQ_ABCC
             this.cbTasaMan.Name = "cbTasaMan";
             this.cbTasaMan.Size = new System.Drawing.Size(63, 21);
             this.cbTasaMan.TabIndex = 63;
+            this.cbTasaMan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbCostoMant_KeyPress);
             // 
             // cbCostoMant
             // 
+            this.cbCostoMant.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCostoMant.Enabled = false;
             this.cbCostoMant.FormattingEnabled = true;
             this.cbCostoMant.Items.AddRange(new object[] {
@@ -185,6 +189,7 @@ namespace Views.Modelo_EOQ_ABCC
             this.cbDemanda.Name = "cbDemanda";
             this.cbDemanda.Size = new System.Drawing.Size(63, 21);
             this.cbDemanda.TabIndex = 61;
+            this.cbDemanda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbCostoMant_KeyPress);
             // 
             // txtCalcular
             // 
@@ -195,6 +200,7 @@ namespace Views.Modelo_EOQ_ABCC
             this.txtCalcular.TabIndex = 60;
             this.txtCalcular.Text = "Calcular";
             this.txtCalcular.UseVisualStyleBackColor = true;
+            this.txtCalcular.Click += new System.EventHandler(this.txtCalcular_Click);
             // 
             // txtDiasH
             // 
@@ -273,6 +279,7 @@ namespace Views.Modelo_EOQ_ABCC
             this.rbTasaMan.TabStop = true;
             this.rbTasaMan.Text = "Tasa de mantenimiento %\r\n";
             this.rbTasaMan.UseVisualStyleBackColor = true;
+            this.rbTasaMan.CheckedChanged += new System.EventHandler(this.rbTasaMan_CheckedChanged);
             // 
             // rbCostoMant
             // 
@@ -286,19 +293,20 @@ namespace Views.Modelo_EOQ_ABCC
             this.rbCostoMant.TabStop = true;
             this.rbCostoMant.Text = "Costo de mantener";
             this.rbCostoMant.UseVisualStyleBackColor = true;
+            this.rbCostoMant.CheckedChanged += new System.EventHandler(this.rbCostoMant_CheckedChanged);
             // 
             // GraficaEOQ
             // 
             this.GraficaEOQ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.GraficaEOQ.ChartAreas.Add(chartArea1);
+            chartArea6.Name = "ChartArea1";
+            this.GraficaEOQ.ChartAreas.Add(chartArea6);
             this.GraficaEOQ.Location = new System.Drawing.Point(499, 214);
             this.GraficaEOQ.Margin = new System.Windows.Forms.Padding(2);
             this.GraficaEOQ.Name = "GraficaEOQ";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Name = "Series1";
-            this.GraficaEOQ.Series.Add(series1);
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Name = "Series1";
+            this.GraficaEOQ.Series.Add(series6);
             this.GraficaEOQ.Size = new System.Drawing.Size(261, 224);
             this.GraficaEOQ.TabIndex = 50;
             this.GraficaEOQ.Text = "chart1";

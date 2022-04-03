@@ -98,10 +98,7 @@ namespace Views.Modelo_EOQ_ABCC
 
             double costoT = (demanda*costoPedir)/eoq+(eoq*costoMantener)/2+demanda*costoProd;
             lblCostoT.Text = "Costo Total:" + costoT.ToString();
-
-
         }
-
 
         private void cbCostoMant_KeyPress(object sender, KeyPressEventArgs e)
         {
