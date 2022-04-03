@@ -32,3 +32,6 @@ C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.csproj.CoreCompileInputs.cache
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.exe
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.pdb
+D:\Proyectos\Proyecto produccion\SYSPanaderia\sistema_inventario\Views\bin\Debug\DataAcces.dll
+D:\Proyectos\Proyecto produccion\SYSPanaderia\sistema_inventario\Views\bin\Debug\DataAcces.pdb
+D:\Proyectos\Proyecto produccion\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.csproj.CopyComplete

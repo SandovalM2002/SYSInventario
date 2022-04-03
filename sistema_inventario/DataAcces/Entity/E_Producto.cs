@@ -16,7 +16,7 @@ namespace DataAcces.Entity
         private string demanda_producto;
         private float tasaM_producto;
         private int stockSeguridad_producto;
-        private bool estado_producto;
+        private bool stado;
 
         public E_Producto(int id_producto, string nombre_producto, decimal costo_producto, decimal precio_producto, int existencia_producto, string demanda_producto, float tasaM_producto, int stockSeguridad_producto, bool stado)
         {
@@ -28,7 +28,7 @@ namespace DataAcces.Entity
             this.demanda_producto = demanda_producto;
             this.tasaM_producto = tasaM_producto;
             this.stockSeguridad_producto = stockSeguridad_producto;
-            this.estado = stado;
+            this.estado_producto = stado;
         }
 
         public int Id_producto { get => id_producto; set => id_producto = value; }
@@ -39,7 +39,7 @@ namespace DataAcces.Entity
         public string Demanda_producto { get => demanda_producto; set => demanda_producto = value; }
         public float TasaM_producto { get => tasaM_producto; set => tasaM_producto = value; }
         public int StockSeguridad_producto { get => stockSeguridad_producto; set => stockSeguridad_producto = value; }
-        public bool Stado { get => stado; set => stado = value; }
+        public bool estado_producto { get => estado_producto; set => estado_producto = value; }
     
         //METODOS DE LA BASE DE DATOS
 

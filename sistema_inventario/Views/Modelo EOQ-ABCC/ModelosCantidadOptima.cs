@@ -65,13 +65,16 @@ namespace Views.Modelo_EOQ_ABCC
             {
                 errorProvider1.SetError(txtDemanda, "Debe ingresar la demanda");
                 MessageBox.Show("No debe dejar campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             } else if (txtCostoMant.Enabled==true && string.IsNullOrWhiteSpace(txtCostoMant.Text))
             {
                 MessageBox.Show("No debe dejar campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             else if (txtTasaMant.Enabled == true && string.IsNullOrWhiteSpace(txtTasaMant.Text))
             {
                 MessageBox.Show("No debe dejar campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             else
             {

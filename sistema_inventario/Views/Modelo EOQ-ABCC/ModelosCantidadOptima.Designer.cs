@@ -30,13 +30,10 @@ namespace Views.Modelo_EOQ_ABCC
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.cbTasaMan = new System.Windows.Forms.ComboBox();
             this.cbCostoMant = new System.Windows.Forms.ComboBox();
             this.cbDemanda = new System.Windows.Forms.ComboBox();
@@ -61,10 +58,13 @@ namespace Views.Modelo_EOQ_ABCC
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GraficaEOQ)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -76,10 +76,10 @@ namespace Views.Modelo_EOQ_ABCC
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(782, 480);
+            this.tabControl1.Size = new System.Drawing.Size(1043, 591);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -108,44 +108,18 @@ namespace Views.Modelo_EOQ_ABCC
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Size = new System.Drawing.Size(774, 454);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage1.Size = new System.Drawing.Size(1035, 562);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Modelo EOQ";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Size = new System.Drawing.Size(774, 454);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Modelo ABC";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage3.Size = new System.Drawing.Size(774, 454);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Pedido Unico";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProvider1.ContainerControl = this;
-            // 
             // cbTasaMan
             // 
+            this.cbTasaMan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTasaMan.Enabled = false;
             this.cbTasaMan.FormattingEnabled = true;
             this.cbTasaMan.Items.AddRange(new object[] {
@@ -153,10 +127,10 @@ namespace Views.Modelo_EOQ_ABCC
             "Mensual",
             "Semanal",
             "Diaria"});
-            this.cbTasaMan.Location = new System.Drawing.Point(340, 167);
-            this.cbTasaMan.Margin = new System.Windows.Forms.Padding(2);
+            this.cbTasaMan.Location = new System.Drawing.Point(453, 206);
+            this.cbTasaMan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbTasaMan.Name = "cbTasaMan";
-            this.cbTasaMan.Size = new System.Drawing.Size(63, 21);
+            this.cbTasaMan.Size = new System.Drawing.Size(83, 24);
             this.cbTasaMan.TabIndex = 63;
             this.cbTasaMan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbCostoMant_KeyPress);
             // 
@@ -170,33 +144,34 @@ namespace Views.Modelo_EOQ_ABCC
             "Mensual",
             "Semanal",
             "Diaria"});
-            this.cbCostoMant.Location = new System.Drawing.Point(340, 200);
-            this.cbCostoMant.Margin = new System.Windows.Forms.Padding(2);
+            this.cbCostoMant.Location = new System.Drawing.Point(453, 246);
+            this.cbCostoMant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbCostoMant.Name = "cbCostoMant";
-            this.cbCostoMant.Size = new System.Drawing.Size(63, 21);
+            this.cbCostoMant.Size = new System.Drawing.Size(83, 24);
             this.cbCostoMant.TabIndex = 62;
             // 
             // cbDemanda
             // 
+            this.cbDemanda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDemanda.FormattingEnabled = true;
             this.cbDemanda.Items.AddRange(new object[] {
             "Anual",
             "Mensual",
             "Semanal",
             "Diaria"});
-            this.cbDemanda.Location = new System.Drawing.Point(340, 75);
-            this.cbDemanda.Margin = new System.Windows.Forms.Padding(2);
+            this.cbDemanda.Location = new System.Drawing.Point(453, 92);
+            this.cbDemanda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbDemanda.Name = "cbDemanda";
-            this.cbDemanda.Size = new System.Drawing.Size(63, 21);
+            this.cbDemanda.Size = new System.Drawing.Size(83, 24);
             this.cbDemanda.TabIndex = 61;
             this.cbDemanda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbCostoMant_KeyPress);
             // 
             // txtCalcular
             // 
-            this.txtCalcular.Location = new System.Drawing.Point(235, 313);
-            this.txtCalcular.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCalcular.Location = new System.Drawing.Point(313, 385);
+            this.txtCalcular.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCalcular.Name = "txtCalcular";
-            this.txtCalcular.Size = new System.Drawing.Size(67, 21);
+            this.txtCalcular.Size = new System.Drawing.Size(89, 26);
             this.txtCalcular.TabIndex = 60;
             this.txtCalcular.Text = "Calcular";
             this.txtCalcular.UseVisualStyleBackColor = true;
@@ -205,76 +180,76 @@ namespace Views.Modelo_EOQ_ABCC
             // txtDiasH
             // 
             this.txtDiasH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiasH.Location = new System.Drawing.Point(215, 277);
-            this.txtDiasH.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDiasH.Location = new System.Drawing.Point(287, 341);
+            this.txtDiasH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDiasH.Name = "txtDiasH";
-            this.txtDiasH.Size = new System.Drawing.Size(110, 24);
+            this.txtDiasH.Size = new System.Drawing.Size(145, 28);
             this.txtDiasH.TabIndex = 58;
             // 
             // txtPlazoEnt
             // 
             this.txtPlazoEnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPlazoEnt.Location = new System.Drawing.Point(215, 240);
-            this.txtPlazoEnt.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPlazoEnt.Location = new System.Drawing.Point(287, 295);
+            this.txtPlazoEnt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPlazoEnt.Name = "txtPlazoEnt";
-            this.txtPlazoEnt.Size = new System.Drawing.Size(110, 24);
+            this.txtPlazoEnt.Size = new System.Drawing.Size(145, 28);
             this.txtPlazoEnt.TabIndex = 57;
             // 
             // txtTasaMant
             // 
             this.txtTasaMant.Enabled = false;
             this.txtTasaMant.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTasaMant.Location = new System.Drawing.Point(215, 167);
-            this.txtTasaMant.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTasaMant.Location = new System.Drawing.Point(287, 206);
+            this.txtTasaMant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTasaMant.Name = "txtTasaMant";
-            this.txtTasaMant.Size = new System.Drawing.Size(110, 24);
+            this.txtTasaMant.Size = new System.Drawing.Size(145, 28);
             this.txtTasaMant.TabIndex = 56;
             // 
             // txtCostoMant
             // 
             this.txtCostoMant.Enabled = false;
             this.txtCostoMant.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCostoMant.Location = new System.Drawing.Point(215, 200);
-            this.txtCostoMant.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCostoMant.Location = new System.Drawing.Point(287, 246);
+            this.txtCostoMant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCostoMant.Name = "txtCostoMant";
-            this.txtCostoMant.Size = new System.Drawing.Size(110, 24);
+            this.txtCostoMant.Size = new System.Drawing.Size(145, 28);
             this.txtCostoMant.TabIndex = 55;
             // 
             // txtCostoProd
             // 
             this.txtCostoProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCostoProd.Location = new System.Drawing.Point(215, 136);
-            this.txtCostoProd.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCostoProd.Location = new System.Drawing.Point(287, 167);
+            this.txtCostoProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCostoProd.Name = "txtCostoProd";
-            this.txtCostoProd.Size = new System.Drawing.Size(110, 24);
+            this.txtCostoProd.Size = new System.Drawing.Size(145, 28);
             this.txtCostoProd.TabIndex = 54;
             // 
             // txtCostoPedido
             // 
             this.txtCostoPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCostoPedido.Location = new System.Drawing.Point(215, 105);
-            this.txtCostoPedido.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCostoPedido.Location = new System.Drawing.Point(287, 129);
+            this.txtCostoPedido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCostoPedido.Name = "txtCostoPedido";
-            this.txtCostoPedido.Size = new System.Drawing.Size(110, 24);
+            this.txtCostoPedido.Size = new System.Drawing.Size(145, 28);
             this.txtCostoPedido.TabIndex = 53;
             // 
             // txtDemanda
             // 
             this.txtDemanda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDemanda.Location = new System.Drawing.Point(215, 75);
-            this.txtDemanda.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDemanda.Location = new System.Drawing.Point(287, 92);
+            this.txtDemanda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDemanda.Name = "txtDemanda";
-            this.txtDemanda.Size = new System.Drawing.Size(110, 24);
+            this.txtDemanda.Size = new System.Drawing.Size(145, 28);
             this.txtDemanda.TabIndex = 59;
             // 
             // rbTasaMan
             // 
             this.rbTasaMan.AutoSize = true;
             this.rbTasaMan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbTasaMan.Location = new System.Drawing.Point(21, 162);
-            this.rbTasaMan.Margin = new System.Windows.Forms.Padding(2);
+            this.rbTasaMan.Location = new System.Drawing.Point(28, 199);
+            this.rbTasaMan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbTasaMan.Name = "rbTasaMan";
-            this.rbTasaMan.Size = new System.Drawing.Size(197, 22);
+            this.rbTasaMan.Size = new System.Drawing.Size(248, 28);
             this.rbTasaMan.TabIndex = 52;
             this.rbTasaMan.TabStop = true;
             this.rbTasaMan.Text = "Tasa de mantenimiento %\r\n";
@@ -285,10 +260,10 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             this.rbCostoMant.AutoSize = true;
             this.rbCostoMant.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbCostoMant.Location = new System.Drawing.Point(21, 195);
-            this.rbCostoMant.Margin = new System.Windows.Forms.Padding(2);
+            this.rbCostoMant.Location = new System.Drawing.Point(28, 240);
+            this.rbCostoMant.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbCostoMant.Name = "rbCostoMant";
-            this.rbCostoMant.Size = new System.Drawing.Size(153, 22);
+            this.rbCostoMant.Size = new System.Drawing.Size(191, 28);
             this.rbCostoMant.TabIndex = 51;
             this.rbCostoMant.TabStop = true;
             this.rbCostoMant.Text = "Costo de mantener";
@@ -298,16 +273,16 @@ namespace Views.Modelo_EOQ_ABCC
             // GraficaEOQ
             // 
             this.GraficaEOQ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea6.Name = "ChartArea1";
-            this.GraficaEOQ.ChartAreas.Add(chartArea6);
-            this.GraficaEOQ.Location = new System.Drawing.Point(499, 214);
-            this.GraficaEOQ.Margin = new System.Windows.Forms.Padding(2);
+            chartArea1.Name = "ChartArea1";
+            this.GraficaEOQ.ChartAreas.Add(chartArea1);
+            this.GraficaEOQ.Location = new System.Drawing.Point(665, 263);
+            this.GraficaEOQ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GraficaEOQ.Name = "GraficaEOQ";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Name = "Series1";
-            this.GraficaEOQ.Series.Add(series6);
-            this.GraficaEOQ.Size = new System.Drawing.Size(261, 224);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Name = "Series1";
+            this.GraficaEOQ.Series.Add(series1);
+            this.GraficaEOQ.Size = new System.Drawing.Size(348, 276);
             this.GraficaEOQ.TabIndex = 50;
             this.GraficaEOQ.Text = "chart1";
             // 
@@ -315,10 +290,9 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(17, 274);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(23, 337);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 18);
+            this.label8.Size = new System.Drawing.Size(111, 24);
             this.label8.TabIndex = 42;
             this.label8.Text = "Dias habiles";
             // 
@@ -326,10 +300,9 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(17, 237);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(23, 292);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(150, 18);
+            this.label7.Size = new System.Drawing.Size(191, 24);
             this.label7.TabIndex = 43;
             this.label7.Text = "Plazo de entrega dias";
             // 
@@ -337,10 +310,9 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(17, 133);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(23, 164);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(135, 18);
+            this.label4.Size = new System.Drawing.Size(169, 24);
             this.label4.TabIndex = 44;
             this.label4.Text = "Costo del producto";
             // 
@@ -348,10 +320,9 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(17, 103);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(23, 127);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 18);
+            this.label3.Size = new System.Drawing.Size(153, 24);
             this.label3.TabIndex = 45;
             this.label3.Text = "Costo del pedido";
             // 
@@ -360,10 +331,9 @@ namespace Views.Modelo_EOQ_ABCC
             this.lblCostoT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCostoT.AutoSize = true;
             this.lblCostoT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCostoT.Location = new System.Drawing.Point(595, 131);
-            this.lblCostoT.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCostoT.Location = new System.Drawing.Point(793, 161);
             this.lblCostoT.Name = "lblCostoT";
-            this.lblCostoT.Size = new System.Drawing.Size(90, 18);
+            this.lblCostoT.Size = new System.Drawing.Size(109, 24);
             this.lblCostoT.TabIndex = 49;
             this.lblCostoT.Text = "Costo Total:";
             // 
@@ -372,10 +342,9 @@ namespace Views.Modelo_EOQ_ABCC
             this.lblRop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblRop.AutoSize = true;
             this.lblRop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRop.Location = new System.Drawing.Point(595, 105);
-            this.lblRop.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRop.Location = new System.Drawing.Point(793, 129);
             this.lblRop.Name = "lblRop";
-            this.lblRop.Size = new System.Drawing.Size(45, 18);
+            this.lblRop.Size = new System.Drawing.Size(55, 24);
             this.lblRop.TabIndex = 48;
             this.lblRop.Text = "ROP:";
             // 
@@ -384,10 +353,9 @@ namespace Views.Modelo_EOQ_ABCC
             this.lblEQO.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEQO.AutoSize = true;
             this.lblEQO.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEQO.Location = new System.Drawing.Point(595, 76);
-            this.lblEQO.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEQO.Location = new System.Drawing.Point(793, 94);
             this.lblEQO.Name = "lblEQO";
-            this.lblEQO.Size = new System.Drawing.Size(74, 18);
+            this.lblEQO.Size = new System.Drawing.Size(92, 24);
             this.lblEQO.TabIndex = 47;
             this.lblEQO.Text = "Q optimo:";
             // 
@@ -395,10 +363,9 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 72);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(23, 89);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 18);
+            this.label2.Size = new System.Drawing.Size(178, 24);
             this.label2.TabIndex = 46;
             this.label2.Text = "Demanda promedio";
             // 
@@ -407,10 +374,9 @@ namespace Views.Modelo_EOQ_ABCC
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(573, 16);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(764, 20);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(121, 26);
+            this.label6.Size = new System.Drawing.Size(158, 32);
             this.label6.TabIndex = 41;
             this.label6.Text = "Resultados";
             // 
@@ -418,22 +384,48 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 18);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(20, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 26);
+            this.label1.Size = new System.Drawing.Size(89, 32);
             this.label1.TabIndex = 40;
             this.label1.Text = "Datos";
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage2.Size = new System.Drawing.Size(1035, 562);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Modelo ABC";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage3.Size = new System.Drawing.Size(1035, 562);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Pedido Unico";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
+            // 
             // ModelosCantidadOptima
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(782, 480);
+            this.ClientSize = new System.Drawing.Size(1043, 591);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ModelosCantidadOptima";
             this.Text = "ModelosCantidadOptima";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -441,8 +433,8 @@ namespace Views.Modelo_EOQ_ABCC
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GraficaEOQ)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
