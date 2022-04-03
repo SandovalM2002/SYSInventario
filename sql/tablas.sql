@@ -71,3 +71,62 @@ AS BEGIN
 		END AS [Estado]
 	FROM STOCK_P where estado_p = 1
 END;
+
+--PROCEDIMIENTOS PARA MATERIALES
+CREATE OR ALTER PROC SP_INSERT_MATERIAL(
+	@nombre varchar(50), @costo decimal(5,2), @exist smallint, @ss smallint
+)
+AS
+BEGIN
+	--|| LA VARIABLE SS SIGNIFICA STOCK DE SEGURIDAD
+	IF NOT EXISTS (SELECT nombre_mp	FROM STOCK_MP where nombre_mp= @nombre)
+		INSERT  INTO STOCK_MP (nombre_mp,costo_mp,existencia_mp,stockS_mp) VALUES (@nombre,@costo,@exist,@ss)
+	ELSE
+		PRINT 'ERROR'
+END;
+go
+
+CREATE OR ALTER PROC SP_UPDATE_MATERIAL(
+	@id INT,@nombre varchar(50), @costo decimal(5,2), @exist smallint, @ss smallint
+)
+AS
+BEGIN
+	--|| LA VARIABLE SS SIGNIFICA STOCK DE SEGURIDAD
+	IF EXISTS (SELECT id_mp FROM STOCK_MP WHERE id_mp=@id)
+		IF NOT EXISTS (SELECT nombre_mp	FROM STOCK_MP where nombre_mp= @nombre)
+		update STOCK_MP set nombre_mp=@nombre, costo_mp=@costo, existencia_mp=@exist, stockS_mp=@ss where id_mp=@id
+	ELSE
+		PRINT 'ERROR'
+	ELSE
+		PRINT 'ERROR'
+END;
+go
+
+CREATE OR ALTER PROC SP_DELETE_MATERIAL(
+	@id INT
+)
+AS
+BEGIN
+	--|| LA VARIABLE SS SIGNIFICA STOCK DE SEGURIDAD
+	IF EXISTS (SELECT id_mp FROM STOCK_MP WHERE id_mp=@id)
+		update STOCK_MP set estado_mp=0 where id_mp=@id
+	ELSE
+		PRINT 'ERROR'
+END;
+go
+
+CREATE OR ALTER PROC SP_VIEW_MATERIAL
+AS BEGIN
+	SELECT
+	id_mp as [id],
+	nombre_mp as [Nombre],
+	costo_mp as [Costo],
+	existencia_mp as [Existencia],
+	stockS_mp as [Stock S],
+	totalMp as [Total],
+	CASE
+		WHEN estado_mp=1 THEN 'INSTOCK'
+	END AS [Estado]
+	FROM STOCK_MP WHERE estado_mp=1
+END;
+go
