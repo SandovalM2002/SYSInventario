@@ -13,10 +13,6 @@ namespace Views.Modelo_EOQ_ABCC
 {
     public partial class ModelosCantidadOptima : Form
     {
-        private int multiplicadorDemanda = 0;
-        private int multiplicadorCosto = 0;
-        private int multiplicadorTasa = 0;
-
         public ModelosCantidadOptima()
         {
             InitializeComponent();
@@ -32,7 +28,6 @@ namespace Views.Modelo_EOQ_ABCC
             {
                 Series series = this.GraficaEOQ.Series[0];
                 series.Points.Add(i);
-
             }
         }
 

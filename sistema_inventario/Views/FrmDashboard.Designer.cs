@@ -131,16 +131,19 @@ namespace Views
             // 
             // padre
             // 
+            this.padre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.padre.BackColor = System.Drawing.SystemColors.ControlDark;
             this.padre.Location = new System.Drawing.Point(222, 1);
             this.padre.Name = "padre";
-            this.padre.Size = new System.Drawing.Size(1011, 577);
+            this.padre.Size = new System.Drawing.Size(600, 577);
             this.padre.TabIndex = 1;
             // 
             // FrmDashboard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1239, 582);
+            this.ClientSize = new System.Drawing.Size(821, 582);
             this.Controls.Add(this.padre);
             this.Controls.Add(this.pnlLeft);
             this.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
