@@ -13,7 +13,7 @@ namespace DataAcces
 
         public ConnectionToSQL()
         {
-            connectionString = "server = DESKTOP-CG4DUQL; DataBase = BDGI; Integrated Security = True";
+            connectionString = "server = DESKTOP-CG4DUQL; DataBase = MAYER; Integrated Security = True";
         }
 
         protected SqlConnection GetConnection()

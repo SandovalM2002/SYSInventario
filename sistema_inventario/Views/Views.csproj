@@ -59,6 +59,12 @@
     <Compile Include="FrmDashboard.Designer.cs">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="INVENTARIO\FrmStockProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INVENTARIO\FrmStockProducto.Designer.cs">
+      <DependentUpon>FrmStockProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modelo EOQ-ABCC\ModelosCantidadOptima.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDashboard.resx">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INVENTARIO\FrmStockProducto.resx">
+      <DependentUpon>FrmStockProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modelo EOQ-ABCC\ModelosCantidadOptima.resx">
       <DependentUpon>ModelosCantidadOptima.cs</DependentUpon>

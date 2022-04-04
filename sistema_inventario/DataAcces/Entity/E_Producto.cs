@@ -16,22 +16,20 @@ namespace DataAcces.Entity
         private decimal costo_producto;
         private decimal precio_producto;
         private int existencia_producto;
-        private string demanda_producto;
-        private float tasaM_producto;
         private int stockSeguridad_producto;
-        private bool stado;
+        private bool estado_producto;
 
-        public E_Producto(int id_producto, string nombre_producto, decimal costo_producto, decimal precio_producto, int existencia_producto, string demanda_producto, float tasaM_producto, int stockSeguridad_producto, bool stado)
+        public  E_Producto() { }
+
+        public E_Producto(int id_producto, string nombre_producto, decimal costo_producto, decimal precio_producto, int existencia_producto, int stockSeguridad_producto, bool estado_producto)
         {
             this.id_producto = id_producto;
             this.nombre_producto = nombre_producto;
             this.costo_producto = costo_producto;
             this.precio_producto = precio_producto;
             this.existencia_producto = existencia_producto;
-            this.demanda_producto = demanda_producto;
-            this.tasaM_producto = tasaM_producto;
             this.stockSeguridad_producto = stockSeguridad_producto;
-            this.estado_producto = stado;
+            this.estado_producto = estado_producto;
         }
 
         public int Id_producto { get => id_producto; set => id_producto = value; }
@@ -39,16 +37,8 @@ namespace DataAcces.Entity
         public decimal Costo_producto { get => costo_producto; set => costo_producto = value; }
         public decimal Precio_producto { get => precio_producto; set => precio_producto = value; }
         public int Existencia_producto { get => existencia_producto; set => existencia_producto = value; }
-        public string Demanda_producto { get => demanda_producto; set => demanda_producto = value; }
-        public float TasaM_producto { get => tasaM_producto; set => tasaM_producto = value; }
         public int StockSeguridad_producto { get => stockSeguridad_producto; set => stockSeguridad_producto = value; }
-
-        public bool Estado { get => estado_producto; set => estado_producto = value; }
-
-
-        public bool estado_producto { get => estado_producto; set => estado_producto = value; }
-
-
+        public bool Estado_producto { get => estado_producto; set => estado_producto = value; }
 
         public DataTable Search_product(string data)
         {
@@ -155,3 +145,4 @@ namespace DataAcces.Entity
             }
         }
     }
+}
