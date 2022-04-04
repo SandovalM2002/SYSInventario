@@ -30,8 +30,9 @@ namespace Views.Modelo_EOQ_ABCC
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.cbTasaMan = new System.Windows.Forms.ComboBox();
@@ -273,16 +274,23 @@ namespace Views.Modelo_EOQ_ABCC
             // GraficaEOQ
             // 
             this.GraficaEOQ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.GraficaEOQ.ChartAreas.Add(chartArea1);
-            this.GraficaEOQ.Location = new System.Drawing.Point(665, 263);
+            chartArea2.Name = "ChartArea1";
+            this.GraficaEOQ.ChartAreas.Add(chartArea2);
+            this.GraficaEOQ.Location = new System.Drawing.Point(585, 187);
             this.GraficaEOQ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GraficaEOQ.Name = "GraficaEOQ";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Name = "Series1";
-            this.GraficaEOQ.Series.Add(series1);
-            this.GraficaEOQ.Size = new System.Drawing.Size(348, 276);
+            this.GraficaEOQ.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            series3.Name = "ModeloQ";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Color = System.Drawing.Color.Red;
+            series4.Name = "ROP";
+            this.GraficaEOQ.Series.Add(series3);
+            this.GraficaEOQ.Series.Add(series4);
+            this.GraficaEOQ.Size = new System.Drawing.Size(428, 352);
             this.GraficaEOQ.TabIndex = 50;
             this.GraficaEOQ.Text = "chart1";
             // 

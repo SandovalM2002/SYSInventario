@@ -16,6 +16,29 @@ namespace Views.Modelo_EOQ_ABCC
         public ModelosCantidadOptima()
         {
             InitializeComponent();
+            Graficar(500, 30);
+        }
+
+        private void Graficar(double eoq, double rop)
+        {
+            double cantidad = eoq / 10;
+            double x = 0;
+            for (double i = 0; i <=4; i++)
+            {
+                for (double j = 0; j <= eoq; j+=cantidad)
+                {
+                    GraficaEOQ.Series["ModeloQ"].Points.AddXY(x, j);
+                    GraficaEOQ.Series["ROP"].Points.AddXY(x, rop);
+                    x++;
+                }
+                x--;
+                for (double j = eoq; j >= 0; j -= cantidad)
+                {
+                    GraficaEOQ.Series["ModeloQ"].Points.AddXY(x, j);
+                    GraficaEOQ.Series["ROP"].Points.AddXY(x, rop);
+                    x++;
+                }
+            }
         }
 
         private void ModelosCantidadOptima_Load(object sender, EventArgs e)
@@ -94,13 +117,13 @@ namespace Views.Modelo_EOQ_ABCC
             double plazoEntrega = double.Parse(txtPlazoEnt.Text);
 
             double eoq = Math.Sqrt((2*demanda*costoPedir)/costoMantener);
-            lblEQO.Text = "Q optimo:" + Math.Round(eoq).ToString();
+            lblEQO.Text = "Q optimo:" + Math.Floor(eoq).ToString();
 
             double rop = demanda / diasHabiles * plazoEntrega;
-            lblRop.Text = "ROP: " + rop.ToString();
+            lblRop.Text = "ROP: " + Math.Floor(rop).ToString();
 
             double costoT = (demanda*costoPedir)/eoq+(eoq*costoMantener)/2+demanda*costoProd;
-            lblCostoT.Text = "Costo Total:" + costoT.ToString();
+            lblCostoT.Text = "Costo Total:" + Math.Round(costoT,2).ToString();
         }
 
         private void cbCostoMant_KeyPress(object sender, KeyPressEventArgs e)
