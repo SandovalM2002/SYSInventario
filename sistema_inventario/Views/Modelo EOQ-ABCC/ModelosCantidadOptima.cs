@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAcces.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,8 @@ namespace Views.Modelo_EOQ_ABCC
 
         private void Graficar(double eoq, double rop)
         {
+            GraficaEOQ.Series["ModeloQ"].Points.Clear();
+            GraficaEOQ.Series["ROP"].Points.Clear();
             double cantidad = eoq / 10;
             double x = 0;
             for (double i = 0; i <=4; i++)
@@ -52,6 +55,14 @@ namespace Views.Modelo_EOQ_ABCC
                 Series series = this.GraficaEOQ.Series[0];
                 series.Points.Add(i);
             }
+            LoadABC();
+        }
+
+        public void LoadABC()
+        {
+            dgvABC.DataSource = null;
+            dgvABC.DataSource = C_ModeloABC.view_ABC();
+
         }
 
         private void rbCostoMant_CheckedChanged(object sender, EventArgs e)
@@ -122,8 +133,11 @@ namespace Views.Modelo_EOQ_ABCC
             double rop = demanda / diasHabiles * plazoEntrega;
             lblRop.Text = "ROP: " + Math.Floor(rop).ToString();
 
-            double costoT = (demanda*costoPedir)/eoq+(eoq*costoMantener)/2+demanda*costoProd;
-            lblCostoT.Text = "Costo Total:" + Math.Round(costoT,2).ToString();
+            double costoT = ((demanda*costoPedir)/eoq)+((eoq*costoMantener)/2)+(demanda*costoProd);
+            lblCostoT.Text = "Costo Total:" + Math.Round(costoT).ToString();
+            MessageBox.Show(costoT.ToString());
+
+            Graficar(eoq, rop);
         }
 
         private void cbCostoMant_KeyPress(object sender, KeyPressEventArgs e)

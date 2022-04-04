@@ -30,9 +30,10 @@ namespace Views.Modelo_EOQ_ABCC
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.cbTasaMan = new System.Windows.Forms.ComboBox();
@@ -62,10 +63,15 @@ namespace Views.Modelo_EOQ_ABCC
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dgvABC = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GraficaEOQ)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvABC)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -274,23 +280,27 @@ namespace Views.Modelo_EOQ_ABCC
             // GraficaEOQ
             // 
             this.GraficaEOQ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this.GraficaEOQ.ChartAreas.Add(chartArea2);
-            this.GraficaEOQ.Location = new System.Drawing.Point(585, 187);
+            chartArea3.Name = "ChartArea1";
+            this.GraficaEOQ.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.GraficaEOQ.Legends.Add(legend3);
+            this.GraficaEOQ.Location = new System.Drawing.Point(542, 222);
             this.GraficaEOQ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GraficaEOQ.Name = "GraficaEOQ";
             this.GraficaEOQ.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            series3.Name = "ModeloQ";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Color = System.Drawing.Color.Red;
-            series4.Name = "ROP";
-            this.GraficaEOQ.Series.Add(series3);
-            this.GraficaEOQ.Series.Add(series4);
-            this.GraficaEOQ.Size = new System.Drawing.Size(428, 352);
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            series5.Legend = "Legend1";
+            series5.Name = "ModeloQ";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Color = System.Drawing.Color.Red;
+            series6.Legend = "Legend1";
+            series6.Name = "ROP";
+            this.GraficaEOQ.Series.Add(series5);
+            this.GraficaEOQ.Series.Add(series6);
+            this.GraficaEOQ.Size = new System.Drawing.Size(470, 311);
             this.GraficaEOQ.TabIndex = 50;
             this.GraficaEOQ.Text = "chart1";
             // 
@@ -400,6 +410,7 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
@@ -425,6 +436,27 @@ namespace Views.Modelo_EOQ_ABCC
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dgvABC);
+            this.panel1.Location = new System.Drawing.Point(151, 85);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(682, 384);
+            this.panel1.TabIndex = 0;
+            // 
+            // dgvABC
+            // 
+            this.dgvABC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvABC.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvABC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvABC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvABC.Location = new System.Drawing.Point(0, 0);
+            this.dgvABC.Name = "dgvABC";
+            this.dgvABC.RowHeadersWidth = 51;
+            this.dgvABC.RowTemplate.Height = 24;
+            this.dgvABC.Size = new System.Drawing.Size(682, 384);
+            this.dgvABC.TabIndex = 0;
+            // 
             // ModelosCantidadOptima
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -442,7 +474,10 @@ namespace Views.Modelo_EOQ_ABCC
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GraficaEOQ)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvABC)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -478,5 +513,7 @@ namespace Views.Modelo_EOQ_ABCC
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dgvABC;
     }
 }

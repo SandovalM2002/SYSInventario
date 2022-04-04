@@ -39,3 +39,4 @@ C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\bin\
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\bin\Debug\DataAcces.pdb
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.INVENTARIO.FrmStockProducto.resources
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.csproj.CopyComplete
+D:\Proyectos\Proyecto produccion\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.INVENTARIO.FrmStockProducto.resources
