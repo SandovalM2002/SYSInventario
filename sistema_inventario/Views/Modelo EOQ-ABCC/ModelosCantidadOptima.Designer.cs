@@ -30,10 +30,10 @@ namespace Views.Modelo_EOQ_ABCC
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.cbTasaMan = new System.Windows.Forms.ComboBox();
@@ -61,17 +61,33 @@ namespace Views.Modelo_EOQ_ABCC
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvABC = new System.Windows.Forms.DataGridView();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label5 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtPrCompra = new System.Windows.Forms.TextBox();
+            this.txtPrVenta = new System.Windows.Forms.TextBox();
+            this.txtPrReventa = new System.Windows.Forms.TextBox();
+            this.btnCalcularPU = new System.Windows.Forms.Button();
+            this.lblPF = new System.Windows.Forms.Label();
+            this.lblPS = new System.Windows.Forms.Label();
+            this.lblCOPU = new System.Windows.Forms.Label();
+            this.txtDemPU = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtDesvPU = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GraficaEOQ)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvABC)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -280,26 +296,26 @@ namespace Views.Modelo_EOQ_ABCC
             // GraficaEOQ
             // 
             this.GraficaEOQ.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea3.Name = "ChartArea1";
-            this.GraficaEOQ.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.GraficaEOQ.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.GraficaEOQ.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.GraficaEOQ.Legends.Add(legend1);
             this.GraficaEOQ.Location = new System.Drawing.Point(542, 222);
             this.GraficaEOQ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GraficaEOQ.Name = "GraficaEOQ";
             this.GraficaEOQ.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            series5.Legend = "Legend1";
-            series5.Name = "ModeloQ";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Color = System.Drawing.Color.Red;
-            series6.Legend = "Legend1";
-            series6.Name = "ROP";
-            this.GraficaEOQ.Series.Add(series5);
-            this.GraficaEOQ.Series.Add(series6);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            series1.Legend = "Legend1";
+            series1.Name = "ModeloQ";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Color = System.Drawing.Color.Red;
+            series2.Legend = "Legend1";
+            series2.Name = "ROP";
+            this.GraficaEOQ.Series.Add(series1);
+            this.GraficaEOQ.Series.Add(series2);
             this.GraficaEOQ.Size = new System.Drawing.Size(470, 311);
             this.GraficaEOQ.TabIndex = 50;
             this.GraficaEOQ.Text = "chart1";
@@ -420,22 +436,6 @@ namespace Views.Modelo_EOQ_ABCC
             this.tabPage2.Text = "Modelo ABC";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage3.Size = new System.Drawing.Size(1035, 562);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Pedido Unico";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProvider1.ContainerControl = this;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.dgvABC);
@@ -457,6 +457,173 @@ namespace Views.Modelo_EOQ_ABCC
             this.dgvABC.Size = new System.Drawing.Size(682, 384);
             this.dgvABC.TabIndex = 0;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.txtDesvPU);
+            this.tabPage3.Controls.Add(this.txtDemPU);
+            this.tabPage3.Controls.Add(this.btnCalcularPU);
+            this.tabPage3.Controls.Add(this.txtPrReventa);
+            this.tabPage3.Controls.Add(this.txtPrVenta);
+            this.tabPage3.Controls.Add(this.txtPrCompra);
+            this.tabPage3.Controls.Add(this.lblCOPU);
+            this.tabPage3.Controls.Add(this.lblPS);
+            this.tabPage3.Controls.Add(this.lblPF);
+            this.tabPage3.Controls.Add(this.label15);
+            this.tabPage3.Controls.Add(this.label16);
+            this.tabPage3.Controls.Add(this.label11);
+            this.tabPage3.Controls.Add(this.label10);
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage3.Size = new System.Drawing.Size(1035, 562);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Pedido Unico";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(47, 39);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(286, 32);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Modelo Pedido Unico";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(53, 106);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(163, 24);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Precio de Compra";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(53, 150);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(145, 24);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Precio de Venta";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(53, 199);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(165, 24);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Precio de Reventa";
+            // 
+            // txtPrCompra
+            // 
+            this.txtPrCompra.Location = new System.Drawing.Point(258, 108);
+            this.txtPrCompra.Name = "txtPrCompra";
+            this.txtPrCompra.Size = new System.Drawing.Size(148, 22);
+            this.txtPrCompra.TabIndex = 2;
+            // 
+            // txtPrVenta
+            // 
+            this.txtPrVenta.Location = new System.Drawing.Point(258, 151);
+            this.txtPrVenta.Name = "txtPrVenta";
+            this.txtPrVenta.Size = new System.Drawing.Size(148, 22);
+            this.txtPrVenta.TabIndex = 3;
+            // 
+            // txtPrReventa
+            // 
+            this.txtPrReventa.Location = new System.Drawing.Point(258, 202);
+            this.txtPrReventa.Name = "txtPrReventa";
+            this.txtPrReventa.Size = new System.Drawing.Size(148, 22);
+            this.txtPrReventa.TabIndex = 4;
+            // 
+            // btnCalcularPU
+            // 
+            this.btnCalcularPU.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCalcularPU.Location = new System.Drawing.Point(206, 492);
+            this.btnCalcularPU.Name = "btnCalcularPU";
+            this.btnCalcularPU.Size = new System.Drawing.Size(107, 30);
+            this.btnCalcularPU.TabIndex = 5;
+            this.btnCalcularPU.Text = "Calcular";
+            this.btnCalcularPU.UseVisualStyleBackColor = true;
+            this.btnCalcularPU.Click += new System.EventHandler(this.btnCalcularPU_Click);
+            // 
+            // lblPF
+            // 
+            this.lblPF.AutoSize = true;
+            this.lblPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPF.Location = new System.Drawing.Point(53, 352);
+            this.lblPF.Name = "lblPF";
+            this.lblPF.Size = new System.Drawing.Size(193, 24);
+            this.lblPF.TabIndex = 1;
+            this.lblPF.Text = "Precio del faltante es: ";
+            // 
+            // lblPS
+            // 
+            this.lblPS.AutoSize = true;
+            this.lblPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPS.Location = new System.Drawing.Point(53, 395);
+            this.lblPS.Name = "lblPS";
+            this.lblPS.Size = new System.Drawing.Size(208, 24);
+            this.lblPS.TabIndex = 1;
+            this.lblPS.Text = "Precio del sobrante es: ";
+            // 
+            // lblCOPU
+            // 
+            this.lblCOPU.AutoSize = true;
+            this.lblCOPU.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCOPU.Location = new System.Drawing.Point(53, 436);
+            this.lblCOPU.Name = "lblCOPU";
+            this.lblCOPU.Size = new System.Drawing.Size(217, 24);
+            this.lblCOPU.TabIndex = 1;
+            this.lblCOPU.Text = "Cantidad Optima a pedir:\r\n";
+            // 
+            // txtDemPU
+            // 
+            this.txtDemPU.Location = new System.Drawing.Point(258, 293);
+            this.txtDemPU.Name = "txtDemPU";
+            this.txtDemPU.Size = new System.Drawing.Size(148, 22);
+            this.txtDemPU.TabIndex = 6;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(49, 290);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(144, 24);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Demanda Diaria";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(49, 246);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(181, 24);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "Desviacion Estandar";
+            // 
+            // txtDesvPU
+            // 
+            this.txtDesvPU.Location = new System.Drawing.Point(258, 247);
+            this.txtDesvPU.Name = "txtDesvPU";
+            this.txtDesvPU.Size = new System.Drawing.Size(148, 22);
+            this.txtDesvPU.TabIndex = 7;
+            // 
             // ModelosCantidadOptima
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -475,9 +642,11 @@ namespace Views.Modelo_EOQ_ABCC
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GraficaEOQ)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvABC)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -515,5 +684,20 @@ namespace Views.Modelo_EOQ_ABCC
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgvABC;
+        private System.Windows.Forms.TextBox txtDemPU;
+        private System.Windows.Forms.Button btnCalcularPU;
+        private System.Windows.Forms.TextBox txtPrReventa;
+        private System.Windows.Forms.TextBox txtPrVenta;
+        private System.Windows.Forms.TextBox txtPrCompra;
+        private System.Windows.Forms.Label lblCOPU;
+        private System.Windows.Forms.Label lblPS;
+        private System.Windows.Forms.Label lblPF;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtDesvPU;
     }
 }

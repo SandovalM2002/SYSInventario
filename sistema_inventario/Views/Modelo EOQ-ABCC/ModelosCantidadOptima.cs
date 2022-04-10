@@ -144,5 +144,28 @@ namespace Views.Modelo_EOQ_ABCC
         {
             e.Handled = true;
         }
+
+        private void btnCalcularPU_Click(object sender, EventArgs e)
+        {
+            double precioC = double.Parse(txtPrCompra.Text);
+            double precioV = double.Parse(txtPrVenta.Text);
+            double precioRV = double.Parse(txtPrReventa.Text);
+            double desviacion = double.Parse(txtDesvPU.Text);
+            double demanda = double.Parse(txtDemPU.Text);
+
+            double excedente = precioC - precioRV;
+            double faltante = precioV - precioC;
+
+            double probabilidad = faltante/(faltante+excedente);
+
+            Chart mychart = new Chart();
+            double z = mychart.DataManipulator.Statistics.InverseNormalDistribution(probabilidad);
+
+            double resultado = demanda + (z * desviacion);
+
+            lblPF.Text = "Precio del faltante es: " + faltante.ToString();
+            lblPS.Text = "Precio del sobrante es: " + excedente.ToString();
+            lblCOPU.Text = "Cantidad Optima a pedir: " + Math.Round(resultado, 0).ToString();
+        }
     }
 }
