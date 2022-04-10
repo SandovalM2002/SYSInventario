@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Views
+namespace Views.INVENTARIO.Dialogs
 {
-    public partial class AcercaDe : Form
+    public partial class DlgProducto : Form
     {
-        public AcercaDe()
+        public DlgProducto()
         {
             InitializeComponent();
         }

@@ -24,7 +24,6 @@ C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\bin\
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\bin\Debug\Views.exe
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\bin\Debug\Views.pdb
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.csproj.AssemblyReference.cache
-C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.AcercaDe.resources
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.FrmDashboard.resources
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.Modelo_EOQ_ABCC.ModelosCantidadOptima.resources
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.Properties.Resources.resources
@@ -37,6 +36,8 @@ D:\Proyectos\Proyecto produccion\SYSPanaderia\sistema_inventario\Views\bin\Debug
 D:\Proyectos\Proyecto produccion\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.csproj.CopyComplete
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\bin\Debug\DataAcces.dll
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\bin\Debug\DataAcces.pdb
-C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.INVENTARIO.FrmStockProducto.resources
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.csproj.CopyComplete
 D:\Proyectos\Proyecto produccion\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.INVENTARIO.FrmStockProducto.resources
+C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.INVENTARIO.FrmStock.resources
+C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.Home.resources
+C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.INVENTARIO.Dialogs.DlgProducto.resources

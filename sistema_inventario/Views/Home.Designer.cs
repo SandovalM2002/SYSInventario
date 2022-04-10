@@ -1,7 +1,7 @@
 ﻿
 namespace Views
 {
-    partial class AcercaDe
+    partial class Home
     {
         /// <summary>
         /// Required designer variable.

@@ -23,19 +23,10 @@ namespace Views
 
         }
 
-        private void btnPModulo_Click(object sender, EventArgs e)
-        {
-            AgregarFormHijo(new Modelo_EOQ_ABCC.ModelosCantidadOptima());
-        }
-
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-            AgregarFormHijo(new AcercaDe());
-        }
-
         private void AgregarFormHijo(Object formHijo)
         {
-            if (this.padre.Controls.Count > 0) {
+            if (this.padre.Controls.Count > 0)
+            {
                 this.padre.Controls.RemoveAt(0);
             }
             Form fh = formHijo as Form;
@@ -44,6 +35,16 @@ namespace Views
             this.padre.Controls.Add(fh);
             this.padre.Tag = fh;
             fh.Show();
+        }
+
+        private void btnPModulo_Click(object sender, EventArgs e)
+        {
+            AgregarFormHijo(new Modelo_EOQ_ABCC.ModelosCantidadOptima());
+        }
+        
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            AgregarFormHijo(new INVENTARIO.FrmStock());
         }
     }
 }

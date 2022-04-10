@@ -47,11 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AcercaDe.cs">
+    <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AcercaDe.Designer.cs">
-      <DependentUpon>AcercaDe.cs</DependentUpon>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmDashboard.cs">
       <SubType>Form</SubType>
@@ -59,11 +59,17 @@
     <Compile Include="FrmDashboard.Designer.cs">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="INVENTARIO\FrmStockProducto.cs">
+    <Compile Include="INVENTARIO\Dialogs\DlgProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="INVENTARIO\FrmStockProducto.Designer.cs">
-      <DependentUpon>FrmStockProducto.cs</DependentUpon>
+    <Compile Include="INVENTARIO\Dialogs\DlgProducto.Designer.cs">
+      <DependentUpon>DlgProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INVENTARIO\FrmStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INVENTARIO\FrmStock.Designer.cs">
+      <DependentUpon>FrmStock.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelo EOQ-ABCC\ModelosCantidadOptima.cs">
       <SubType>Form</SubType>
@@ -73,14 +79,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AcercaDe.resx">
-      <DependentUpon>AcercaDe.cs</DependentUpon>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDashboard.resx">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="INVENTARIO\FrmStockProducto.resx">
-      <DependentUpon>FrmStockProducto.cs</DependentUpon>
+    <EmbeddedResource Include="INVENTARIO\Dialogs\DlgProducto.resx">
+      <DependentUpon>DlgProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INVENTARIO\FrmStock.resx">
+      <DependentUpon>FrmStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modelo EOQ-ABCC\ModelosCantidadOptima.resx">
       <DependentUpon>ModelosCantidadOptima.cs</DependentUpon>
@@ -93,6 +102,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -108,13 +118,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MRP\" />
+    <None Include="Resources\Inventory.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAcces\DataAcces.csproj">
       <Project>{82fd99a1-044d-4a9e-865b-a14598ad919f}</Project>
       <Name>DataAcces</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
