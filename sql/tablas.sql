@@ -56,10 +56,11 @@ BEGIN
 		PRINT 'ERROR'
 END;
 go
-CREATE OR ALTER PROC SP_VIEW_PRODUCT
+CREATE OR ALTER PROC SP_VIEW_PRODUCT 
+(@dato varchar(max))
 AS BEGIN
 	SELECT  
-		id_p as [id],
+		id_p as [Cod],
 		nombre_p as [Nombre],
 		costo_p as [Costo],
 		precio_p as [Precio],
@@ -69,23 +70,21 @@ AS BEGIN
 		CASE
 			WHEN estado_p = 1 THEN 'INSTOCK'
 		END AS [Estado]
-	FROM STOCK_P where estado_p = 1
-END;
-
+	FROM STOCK_P where nombre_p like @dato+'%'
+	AND estado_p = 1 
+END; 
+go
 --PROCEDIMIENTOS PARA MATERIALES
-CREATE OR ALTER PROC SP_INSERT_MATERIAL(
-	@nombre varchar(50), @costo decimal(5,2), @exist smallint, @ss smallint
-)
-AS
-BEGIN
-	--|| LA VARIABLE SS SIGNIFICA STOCK DE SEGURIDAD
-	IF NOT EXISTS (SELECT nombre_mp	FROM STOCK_MP where nombre_mp= @nombre)
-		INSERT  INTO STOCK_MP (nombre_mp,costo_mp,existencia_mp,stockS_mp) VALUES (@nombre,@costo,@exist,@ss)
-	ELSE
-		PRINT 'ERROR'
+CREATE OR ALTER PROC SP_INSERT_MATERIAL
+(@nombre varchar(50), @costo decimal(5,2), @exist smallint, @ss smallint)
+AS BEGIN
+--|| LA VARIABLE SS SIGNIFICA STOCK DE SEGURIDAD
+IF NOT EXISTS (SELECT nombre_mp	FROM STOCK_MP where nombre_mp= @nombre)
+	INSERT  INTO STOCK_MP (nombre_mp,costo_mp,existencia_mp,stockS_mp) VALUES (@nombre,@costo,@exist,@ss)
+ELSE
+	PRINT 'ERROR'
 END;
 go
-
 CREATE OR ALTER PROC SP_UPDATE_MATERIAL(
 	@id INT,@nombre varchar(50), @costo decimal(5,2), @exist smallint, @ss smallint
 )
@@ -101,7 +100,6 @@ BEGIN
 		PRINT 'ERROR'
 END;
 go
-
 CREATE OR ALTER PROC SP_DELETE_MATERIAL(
 	@id INT
 )
@@ -114,7 +112,6 @@ BEGIN
 		PRINT 'ERROR'
 END;
 go
-
 CREATE OR ALTER PROC SP_VIEW_MATERIAL
 AS BEGIN
 	SELECT

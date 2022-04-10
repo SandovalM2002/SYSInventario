@@ -69,6 +69,7 @@ namespace Views.INVENTARIO.Dialogs
             this.btnOk.TabIndex = 2;
             this.btnOk.Text = "Guardar ";
             this.btnOk.UseVisualStyleBackColor = false;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // label1
             // 
