@@ -11,20 +11,19 @@ using System.Windows.Forms;
 
 namespace Views.INVENTARIO.Dialogs
 {
-    public partial class DlgProducto : Form
+    public partial class DlgMaterial : Form
     {
-        
-        public DlgProducto(int id, string nombre, decimal costo, decimal precio, int stock, int stock_s, string Titulo)
+        public DlgMaterial(int id, string nombre, decimal costo, int stock, int stock_s, string Titulo)
         {
             InitializeComponent();
+
             this.btnOk.Text = "";
             this.btnOk.Text = Titulo;
-            if (btnOk.Text == "Modificar") 
+            if (btnOk.Text == "Modificar")
             {
                 this.txtId.Text = id.ToString();
                 this.txtNombre.Text = nombre;
                 this.txtCosto.Text = costo.ToString();
-                this.txtPrecio.Text = precio.ToString();
                 this.txtStock.Value = stock;
                 this.txtStock_S.Value = stock_s;
             }
@@ -34,12 +33,13 @@ namespace Views.INVENTARIO.Dialogs
         {
             if (btnOk.Text == "Guardar")
             {
-                C_Producto.insertar_producto(txtNombre.Text,txtCosto.Text,txtPrecio.Text,txtStock.Value.ToString(), txtStock_S.Value.ToString());
+                C_Material.insertar_Material(txtNombre.Text, txtCosto.Text, txtStock.Value.ToString(), txtStock_S.Value.ToString());
                 this.btnOk.Text = "";
                 this.Close();
-            } else if(btnOk.Text == "Modificar")
+            }
+            else if (btnOk.Text == "Modificar")
             {
-                C_Producto.update_producto(txtId.Text,txtNombre.Text, txtCosto.Text, txtPrecio.Text, txtStock.Value.ToString(), txtStock_S.Value.ToString());
+                C_Material.update_Material(txtId.Text, txtNombre.Text, txtCosto.Text,txtStock.Value.ToString(), txtStock_S.Value.ToString());
                 this.btnOk.Text = "";
                 this.Close();
             }

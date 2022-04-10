@@ -75,7 +75,7 @@ AS BEGIN
 END; 
 go
 --PROCEDIMIENTOS PARA MATERIALES
-CREATE OR ALTER PROC SP_INSERT_MATERIAL
+CREATE OR ALTER PROC SP_INSERT_MATERIAL 
 (@nombre varchar(50), @costo decimal(5,2), @exist smallint, @ss smallint)
 AS BEGIN
 --|| LA VARIABLE SS SIGNIFICA STOCK DE SEGURIDAD
@@ -93,9 +93,9 @@ BEGIN
 	--|| LA VARIABLE SS SIGNIFICA STOCK DE SEGURIDAD
 	IF EXISTS (SELECT id_mp FROM STOCK_MP WHERE id_mp=@id)
 		IF NOT EXISTS (SELECT nombre_mp	FROM STOCK_MP where nombre_mp= @nombre)
-		update STOCK_MP set nombre_mp=@nombre, costo_mp=@costo, existencia_mp=@exist, stockS_mp=@ss where id_mp=@id
-	ELSE
-		PRINT 'ERROR'
+			update STOCK_MP set nombre_mp=@nombre, costo_mp=@costo, existencia_mp=@exist, stockS_mp=@ss where id_mp=@id
+		ELSE
+			PRINT 'ERROR'
 	ELSE
 		PRINT 'ERROR'
 END;
@@ -112,18 +112,19 @@ BEGIN
 		PRINT 'ERROR'
 END;
 go
-CREATE OR ALTER PROC SP_VIEW_MATERIAL
+CREATE OR ALTER PROC SP_VIEW_MATERIAL 
+(@dato varchar(max))
 AS BEGIN
 	SELECT
-	id_mp as [id],
+	id_mp as [Cod],
 	nombre_mp as [Nombre],
 	costo_mp as [Costo],
-	existencia_mp as [Existencia],
+	existencia_mp as [Stock],
 	stockS_mp as [Stock S],
 	totalMp as [Total],
 	CASE
 		WHEN estado_mp=1 THEN 'INSTOCK'
 	END AS [Estado]
-	FROM STOCK_MP WHERE estado_mp=1
+	FROM STOCK_MP WHERE nombre_mp like @dato + '%' AND estado_mp=1
 END;
 go

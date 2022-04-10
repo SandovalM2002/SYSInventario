@@ -149,6 +149,11 @@ namespace Views.INVENTARIO.Dialogs
             // txtStock
             // 
             this.txtStock.Location = new System.Drawing.Point(29, 221);
+            this.txtStock.Maximum = new decimal(new int[] {
+            50000,
+            0,
+            0,
+            0});
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(121, 25);
             this.txtStock.TabIndex = 14;
