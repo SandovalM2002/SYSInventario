@@ -1,0 +1,13 @@
+C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Test\bin\Debug\Test.exe.config
+C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Test\bin\Debug\Test.exe
+C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Test\bin\Debug\Test.pdb
+C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Test\obj\Debug\Test.csproj.AssemblyReference.cache
+C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Test\obj\Debug\Test.Properties.Resources.resources
+C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Test\obj\Debug\Test.csproj.GenerateResource.cache
+C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Test\obj\Debug\Test.exe
+C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Test\obj\Debug\Test.pdb
+C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Test\bin\Debug\DataAcces.dll
+C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Test\bin\Debug\DataAcces.pdb
+C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Test\obj\Debug\Test.FrmTest.resources
+C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Test\obj\Debug\Test.csproj.CopyComplete
