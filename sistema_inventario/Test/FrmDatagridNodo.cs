@@ -19,9 +19,9 @@ namespace Test
 
         private void button1_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < treeView1.Nodes.Count; i++)
+            for (int i = 0; i < tvArbol.Nodes.Count; i++)
             {
-                TreeNode node = treeView1.Nodes[i];
+                TreeNode node = tvArbol.Nodes[i].Nodes[i];
 
                 Object[] row = new Object[node.Nodes.Count];
 

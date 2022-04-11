@@ -42,3 +42,4 @@ C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.Home.resources
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.INVENTARIO.Dialogs.DlgProducto.resources
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.INVENTARIO.Dialogs.DlgMaterial.resources
+C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.MRP.FrmMRP.resources

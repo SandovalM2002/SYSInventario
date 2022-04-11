@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Views.INVENTARIO;
+using Views.MRP;
 
 namespace Views
 {
@@ -17,7 +18,7 @@ namespace Views
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmDashboard());
+            Application.Run(new FrmMRP());
         }
     }
 }

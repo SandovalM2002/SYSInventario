@@ -147,7 +147,7 @@ namespace Test
             // FrmTest
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(571, 327);
+            this.ClientSize = new System.Drawing.Size(620, 334);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.label3);
