@@ -167,5 +167,105 @@ namespace Views.Modelo_EOQ_ABCC
             lblPS.Text = "Precio del sobrante es: " + excedente.ToString();
             lblCOPU.Text = "Cantidad Optima a pedir: " + Math.Round(resultado, 0).ToString();
         }
+
+        private void btnGenerarTabla_Click(object sender, EventArgs e)
+        {
+            dgvDatosAM.ColumnCount = 2;
+            dgvDatosAM.Columns[0].Name = "Demanda";
+            dgvDatosAM.Columns[1].Name = "Probabilidad";
+            dgvDatosAM.RowCount = int.Parse(txtCantDatos.Text);
+        }
+
+        private void btnAM_Click(object sender, EventArgs e)
+        {
+            #region Variables
+            double suma = 0;
+            double demanda = 0;
+            double faltante = double.Parse(txtPFAM.Text);
+            double excedente = double.Parse(txtPSAM.Text);
+            double probabilidad = faltante / (faltante + excedente);
+            #endregion
+
+            #region calculo produccion optima
+            for (int fila = 0; fila < dgvDatosAM.Rows.Count; fila++)
+            {
+                if (suma > probabilidad)
+                {
+                    lblAm.Text = "Cantidad Optima a Producir es de: " + demanda.ToString();
+                    break;
+                }
+
+                for (int col = 0; col < dgvDatosAM.Rows[fila].Cells.Count; col++)
+                {
+                    if (col == 0)
+                    {
+                        string d = dgvDatosAM.Rows[fila].Cells[col].Value.ToString();
+                        demanda = double.Parse(d);
+                    }
+                    else
+                    {
+                        string valor = dgvDatosAM.Rows[fila].Cells[col].Value.ToString();
+                        suma += double.Parse(valor);
+                    }
+
+
+                }
+            }
+            #endregion
+
+            #region calculo AM
+            int cantidad = int.Parse(txtCantDatos.Text);
+            dgvAM.ColumnCount = cantidad;
+            dgvAM.RowCount = cantidad + 1;
+            for (int i = 0; i < cantidad; i++)
+            {
+                dgvAM.Columns[i].Name =  dgvDatosAM.Rows[i].Cells[0].Value.ToString();
+            }
+
+            double auxEx = excedente;
+            double auxFal = faltante;
+            for (int fila = 0; fila < dgvAM.Rows.Count-1; fila++)
+            {
+                auxEx = excedente;
+                auxFal = faltante * fila;
+                for (int col = 0; col < dgvAM.Rows[fila].Cells.Count; col++)
+                {
+                    if (fila == col)
+                    {
+                        dgvAM.Rows[fila].Cells[col].Value = 0;
+                    }else if (fila < col)
+                    {
+                        dgvAM.Rows[fila].Cells[col].Value = auxEx;
+                        auxEx += excedente;
+                    }
+                    else if (fila > col)
+                    {
+                        dgvAM.Rows[fila].Cells[col].Value = auxFal;
+                        auxFal -= faltante;
+                    }
+                }
+            }
+
+            int pos = 0;
+            for (int fila = dgvAM.Rows.Count - 1; fila < dgvAM.Rows.Count; fila++)
+            {
+                for (int col = 0; col < dgvAM.Rows[fila].Cells.Count; col++)
+                {
+                    double costo = 0;
+                    
+                    for (int i = 0; i < cantidad; i++)
+                    {
+                        double a = double.Parse(dgvDatosAM.Rows[i].Cells[1].Value.ToString());
+                        double b = double.Parse(dgvAM.Rows[i].Cells[pos].Value.ToString());
+                        costo += (a * b );
+                    }
+                    pos++;
+                    dgvAM.Rows[fila].Cells[col].Value = costo;
+                    dgvAM.Rows[fila].Cells[col].Style.ForeColor = Color.Red ;
+                }
+            }
+
+            #endregion
+        }
     }
 }

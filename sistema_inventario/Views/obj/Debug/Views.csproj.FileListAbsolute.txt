@@ -19,7 +19,6 @@ D:\Proyectos\Proyecto produccion\SYSPanaderia\sistema_inventario\Views\obj\Debug
 D:\Proyectos\Proyecto produccion\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.exe
 D:\Proyectos\Proyecto produccion\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.pdb
 D:\Proyectos\Proyecto produccion\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.Modelo_EOQ_ABCC.ModelosCantidadOptima.resources
-D:\Proyectos\Proyecto produccion\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.AcercaDe.resources
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\bin\Debug\Views.exe.config
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\bin\Debug\Views.exe
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\bin\Debug\Views.pdb
@@ -37,9 +36,13 @@ D:\Proyectos\Proyecto produccion\SYSPanaderia\sistema_inventario\Views\obj\Debug
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\bin\Debug\DataAcces.dll
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\bin\Debug\DataAcces.pdb
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.csproj.CopyComplete
-D:\Proyectos\Proyecto produccion\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.INVENTARIO.FrmStockProducto.resources
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.INVENTARIO.FrmStock.resources
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.Home.resources
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.INVENTARIO.Dialogs.DlgProducto.resources
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.INVENTARIO.Dialogs.DlgMaterial.resources
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.MRP.FrmMRP.resources
+D:\Proyectos\Proyecto produccion\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.Home.resources
+D:\Proyectos\Proyecto produccion\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.INVENTARIO.Dialogs.DlgMaterial.resources
+D:\Proyectos\Proyecto produccion\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.INVENTARIO.Dialogs.DlgProducto.resources
+D:\Proyectos\Proyecto produccion\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.INVENTARIO.FrmStock.resources
+D:\Proyectos\Proyecto produccion\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.MRP.FrmMRP.resources
