@@ -11,3 +11,5 @@ C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Test\bin\D
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Test\bin\Debug\DataAcces.pdb
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Test\obj\Debug\Test.FrmTest.resources
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Test\obj\Debug\Test.csproj.CopyComplete
+C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Test\obj\Debug\Test.FrmNodoDatagrid.resources
+C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\Test\obj\Debug\Test.FrmDatagridNodo.resources
