@@ -12,25 +12,26 @@ namespace DataAcces.Entity
     public class E_Nodo:ConnectionToSQL
     {
         private int id_nodo;
-        private string nodo_padre;
-        private string nodo_hijo;
+        private int nodo_padre;
+        private int nodo_hijo;
         private string descrip;
 
         public E_Nodo() { }
 
-        public E_Nodo(int id_nodo, string nodo_padre, string nodo_hijo, string descrip)
+        public E_Nodo(int id_nodo, int nodo_padre, int nodo_hijo, string descrip)
         {
-            this.Id_nodo = id_nodo;
-            this.Nodo_padre = nodo_padre;
-            this.Nodo_hijo = nodo_hijo;
-            this.Descrip = descrip;
+            this.id_nodo = id_nodo;
+            this.nodo_padre = nodo_padre;
+            this.nodo_hijo = nodo_hijo;
+            this.descrip = descrip;
         }
 
         public int Id_nodo { get => id_nodo; set => id_nodo = value; }
-        public string Nodo_padre { get => nodo_padre; set => nodo_padre = value; }
-        public string Nodo_hijo { get => nodo_hijo; set => nodo_hijo = value; }
+        public int Nodo_padre { get => nodo_padre; set => nodo_padre = value; }
+        public int Nodo_hijo { get => nodo_hijo; set => nodo_hijo = value; }
         public string Descrip { get => descrip; set => descrip = value; }
 
+        #region "PROCEDURE TO SQL"
 
         //METODOS PROPIOS
         public DataSet cargaNodosSQL()
@@ -63,5 +64,105 @@ namespace DataAcces.Entity
 
             return dts;
         }
+
+        public DataTable View_Nodo()
+        {
+            DataTable res = new DataTable();
+            try
+            {
+                using (var conection = GetConnection())
+                {
+                    conection.Open();
+                    using (var Command = new SqlCommand())
+                    {
+                        Command.Connection = conection;
+
+                        Command.CommandText = "SP_VIEW_NODO";
+                        Command.CommandType = CommandType.StoredProcedure;
+
+
+                        SqlDataAdapter leer = new SqlDataAdapter(Command);
+                        leer.Fill(res);
+
+                        Command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return res;
+        }
+
+        public void Insert_Nodo(E_Nodo n,char tipo)
+        {
+            using (var conection = GetConnection())
+            {
+                conection.Open();
+
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = conection;
+
+                    command.CommandText = "SP_INSERT_NODO";
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    //Parametros del Procedimiento almacenado
+                    command.Parameters.AddWithValue("@padre", n.Nodo_padre);
+                    command.Parameters.AddWithValue("@hijo", n.Nodo_hijo);
+                    command.Parameters.AddWithValue("@Tipo", tipo);
+
+                    command.ExecuteNonQuery();
+                    command.Parameters.Clear();
+                }
+            }
+        }
+
+        public void Update_Nodo(E_Nodo n, char tipo)
+        {
+            using (var conection = GetConnection())
+            {
+                conection.Open();
+
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = conection;
+
+                    command.CommandText = "SP_UPDATE_NODO";
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    //Parametros del Procedimiento almacenado
+                    command.Parameters.AddWithValue("@Id", n.Id_nodo);
+                    command.Parameters.AddWithValue("@padre", n.Nodo_padre);
+                    command.Parameters.AddWithValue("@hijo", n.Nodo_hijo);
+                    command.Parameters.AddWithValue("@Tipo", tipo);
+
+                    command.ExecuteNonQuery();
+                    command.Parameters.Clear();
+                }
+            }
+        }
+
+        public void Unsubscribe_Nodo(int id)
+        {
+            using (var conection = GetConnection())
+            {
+                conection.Open();
+                using (var Command = new SqlCommand())
+                {
+                    Command.Connection = conection;
+
+                    Command.CommandText = "SP_DELETE_NODO";
+                    Command.CommandType = CommandType.StoredProcedure;
+
+                    Command.Parameters.AddWithValue("@Id", id);
+
+                    Command.ExecuteNonQuery();
+                    Command.Parameters.Clear();
+                }
+            }
+        }
+        #endregion
     }
 }

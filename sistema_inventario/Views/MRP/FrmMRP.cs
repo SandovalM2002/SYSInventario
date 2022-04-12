@@ -16,6 +16,9 @@ namespace Views.MRP
     public partial class FrmMRP : Form 
     {
         private int _row;
+        private string _id_padre;
+        private string _id_hijo;
+        private char tipo;
         public DataSet dtsN = null;
 
         public FrmMRP()
@@ -32,22 +35,27 @@ namespace Views.MRP
             {
                 dgvDatos.DataSource = C_Producto.view_search_producto("");
             }
-            else
+            else if (rbtMaterial.Checked.Equals(true))
             {
                 dgvDatos.DataSource = C_Material.view_search_Material("");
             }
+
+            dgvMRP.DataSource = null;
+            dgvMRP.DataSource = C_Nodo.View_Nodo();
         }
 
         private void rbtProducto_CheckedChanged(object sender, EventArgs e)
         {
             dgvDatos.DataSource = null;
             dgvDatos.DataSource = C_Producto.view_search_producto("");
+            this.tipo = 'P';
         }
 
         private void rbtMaterial_CheckedChanged(object sender, EventArgs e)
         {
             dgvDatos.DataSource = null;
             dgvDatos.DataSource = C_Material.view_search_Material("");
+            this.tipo = 'M';
         }
 
         private void dgvDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -55,113 +63,35 @@ namespace Views.MRP
             if (e.RowIndex > -1)
             {
                 this._row = e.RowIndex;
-                this.txtSelect_Tabla.Text = dgvDatos.Rows[_row].Cells["Nombre"].Value.ToString();
+                this.txtProducto.Text = dgvDatos.Rows[_row].Cells["Nombre"].Value.ToString();
+                if (tipo.Equals("P"))
+                {
+                    this._id_padre = 0.ToString();
+                    this._id_hijo =  dgvDatos.Rows[_row].Cells["Cod"].Value.ToString();
+                }
             }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(txtSelect_Tabla.Text))
-                {
-                    MessageBox.Show("Debe Seleccionar el nodo de la tabla de Productos y Materiales");
-                    return;
-                }
-
-                TreeNode node = new TreeNode(this.txtSelect_Tabla.Text);
-                tvArbol.Nodes.Add(node);
-
-                this.txtSelect_Tabla.Text = "";
-            }catch(Exception ex)
-            {
-                MessageBox.Show("Error" + ex.Message);
-                return;
-            }
+            
         }
 
         private void btnAdd_sub_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(txtSelect_Arbol.Text) || string.IsNullOrWhiteSpace(txtSelect_Tabla.Text))
-                {
-                    MessageBox.Show("Debe seleccionar un nodo del arbol y un dato de la tabla");
-                    return;
-                }
-
-                TreeNode node = new TreeNode(txtSelect_Tabla.Text);
-                tvArbol.SelectedNode.Nodes.Add(node);
-
-                this.txtSelect_Tabla.Text = "";
-                txtSelect_Arbol.Text = "";
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Error"+ex.Message);
-                return;
-            }
+            
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(txtSelect_Arbol.Text) || string.IsNullOrWhiteSpace(txtSelect_Arbol.Text))
-                {
-                    MessageBox.Show("error");
-                    return;
-                }
 
-                tvArbol.SelectedNode.Text = txtSelect_Tabla.Text;
-                
-                txtSelect_Arbol.Text = "";
-                txtSelect_Tabla.Text = "";
-            }catch(Exception ex)
-            {
-                MessageBox.Show("Error"+ex.Message);
-                return;
-            }
-        }
-
-        private void tvArbol_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            try
-            {
-                // get selected node text
-                //txtSelect_Arbol.Text = tvArbol.SelectedNode.Text;
-
-                // get selected node name
-                txtSelect_Arbol.Text = "";
-                txtSelect_Arbol.Text = txtSelect_Arbol.Text + tvArbol.SelectedNode.Name;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(txtSelect_Arbol.Text) || string.IsNullOrWhiteSpace(txtSelect_Tabla.Text))
-                {
-                    MessageBox.Show("error");
-                    return;
-                }
-                tvArbol.SelectedNode.Remove();
-                txtSelect_Tabla.Text = "";
-                txtSelect_Arbol.Text = "";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
+            
         }
-
+        #region "METODOS NODO"
         public void CargarDataSQL()
         {
             try
@@ -206,5 +136,6 @@ namespace Views.MRP
                 CrearNodosDelPadre(Int32.Parse(dataRowCurrent["nodo_hijo"].ToString()), nuevoNodo);
             }
         }
+        #endregion
     }
 }
