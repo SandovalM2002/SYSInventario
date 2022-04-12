@@ -10,3 +10,9 @@ C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\DataAcces\
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\DataAcces\obj\Debug\DataAcces.dll
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\DataAcces\obj\Debug\DataAcces.pdb
 C:\Users\50588\Desktop\PRODUCCION III\SYSPanaderia\sistema_inventario\DataAcces\obj\Debug\DataAcces.csproj.AssemblyReference.cache
+C:\Users\50588\Desktop\PRODUCCION III\Git projects\SYSPanaderia\sistema_inventario\DataAcces\bin\Debug\DataAcces.dll
+C:\Users\50588\Desktop\PRODUCCION III\Git projects\SYSPanaderia\sistema_inventario\DataAcces\bin\Debug\DataAcces.pdb
+C:\Users\50588\Desktop\PRODUCCION III\Git projects\SYSPanaderia\sistema_inventario\DataAcces\obj\Debug\DataAcces.csproj.AssemblyReference.cache
+C:\Users\50588\Desktop\PRODUCCION III\Git projects\SYSPanaderia\sistema_inventario\DataAcces\obj\Debug\DataAcces.csproj.CoreCompileInputs.cache
+C:\Users\50588\Desktop\PRODUCCION III\Git projects\SYSPanaderia\sistema_inventario\DataAcces\obj\Debug\DataAcces.dll
+C:\Users\50588\Desktop\PRODUCCION III\Git projects\SYSPanaderia\sistema_inventario\DataAcces\obj\Debug\DataAcces.pdb
