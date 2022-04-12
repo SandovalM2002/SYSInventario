@@ -65,3 +65,4 @@ C:\Users\50588\Desktop\PRODUCCION III\Git projects\SYSPanaderia\sistema_inventar
 C:\Users\50588\Desktop\PRODUCCION III\Git projects\SYSPanaderia\sistema_inventario\Views\bin\Debug\DataAcces.dll
 C:\Users\50588\Desktop\PRODUCCION III\Git projects\SYSPanaderia\sistema_inventario\Views\bin\Debug\DataAcces.pdb
 C:\Users\50588\Desktop\PRODUCCION III\Git projects\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.csproj.CopyComplete
+D:\Proyectos\Proyecto produccion\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.Planeacion_Agregada.FrmPlaneacionAgregada.resources

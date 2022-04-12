@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Views.INVENTARIO;
 using Views.MRP;
+using Views.Planeacion_Agregada;
 
 namespace Views
 {
@@ -18,7 +19,7 @@ namespace Views
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMRP());
+            Application.Run(new FrmPlaneacionAgregada());
         }
     }
 }
