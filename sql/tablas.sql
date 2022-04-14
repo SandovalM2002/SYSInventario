@@ -1,5 +1,8 @@
-use MAYER
+CREATE DATABASE InventarioSYS
 go
+USE InventarioSYS
+go
+--||TABLAS DE LA BD
 CREATE TABLE STOCK_MP
 (
 	id_mp int primary key identity(1,1) not null,
@@ -11,15 +14,44 @@ CREATE TABLE STOCK_MP
 	estado_mp bit default 1
 );
 go
-CREATE TABLE NODO
+CREATE TABLE [dbo].[NODO]
 (
-	id_lm int primary key identity(1,1)not null, --NODO
-	idP_lm int foreign key references STOCK_P(id_p) NULL, --PRODUCTO
-	idMP_lm int foreign key references STOCK_MP (id_mp) NULL, --MATERIAL
-	cant_lm smallint NOT NULL,
-	plazo_lm smallint null --DIAS
+	[id_nodo] [int] IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	[nodo_padre] [int] NOT NULL,
+	[nodo_hijo] [int] NOT NULL,
+	[des_nodo] [varchar](70) NOT NULL,
+	[cant_nodo] [int] NOT NULL,
+	[t_nodo] [int] NULL,
+)
+go
+CREATE TABLE [dbo].[STOCK_P](
+	[id_p] [int] IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	[nombre_p] [varchar](50) NOT NULL,
+	[costo_p] [decimal](5, 2) NOT NULL,
+	[precio_p] [decimal](5, 2) NOT NULL,
+	[existencia_p] [smallint] NOT NULL,
+	[stock_seguridad] [smallint] NOT NULL,
+	[totalInventario]  AS ([precio_p]*[existencia_p]),
+	[estado_p] [bit] NULL,
 );
 go
+CREATE TABLE PLAN_MAESTRO
+(
+	id int identity(1,1) primary key not null,
+	Nodo int foreign key references Nodo(id_nodo) not null,
+	demanda int not null,
+	periodo int not null,
+);
+go
+CREATE TABLE RECEPCION_PROGRAMADA
+(
+	id int identity(1,1) primary key not null,
+	Nodo int foreign key references Nodo(id_nodo) not null,
+	periodo int not null,
+	cantidad int not null
+);
+go
+----------------------------||STORAGE PROCEDURES
 CREATE OR ALTER PROC SP_INSERT_PRODUCT 
 (@nombre varchar(50),@costo decimal(5,2),@precio decimal(5,2), @exist smallint, @ss smallint)
 AS
@@ -128,3 +160,58 @@ AS BEGIN
 	FROM STOCK_MP WHERE nombre_mp like @dato + '%' AND estado_mp=1
 END;
 go
+--PROCEDIMIENTOS NODO
+CREATE OR ALTER PROC SP_INSERT_NODO 
+(@HIJO INT,@Cant INT, @Periodo INT) 
+AS 
+BEGIN
+	DECLARE @NOMBRE VARCHAR(70) = (SELECT nombre_p FROM STOCK_P WHERE id_p = @hijo) + ' ( '+CONVERT(varchar(50),@cant)+' )'
+
+	IF EXISTS (SELECT nodo_hijo FROM NODO WHERE nodo_hijo =@HIJO AND nodo_padre = 0)
+		PRINT 'ERROR DUPLICADO'
+	ELSE
+		INSERT INTO NODO (nodo_padre,nodo_hijo,des_nodo,cant_nodo,t_nodo) VALUES (0,@HIJO,@NOMBRE,@Cant,@Periodo)
+END;
+go
+CREATE OR ALTER PROC SP_SUB_INSERT_NODO 
+(@PADRE INT, @HIJO INT, @cant int, @periodo int)
+AS BEGIN
+	DECLARE @DESC VARCHAR(70) = (SELECT nombre_mp FROM STOCK_MP WHERE id_mp = @HIJO) + ' ( '+CONVERT(varchar(50),@cant)+' ) '
+	IF EXISTS (SELECT nodo_hijo FROM NODO WHERE nodo_hijo = @HIJO AND nodo_padre = @HIJO AND des_nodo = @DESC) BEGIN
+		PRINT 'ERROR'
+	END
+	ELSE
+		IF (@PADRE = @HIJO)
+			PRINT 'ERROR DE DUPLICIDAD DE NODO E INCOERENCIA DEL METODO'
+		ELSE
+			INSERT INTO NODO (nodo_padre,nodo_hijo,des_nodo,cant_nodo,t_nodo) VALUES (@PADRE,@HIJO,@DESC,@Cant,@Periodo)
+END;
+go
+CREATE OR ALTER PROC SP_UPDATE_NODO
+(@Id int, @cant int, @periodo int)
+AS BEGIN
+IF exists (select id_nodo from NODO where id_nodo = @Id)
+	UPDATE NODO SET cant_nodo = @cant, t_nodo =@periodo  WHERE id_nodo = @Id
+END
+go
+CREATE OR ALTER PROC SP_DELETE_NODO
+(@Id int, @t bit)
+AS BEGIN
+	IF (@t = 0) BEGIN
+	IF exists (select id_nodo from NODO where id_nodo = @Id)
+		DELETE NODO WHERE id_nodo = @Id
+	END 
+	ELSE IF(@t = 1)BEGIN
+		DELETE NODO
+	END
+END;
+go
+CREATE OR ALTER PROC SP_VIEW_NODO
+AS BEGIN
+	SELECT * FROM NODO
+END;
+go
+select * FROM STOCK_P
+select * FROM STOCK_MP
+SELECT * FROM NODO
+SELECT * FROM PLAN_MAESTRO 
