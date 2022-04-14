@@ -23,8 +23,9 @@ namespace DataAcces.Controller
             return obj.View_Nodo();
         }
 
-        public static void Insert_Nodo(string nodo_padre, string nodo_hijo, bool bandera)
+        public static void Insert_Nodo(string nodo_padre, string nodo_hijo, bool bandera, string cant)
         {
+            int c = Convert.ToInt32(cant);
             if (bandera.Equals(true))
             {
                 if (string.IsNullOrWhiteSpace(nodo_hijo))
@@ -32,7 +33,8 @@ namespace DataAcces.Controller
                     MessageBox.Show("Error");
                     return;
                 }
-                E_Nodo obj = new E_Nodo(0,0,Convert.ToInt32(nodo_hijo),"");
+
+                E_Nodo obj = new E_Nodo(0,0,Convert.ToInt32(nodo_hijo),"",c);
                 obj.Insert_Nodo(obj);
 
             } else if (bandera.Equals(false))
@@ -43,27 +45,24 @@ namespace DataAcces.Controller
                     return;
 
                 }
-                E_Nodo obj = new E_Nodo(0, Convert.ToInt32(nodo_padre), Convert.ToInt32(nodo_hijo), "");
+                E_Nodo obj = new E_Nodo(0, Convert.ToInt32(nodo_padre), Convert.ToInt32(nodo_hijo), "", c);
                 obj.Insert_Sub_Nodo(obj);
             }
         }
 
-        public static void update_Nodo(string nodo_id,string nodo_padre, string nodo_hijo, char tipo)
+        public static void update_Nodo(string id, string cant)
         {
-            if (string.IsNullOrWhiteSpace(nodo_id) || string.IsNullOrWhiteSpace(nodo_hijo) || char.IsWhiteSpace(tipo))
+            if (string.IsNullOrWhiteSpace(id) || string.IsNullOrWhiteSpace(cant))
             {
                 MessageBox.Show("Error Campos Vacios");
                 return;
             }
-            int id = Convert.ToInt32(nodo_id);
-            int padre = Convert.ToInt32(nodo_padre);
-            int hijo = Convert.ToInt32(nodo_hijo);
 
-            Entity.E_Nodo obj = new E_Nodo(id, padre, hijo, "");
-            obj.Update_Nodo(obj, tipo);
+            Entity.E_Nodo obj = new E_Nodo(Convert.ToInt32(id),0,0,"",Convert.ToInt32(cant));
+            obj.Update_Nodo(obj);
         }
 
-        public static void delete_Nodo (string nodo_id)
+        public static void delete_Nodo (string nodo_id, int t)
         {
             if (string.IsNullOrWhiteSpace(nodo_id))
             {
@@ -74,7 +73,7 @@ namespace DataAcces.Controller
             int id = Convert.ToInt32(nodo_id);
 
             Entity.E_Nodo obj = new E_Nodo();
-            obj.Unsubscribe_Nodo(id);
+            obj.Unsubscribe_Nodo(id, t);
         }
     }
 }
