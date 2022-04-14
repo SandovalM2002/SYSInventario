@@ -95,7 +95,7 @@ namespace DataAcces.Entity
             return res;
         }
 
-        public void Insert_Nodo(E_Nodo n,char tipo)
+        public void Insert_Nodo(E_Nodo n)
         {
             using (var conection = GetConnection())
             {
@@ -109,16 +109,34 @@ namespace DataAcces.Entity
                     command.CommandType = CommandType.StoredProcedure;
 
                     //Parametros del Procedimiento almacenado
-                    command.Parameters.AddWithValue("@padre", n.Nodo_padre);
                     command.Parameters.AddWithValue("@hijo", n.Nodo_hijo);
-                    command.Parameters.AddWithValue("@Tipo", tipo);
 
                     command.ExecuteNonQuery();
                     command.Parameters.Clear();
                 }
             }
         }
+        
+        public void Insert_Sub_Nodo (E_Nodo n)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using(var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SP_SUB_INSERT_NODO";
+                    command.CommandType = CommandType.StoredProcedure;
 
+                    command.Parameters.AddWithValue("@PADRE", n.Nodo_padre);
+                    command.Parameters.AddWithValue("@HIJO", n.Nodo_hijo);
+
+                    command.ExecuteNonQuery();
+                    command.Parameters.Clear();
+                }
+            }
+        }
+        
         public void Update_Nodo(E_Nodo n, char tipo)
         {
             using (var conection = GetConnection())

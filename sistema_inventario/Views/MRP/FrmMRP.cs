@@ -16,8 +16,8 @@ namespace Views.MRP
     public partial class FrmMRP : Form 
     {
         private int _row;
-        private string _id_padre;
-        private string _id_hijo;
+        private string id_padre;
+        private string id_hijo;
         private char tipo;
         public DataSet dtsN = null;
 
@@ -25,61 +25,46 @@ namespace Views.MRP
         {
             InitializeComponent();
             dtsN = new DataSet();
+            Load_DataTable(2);
         }
 
         private void FrmMRP_Load(object sender, EventArgs e)
         {
             CargarDataSQL();
-            dgvDatos.DataSource = null;
-            if (rbtProducto.Checked.Equals(true))
-            {
-                dgvDatos.DataSource = C_Producto.view_search_producto("");
-            }
-            else if (rbtMaterial.Checked.Equals(true))
-            {
-                dgvDatos.DataSource = C_Material.view_search_Material("");
-            }
-
-            dgvMRP.DataSource = null;
-            dgvMRP.DataSource = C_Nodo.View_Nodo();
+            Load_DataTable(3);
         }
 
-        private void rbtProducto_CheckedChanged(object sender, EventArgs e)
-        {
-            dgvDatos.DataSource = null;
-            dgvDatos.DataSource = C_Producto.view_search_producto("");
-            this.tipo = 'P';
-        }
-
-        private void rbtMaterial_CheckedChanged(object sender, EventArgs e)
-        {
-            dgvDatos.DataSource = null;
-            dgvDatos.DataSource = C_Material.view_search_Material("");
-            this.tipo = 'M';
-        }
-
+        #region "METODOS GENERADOS"
         private void dgvDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
             {
                 this._row = e.RowIndex;
-                this.txtProducto.Text = dgvDatos.Rows[_row].Cells["Nombre"].Value.ToString();
-                if (tipo.Equals("P"))
+                if (rbtPadre.Checked)
                 {
-                    this._id_padre = 0.ToString();
-                    this._id_hijo =  dgvDatos.Rows[_row].Cells["Cod"].Value.ToString();
+                    this.id_padre = dgvDatos.Rows[_row].Cells["Cod"].Value.ToString();
+                    this.txtPadre.Text = dgvDatos.Rows[_row].Cells["Nombre"].Value.ToString();
+                }
+                else if(rbtHijo.Checked)
+                {
+                    this.id_hijo = dgvDatos.Rows[_row].Cells["Cod"].Value.ToString();
+                    this.txtHijo.Text = dgvDatos.Rows[_row].Cells["Nombre"].Value.ToString();
                 }
             }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            
+            C_Nodo.Insert_Nodo("",id_hijo,true);
+            Load_DataTable(4);
+            Load_DataTable(5);
         }
 
-        private void btnAdd_sub_Click(object sender, EventArgs e)
+        private void btnSubAdd_Click(object sender, EventArgs e)
         {
-            
+            C_Nodo.Insert_Nodo(id_padre,id_hijo,false);
+            Load_DataTable(4);
+            Load_DataTable(5);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -91,6 +76,8 @@ namespace Views.MRP
         {
             
         }
+
+        #endregion
         #region "METODOS NODO"
         public void CargarDataSQL()
         {
@@ -137,5 +124,69 @@ namespace Views.MRP
             }
         }
         #endregion
+        #region "METODOS CREADOS"
+        private void Load_DataTable(int t)
+        {
+            dgvDatos.DataSource = null;
+            switch (t)
+            {
+                case 1: 
+                    dgvDatos.DataSource = C_Material.view_search_Material("");
+                    this.tipo = 'M';
+                    break;
+                case 2:
+                    dgvDatos.DataSource = C_Producto.view_search_producto("");
+                    this.tipo = 'P';
+                    break;
+                case 3:
+                    dgvMRP.DataSource = null;
+                    dgvMRP.DataSource = C_Nodo.View_Nodo();
+                    break;
+                case 4:
+                    CargarDataSQL();
+                    dgvMRP.DataSource = null;
+                    dgvMRP.DataSource = C_Nodo.View_Nodo();
+                    break;
+                case 5:
+                    ClearTxt();
+                    break;
+            }
+        }
+
+        private void ClearTxt()
+        {
+            this.txtHijo.Text = "";
+            this.txtPadre.Text = "";
+            this.id_hijo = "";
+            this.id_padre = "";
+            this.tipo = 'v';
+        }
+        #endregion
+
+        private void btnProducto_Click(object sender, EventArgs e)
+        {
+            Load_DataTable(2);
+            this.tipo = 'P';
+        }
+
+        private void btnMaterial_Click(object sender, EventArgs e)
+        {
+            Load_DataTable(1);
+            this.tipo = 'M';
+        }
+
+        private void tvArbol_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            try
+            {
+                txtPadre.Text = tvArbol.SelectedNode.Name;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error"+ex);
+                return;
+            }
+        }
+
     }
 }

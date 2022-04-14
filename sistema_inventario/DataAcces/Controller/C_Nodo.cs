@@ -23,24 +23,34 @@ namespace DataAcces.Controller
             return obj.View_Nodo();
         }
 
-        public static void Insert_Nodo(string nodo_padre, string nodo_hijo, char tipo)
+        public static void Insert_Nodo(string nodo_padre, string nodo_hijo, bool bandera)
         {
-            if (string.IsNullOrWhiteSpace(nodo_padre) || string.IsNullOrWhiteSpace(nodo_hijo) || char.IsWhiteSpace(tipo))
+            if (bandera.Equals(true))
             {
-                MessageBox.Show("Error Campos Vacios");
-                return;
+                if (string.IsNullOrWhiteSpace(nodo_hijo))
+                {
+                    MessageBox.Show("Error");
+                    return;
+                }
+                E_Nodo obj = new E_Nodo(0,0,Convert.ToInt32(nodo_hijo),"");
+                obj.Insert_Nodo(obj);
+
+            } else if (bandera.Equals(false))
+            {
+                if (string.IsNullOrWhiteSpace(nodo_padre) || string.IsNullOrWhiteSpace(nodo_hijo))
+                {
+                    MessageBox.Show("Error");
+                    return;
+
+                }
+                E_Nodo obj = new E_Nodo(0, Convert.ToInt32(nodo_padre), Convert.ToInt32(nodo_hijo), "");
+                obj.Insert_Sub_Nodo(obj);
             }
-
-            int padre = Convert.ToInt32(nodo_padre);
-            int hijo = Convert.ToInt32(nodo_hijo);
-
-            Entity.E_Nodo obj = new E_Nodo(0,padre,hijo,"");
-            obj.Insert_Nodo(obj,tipo);
         }
 
         public static void update_Nodo(string nodo_id,string nodo_padre, string nodo_hijo, char tipo)
         {
-            if (string.IsNullOrWhiteSpace(nodo_id)|string.IsNullOrWhiteSpace(nodo_padre) || string.IsNullOrWhiteSpace(nodo_hijo) || char.IsWhiteSpace(tipo))
+            if (string.IsNullOrWhiteSpace(nodo_id) || string.IsNullOrWhiteSpace(nodo_hijo) || char.IsWhiteSpace(tipo))
             {
                 MessageBox.Show("Error Campos Vacios");
                 return;
