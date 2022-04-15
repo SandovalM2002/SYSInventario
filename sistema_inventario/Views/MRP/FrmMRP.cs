@@ -28,7 +28,7 @@ namespace Views.MRP
         
         private void FrmMRP_Load(object sender, EventArgs e)
         {
-            CargarDataSQL();
+            //CargarDataSQL();
             Load_DataTable("T");
             if (tvArbol.Nodes.Count <= 0)
             {

@@ -51,6 +51,30 @@ CREATE TABLE RECEPCION_PROGRAMADA
 	cantidad int not null
 );
 go
+CREATE TABLE MRP
+(
+	id_MRP int identity(1,1) primary key not null,
+	id_nodo int foreign key references Nodo(id_nodo) not null,
+);
+go
+CREATE TABLE DETALLE_MRP
+(
+	--CABECERA
+	id_detalle int identity(1,1) primary key not null,
+	id_MRP int foreign key references MRP(id_MRP) not null,
+	--CONCEPTOS MAS MONTO
+	NB_MRP int default 0 not null,
+	RP_MRP int default 0 not null,	
+	D_MRP int default 0 not null,
+	NN_MRP int default 0 not null,
+	RO_MRP int default 0 not null,
+	LO_MRP int default 0 not null,
+	--PERIODO
+	periodo int  not null
+);
+SELECT * FROM MRP
+SELECT * FROM DETALLE_MRP
+go
 ----------------------------||STORAGE PROCEDURES
 CREATE OR ALTER PROC SP_INSERT_PRODUCT 
 (@nombre varchar(50),@costo decimal(5,2),@precio decimal(5,2), @exist smallint, @ss smallint)
@@ -215,3 +239,4 @@ select * FROM STOCK_P
 select * FROM STOCK_MP
 SELECT * FROM NODO
 SELECT * FROM PLAN_MAESTRO 
+SELECT * FROM RECEPCION_PROGRAMADA 

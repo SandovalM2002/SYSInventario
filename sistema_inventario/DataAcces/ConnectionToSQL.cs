@@ -13,7 +13,7 @@ namespace DataAcces
 
         public ConnectionToSQL()
         {
-            connectionString = "server = localhost; DataBase = MAYER; Integrated Security = True";
+            connectionString = "server = localhost; DataBase = InventarioSYS; Integrated Security = True";
 
         }
 
