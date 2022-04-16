@@ -62,8 +62,8 @@ namespace Views.Planeacion_Agregada
             this.label10 = new System.Windows.Forms.Label();
             this.rbOutS = new System.Windows.Forms.RadioButton();
             this.gbOutS = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.txtOutS = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDYD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlanificacion)).BeginInit();
             this.gbDatosGenerales.SuspendLayout();
@@ -425,6 +425,14 @@ namespace Views.Planeacion_Agregada
             this.gbOutS.TabStop = false;
             this.gbOutS.Text = "Outsoursing";
             // 
+            // txtOutS
+            // 
+            this.txtOutS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOutS.Location = new System.Drawing.Point(226, 39);
+            this.txtOutS.Name = "txtOutS";
+            this.txtOutS.Size = new System.Drawing.Size(100, 24);
+            this.txtOutS.TabIndex = 63;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -434,14 +442,6 @@ namespace Views.Planeacion_Agregada
             this.label12.Size = new System.Drawing.Size(165, 24);
             this.label12.TabIndex = 62;
             this.label12.Text = "Costo Outsoursing";
-            // 
-            // txtOutS
-            // 
-            this.txtOutS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOutS.Location = new System.Drawing.Point(226, 39);
-            this.txtOutS.Name = "txtOutS";
-            this.txtOutS.Size = new System.Drawing.Size(100, 24);
-            this.txtOutS.TabIndex = 63;
             // 
             // FrmPlaneacionAgregada
             // 
