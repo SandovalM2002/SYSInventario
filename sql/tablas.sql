@@ -3,14 +3,16 @@ go
 USE InventarioSYS
 go
 --||TABLAS DE LA BD
-CREATE TABLE STOCK_MP
+CREATE TABLE STOCK
 (
-	id_mp int primary key identity(1,1) not null,
-	nombre_mp varchar(50) not null,
-	costo_mp decimal(5,2) not null,
-	existencia_mp int default 0 not null,
-	stockS_mp smallint default 0 null,
-	totalMp AS (costo_mp * existencia_mp),
+	id_s int primary key identity(1,1) not null,
+	nombre_s varchar(50) not null,
+	tipo_s bit default 1 not null,
+	costo_s decimal(5,2) not null,
+	[precio_p] [decimal](5,2) null,
+	existencia_s int default 0 not null,
+	stock_seg_s smallint default 0 null,
+	totalMp AS (costo_s * existencia_s),
 	estado_mp bit default 1
 );
 go
@@ -18,22 +20,11 @@ CREATE TABLE [dbo].[NODO]
 (
 	[id_nodo] [int] IDENTITY(1,1) PRIMARY KEY NOT NULL,
 	[nodo_padre] [int] NOT NULL,
-	[nodo_hijo] [int] NOT NULL,
+	[nodo_hijo] [int]  NOT NULL,
 	[des_nodo] [varchar](70) NOT NULL,
 	[cant_nodo] [int] NOT NULL,
 	[t_nodo] [int] NULL,
 )
-go
-CREATE TABLE [dbo].[STOCK_P](
-	[id_p] [int] IDENTITY(1,1) PRIMARY KEY NOT NULL,
-	[nombre_p] [varchar](50) NOT NULL,
-	[costo_p] [decimal](5, 2) NOT NULL,
-	[precio_p] [decimal](5, 2) NOT NULL,
-	[existencia_p] [smallint] NOT NULL,
-	[stock_seguridad] [smallint] NOT NULL,
-	[totalInventario]  AS ([precio_p]*[existencia_p]),
-	[estado_p] [bit] NULL,
-);
 go
 CREATE TABLE PLAN_MAESTRO
 (
@@ -53,8 +44,8 @@ CREATE TABLE RECEPCION_PROGRAMADA
 go
 CREATE TABLE MRP
 (
-	id_MRP int identity(1,1) primary key not null,
-	id_nodo int foreign key references Nodo(id_nodo) not null,
+	id_MRP int IDENTITY(1,1) primary key not null,
+	id_nodo int foreign key references NODO(id_nodo) not null,
 );
 go
 CREATE TABLE DETALLE_MRP
@@ -72,171 +63,143 @@ CREATE TABLE DETALLE_MRP
 	--PERIODO
 	periodo int  not null
 );
-SELECT * FROM MRP
-SELECT * FROM DETALLE_MRP
 go
-----------------------------||STORAGE PROCEDURES
-CREATE OR ALTER PROC SP_INSERT_PRODUCT 
-(@nombre varchar(50),@costo decimal(5,2),@precio decimal(5,2), @exist smallint, @ss smallint)
-AS
-BEGIN
-	--||LA VARIABLE SS SIGNIFICA STOCK DE SEGURIDAD
-	IF NOT EXISTS (SELECT nombre_p FROM STOCK_P where nombre_p = @nombre)
-		INSERT INTO STOCK_P (nombre_p,costo_p,precio_p,existencia_p,stock_seguridad) 
-			VALUES (@nombre,@costo,@precio,@exist,@ss)
-	ELSE
-		PRINT 'ERROR'
-END;
-go
-CREATE OR ALTER PROC SP_UPDATE_PRODUCT 
-(@Id INT ,@nombre varchar(50),@costo decimal(5,2),@precio decimal(5,2), @exist smallint, @ss smallint)
-AS
-BEGIN
-	--||LA VARIABLE SS SIGNIFICA STOCK DE SEGURIDAD
-IF EXISTS (SELECT id_p FROM STOCK_P WHERE id_p = @Id)
-	IF NOT EXISTS (SELECT nombre_p FROM STOCK_P where nombre_p = @nombre)
-		update STOCK_P set nombre_p =@nombre, costo_p=@costo, precio_p=@precio, existencia_p =@exist, stock_seguridad = @ss  where id_p = @id
-	ELSE
-		PRINT 'ERROR'
-ELSE
-	PRINT 'ERROR'
-END;
-go
-CREATE OR ALTER PROC SP_DELETE_PRODUCT
-(@Id int)
-AS
-BEGIN
-	IF EXISTS (SELECT id_p FROM STOCK_P where id_p =@Id)
-		UPDATE STOCK_P SET estado_p = 0 WHERE id_p = @Id
-	ELSE
-		PRINT 'ERROR'
-END;
-go
-CREATE OR ALTER PROC SP_VIEW_PRODUCT 
-(@dato varchar(max))
+--|| ==========================================================================|| STORAGE PROCEDURES MRP METODO LOTE X LOTE
+CREATE OR ALTER PROC SP_INSERT_MRP (@Nodo INT)
 AS BEGIN
-	SELECT  
-		id_p as [Cod],
-		nombre_p as [Nombre],
-		costo_p as [Costo],
-		precio_p as [Precio],
-		existencia_p as [Stock],
-		stock_seguridad as [Stock S],
-		totalInventario as [Total],
-		CASE
-			WHEN estado_p = 1 THEN 'INSTOCK'
-		END AS [Estado]
-	FROM STOCK_P where nombre_p like @dato+'%'
-	AND estado_p = 1 
-END; 
+	IF NOT EXISTS (SELECT id_nodo FROM MRP WHERE id_nodo = @Nodo)
+		INSERT INTO MRP(id_nodo) VALUES (@Nodo)
+END;
 go
---PROCEDIMIENTOS PARA MATERIALES
-CREATE OR ALTER PROC SP_INSERT_MATERIAL 
-(@nombre varchar(50), @costo decimal(5,2), @exist smallint, @ss smallint)
+CREATE OR ALTER PROC SP_EXPLOSION_MRP (@nodo INT)
 AS BEGIN
---|| LA VARIABLE SS SIGNIFICA STOCK DE SEGURIDAD
-IF NOT EXISTS (SELECT nombre_mp	FROM STOCK_MP where nombre_mp= @nombre)
-	INSERT  INTO STOCK_MP (nombre_mp,costo_mp,existencia_mp,stockS_mp) VALUES (@nombre,@costo,@exist,@ss)
-ELSE
-	PRINT 'ERROR'
-END;
-go
-CREATE OR ALTER PROC SP_UPDATE_MATERIAL(
-	@id INT,@nombre varchar(50), @costo decimal(5,2), @exist smallint, @ss smallint
-)
-AS
-BEGIN
-	--|| LA VARIABLE SS SIGNIFICA STOCK DE SEGURIDAD
-	IF EXISTS (SELECT id_mp FROM STOCK_MP WHERE id_mp=@id)
-		IF NOT EXISTS (SELECT nombre_mp	FROM STOCK_MP where nombre_mp= @nombre)
-			update STOCK_MP set nombre_mp=@nombre, costo_mp=@costo, existencia_mp=@exist, stockS_mp=@ss where id_mp=@id
-		ELSE
-			PRINT 'ERROR'
-	ELSE
-		PRINT 'ERROR'
-END;
-go
-CREATE OR ALTER PROC SP_DELETE_MATERIAL(
-	@id INT
-)
-AS
-BEGIN
-	--|| LA VARIABLE SS SIGNIFICA STOCK DE SEGURIDAD
-	IF EXISTS (SELECT id_mp FROM STOCK_MP WHERE id_mp=@id)
-		update STOCK_MP set estado_mp=0 where id_mp=@id
-	ELSE
-		PRINT 'ERROR'
-END;
-go
-CREATE OR ALTER PROC SP_VIEW_MATERIAL 
-(@dato varchar(max))
-AS BEGIN
-	SELECT
-	id_mp as [Cod],
-	nombre_mp as [Nombre],
-	costo_mp as [Costo],
-	existencia_mp as [Stock],
-	stockS_mp as [Stock S],
-	totalMp as [Total],
-	CASE
-		WHEN estado_mp=1 THEN 'INSTOCK'
-	END AS [Estado]
-	FROM STOCK_MP WHERE nombre_mp like @dato + '%' AND estado_mp=1
-END;
-go
---PROCEDIMIENTOS NODO
-CREATE OR ALTER PROC SP_INSERT_NODO 
-(@HIJO INT,@Cant INT, @Periodo INT) 
-AS 
-BEGIN
-	DECLARE @NOMBRE VARCHAR(70) = (SELECT nombre_p FROM STOCK_P WHERE id_p = @hijo) + ' ( '+CONVERT(varchar(50),@cant)+' )'
+	DECLARE @PADRE INT = (SELECT nodo_padre FROM NODO WHERE id_nodo = @nodo)
+	DECLARE @MRP INT = (SELECT id_MRP FROM MRP WHERE id_nodo = @nodo)
+	DECLARE @t_nodo AS INT = (SELECT t_nodo FROM NODO WHERE id_nodo = @nodo)
 
-	IF EXISTS (SELECT nodo_hijo FROM NODO WHERE nodo_hijo =@HIJO AND nodo_padre = 0)
-		PRINT 'ERROR DUPLICADO'
-	ELSE
-		INSERT INTO NODO (nodo_padre,nodo_hijo,des_nodo,cant_nodo,t_nodo) VALUES (0,@HIJO,@NOMBRE,@Cant,@Periodo)
-END;
-go
-CREATE OR ALTER PROC SP_SUB_INSERT_NODO 
-(@PADRE INT, @HIJO INT, @cant int, @periodo int)
-AS BEGIN
-	DECLARE @DESC VARCHAR(70) = (SELECT nombre_mp FROM STOCK_MP WHERE id_mp = @HIJO) + ' ( '+CONVERT(varchar(50),@cant)+' ) '
-	IF EXISTS (SELECT nodo_hijo FROM NODO WHERE nodo_hijo = @HIJO AND nodo_padre = @HIJO AND des_nodo = @DESC) BEGIN
-		PRINT 'ERROR'
+	DECLARE @DEMANDA INT
+	DECLARE @RP INT
+	DECLARE @D INT
+	DECLARE @NN INT
+	DECLARE @COUNT INT = 1
+
+	IF NOT EXISTS (SELECT id_MRP FROM DETALLE_MRP WHERE id_MRP = @MRP) BEGIN
+		IF (@PADRE = 0) BEGIN
+			WHILE(@COUNT <= (SELECT COUNT(*) FROM PLAN_MAESTRO where Nodo = @nodo))	 BEGIN	
+				
+				SET @DEMANDA = (SELECT demanda FROM PLAN_MAESTRO WHERE NODO = @nodo AND periodo = @COUNT)
+				SET @RP = dbo.FN_RECEPCIONES(@nodo,@COUNT)
+				SET @D = dbo.FN_DISPONIBLES(@DEMANDA,@nodo,@RP)			
+				SET @NN = dbo.FN_NETAS(@DEMANDA,@nodo,@RP)
+			
+				EXEC SP_UPDATE_STOCK_MRP @nodo,@D
+				
+				IF(@NN > 0 AND (@COUNT - @t_nodo) > 0) BEGIN
+					UPDATE DETALLE_MRP SET LO_MRP = @NN  WHERE id_detalle = (SELECT id_detalle FROM DETALLE_MRP WHERE periodo = @COUNT - (@t_nodo) AND id_MRP = @MRP)
+				END
+
+				INSERT INTO DETALLE_MRP (id_MRP,NB_MRP,RP_MRP,D_MRP,NN_MRP,RO_MRP,LO_MRP,periodo) VALUES(@MRP,@DEMANDA,@RP,@D,@NN,@NN,0,@COUNT)
+				SET @COUNT = @COUNT + 1
+			END
+		END
+		ELSE IF (@PADRE > 0) BEGIN
+			
+			DECLARE @ID_NODO INT = (SELECT id_nodo FROM NODO WHERE nodo_hijo = @PADRE)
+			DECLARE @ID_NODO_MRP INT  = (SELECT id_MRP FROM MRP WHERE id_nodo=@ID_NODO)
+
+			WHILE (@COUNT <= (SELECT COUNT(*) FROM DETALLE_MRP WHERE id_MRP = @ID_NODO_MRP)) BEGIN --ESTA BIEN HASTA AQUI
+				
+				SET @DEMANDA = (SELECT LO_MRP FROM DETALLE_MRP WHERE periodo = @COUNT) * (SELECT cant_nodo FROM NODO where id_nodo = @nodo)
+				SET @RP = dbo.FN_RECEPCIONES(@nodo,@COUNT)
+				SET @D = dbo.FN_DISPONIBLES(@DEMANDA,@nodo,@RP)			
+				SET @NN = dbo.FN_NETAS(@DEMANDA,@nodo,@RP)
+
+				EXEC SP_UPDATE_STOCK_MRP @nodo,@D
+				
+				IF(@NN > 0 AND (@COUNT - @t_nodo) > 0) BEGIN
+					UPDATE DETALLE_MRP SET LO_MRP = @NN  WHERE id_detalle = (SELECT id_detalle FROM DETALLE_MRP WHERE periodo = @COUNT - (@t_nodo) AND id_MRP = @MRP)
+				END
+
+				INSERT INTO DETALLE_MRP (id_MRP,NB_MRP,RP_MRP,D_MRP,NN_MRP,RO_MRP,LO_MRP,periodo) VALUES(@MRP,@DEMANDA,@RP,@D,@NN,@NN,0,@COUNT)
+				SET @COUNT = @COUNT + 1	
+			END
+		END
 	END
-	ELSE
-		IF (@PADRE = @HIJO)
-			PRINT 'ERROR DE DUPLICIDAD DE NODO E INCOERENCIA DEL METODO'
-		ELSE
-			INSERT INTO NODO (nodo_padre,nodo_hijo,des_nodo,cant_nodo,t_nodo) VALUES (@PADRE,@HIJO,@DESC,@Cant,@Periodo)
 END;
 go
-CREATE OR ALTER PROC SP_UPDATE_NODO
-(@Id int, @cant int, @periodo int)
+CREATE OR ALTER PROC SP_UPDATE_STOCK_MRP
+(@NODO INT,@CANT INT)
 AS BEGIN
-IF exists (select id_nodo from NODO where id_nodo = @Id)
-	UPDATE NODO SET cant_nodo = @cant, t_nodo =@periodo  WHERE id_nodo = @Id
-END
+	DECLARE @PROD_MATE INT = (SELECT id_s FROM STOCK WHERE id_s = (SELECT nodo_hijo FROM NODO WHERE id_nodo = @NODO))
+	IF(@CANT >= 0)
+		UPDATE STOCK SET existencia_s = @CANT WHERE id_s = @PROD_MATE
+END;
 go
-CREATE OR ALTER PROC SP_DELETE_NODO
-(@Id int, @t bit)
+--|| ==========================================================================|| FUNCIONES PARA MRP METODO
+go
+CREATE OR ALTER FUNCTION FN_RECEPCIONES
+(@NODO INT, @COUNT INT)
+RETURNS INT
 AS BEGIN
-	IF (@t = 0) BEGIN
-	IF exists (select id_nodo from NODO where id_nodo = @Id)
-		DELETE NODO WHERE id_nodo = @Id
-	END 
-	ELSE IF(@t = 1)BEGIN
-		DELETE NODO
+	DECLARE @RESULT INT
+	IF EXISTS (SELECT Nodo FROM RECEPCION_PROGRAMADA WHERE Nodo = @NODO AND periodo = @COUNT) 
+		SET @RESULT = (SELECT cantidad FROM RECEPCION_PROGRAMADA WHERE Nodo = @nodo AND periodo=@COUNT)
+	ELSE 
+		SET @RESULT = 0
+	RETURN @RESULT
+END;
+go
+CREATE OR ALTER FUNCTION FN_DISPONIBLES (@D INT, @NODO INT, @RP INT)
+RETURNS INT
+AS BEGIN
+	DECLARE @RESULT INT
+	
+	DECLARE @ID_STOCK INT = (SELECT id_s FROM STOCK WHERE id_s = (SELECT nodo_hijo FROM NODO WHERE id_nodo = @NODO))
+	DECLARE @SS INT = (SELECT stock_seg_s FROM STOCK WHERE id_s = @ID_STOCK)
+	DECLARE @STOCK INT = (SELECT existencia_s FROM STOCK WHERE id_s = @ID_STOCK)
+	
+	IF (@D = 0) BEGIN
+		SET @RESULT = @STOCK
 	END
+	ELSE BEGIN
+		IF ((@STOCK + @RP - @SS) >= @D) BEGIN
+			SET @RESULT = @STOCK - @D
+		END	
+		ELSE IF (@D > (@STOCK + @RP - @SS)) BEGIN
+			SET @RESULT = @SS
+		END	
+	END
+	RETURN @RESULT
 END;
 go
-CREATE OR ALTER PROC SP_VIEW_NODO
+CREATE OR ALTER FUNCTION FN_NETAS (@D INT, @NODO INT,@RP INT)
+RETURNS INT
 AS BEGIN
-	SELECT * FROM NODO
+	
+	DECLARE @RESULT INT 
+	DECLARE @ID_STOCK INT = (SELECT id_s FROM STOCK WHERE id_s = (SELECT nodo_hijo FROM NODO WHERE id_nodo = @NODO))
+	DECLARE @SS INT = (SELECT stock_seg_s FROM STOCK WHERE id_s = @ID_STOCK)
+	DECLARE @STOCK INT = (SELECT existencia_s FROM STOCK WHERE id_s = @ID_STOCK)
+
+	IF (@D > (@STOCK-@SS+@RP)) BEGIN
+		IF (@STOCK = 0) BEGIN
+			SET @RESULT = @D
+		END
+		ELSE BEGIN
+			SET @RESULT = @D - ((@STOCK-@SS)+@RP)
+		END
+	END
+	ELSE BEGIN
+		SET @RESULT = 0
+	END
+	RETURN @RESULT
 END;
 go
-select * FROM STOCK_P
-select * FROM STOCK_MP
-SELECT * FROM NODO
-SELECT * FROM PLAN_MAESTRO 
-SELECT * FROM RECEPCION_PROGRAMADA 
+select * from NODO
+select * from MRP
+select * from DETALLE_MRP WHERE id_MRP = 2
+select * from STOCK
+
+EXEC SP_EXPLOSION_MRP 2
+go
+drop table DETALLE_MRP
