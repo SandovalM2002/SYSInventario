@@ -53,7 +53,7 @@ CREATE TABLE DETALLE_MRP
 	--CABECERA
 	id_detalle int identity(1,1) primary key not null,
 	id_MRP int foreign key references MRP(id_MRP) not null,
-	--CONCEPTOS MAS MONTO
+	--CONCEPTOS MAS MONTO  
 	NB_MRP int default 0 not null,
 	RP_MRP int default 0 not null,	
 	D_MRP int default 0 not null,
@@ -61,7 +61,7 @@ CREATE TABLE DETALLE_MRP
 	RO_MRP int default 0 not null,
 	LO_MRP int default 0 not null,
 	--PERIODO
-	periodo int  not null
+	periodo int  not null 
 );
 go
 --|| ==========================================================================|| STORAGE PROCEDURES MRP METODO LOTE X LOTE
@@ -81,13 +81,18 @@ AS BEGIN
 	DECLARE @RP INT
 	DECLARE @D INT
 	DECLARE @NN INT
+	
 	DECLARE @COUNT INT = 1
 
 	IF NOT EXISTS (SELECT id_MRP FROM DETALLE_MRP WHERE id_MRP = @MRP) BEGIN
 		IF (@PADRE = 0) BEGIN
-			WHILE(@COUNT <= (SELECT COUNT(*) FROM PLAN_MAESTRO where Nodo = @nodo))	 BEGIN	
+			WHILE(@COUNT <= (SELECT COUNT(*) FROM PLAN_MAESTRO where Nodo = @nodo))	BEGIN	
 				
-				SET @DEMANDA = (SELECT demanda FROM PLAN_MAESTRO WHERE NODO = @nodo AND periodo = @COUNT)
+				IF NOT EXISTS (SELECT demanda FROM PLAN_MAESTRO WHERE NODO = @nodo AND periodo = @COUNT)
+					SET @DEMANDA = 0
+				ELSE
+					SET @DEMANDA = (SELECT demanda FROM PLAN_MAESTRO WHERE NODO = @nodo AND periodo = @COUNT)
+
 				SET @RP = dbo.FN_RECEPCIONES(@nodo,@COUNT)
 				SET @D = dbo.FN_DISPONIBLES(@DEMANDA,@nodo,@RP)			
 				SET @NN = dbo.FN_NETAS(@DEMANDA,@nodo,@RP)
@@ -109,7 +114,13 @@ AS BEGIN
 
 			WHILE (@COUNT <= (SELECT COUNT(*) FROM DETALLE_MRP WHERE id_MRP = @ID_NODO_MRP)) BEGIN --ESTA BIEN HASTA AQUI
 				
-				SET @DEMANDA = (SELECT LO_MRP FROM DETALLE_MRP WHERE periodo = @COUNT) * (SELECT cant_nodo FROM NODO where id_nodo = @nodo)
+				IF NOT EXISTS ((SELECT LO_MRP FROM DETALLE_MRP WHERE periodo = @COUNT AND id_MRP = @ID_NODO_MRP)) BEGIN
+					SET @DEMANDA = 0
+				END
+				ELSE BEGIN
+					SET @DEMANDA = (SELECT LO_MRP FROM DETALLE_MRP WHERE periodo = @COUNT AND id_MRP = @ID_NODO_MRP) * (SELECT cant_nodo FROM NODO where id_nodo = @nodo)
+				END
+				
 				SET @RP = dbo.FN_RECEPCIONES(@nodo,@COUNT)
 				SET @D = dbo.FN_DISPONIBLES(@DEMANDA,@nodo,@RP)			
 				SET @NN = dbo.FN_NETAS(@DEMANDA,@nodo,@RP)
@@ -197,9 +208,13 @@ END;
 go
 select * from NODO
 select * from MRP
-select * from DETALLE_MRP WHERE id_MRP = 2
+select * from DETALLE_MRP WHERE id_MRP = 4
 select * from STOCK
-
-EXEC SP_EXPLOSION_MRP 2
+select * from PLAN_MAESTRO
+select * from RECEPCION_PROGRAMADA
+go
+EXEC SP_EXPLOSION_MRP 4
+go
+EXEC SP_INSERT_MRP 4
 go
 drop table DETALLE_MRP
