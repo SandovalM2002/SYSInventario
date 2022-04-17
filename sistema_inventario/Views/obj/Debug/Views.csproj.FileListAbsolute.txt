@@ -74,8 +74,6 @@ C:\Users\50588\Desktop\SYSPanaderia\sistema_inventario\Views\bin\Debug\DataAcces
 C:\Users\50588\Desktop\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.csproj.AssemblyReference.cache
 C:\Users\50588\Desktop\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.Home.resources
 C:\Users\50588\Desktop\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.FrmDashboard.resources
-C:\Users\50588\Desktop\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.INVENTARIO.Dialogs.DlgMaterial.resources
-C:\Users\50588\Desktop\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.INVENTARIO.Dialogs.DlgProducto.resources
 C:\Users\50588\Desktop\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.INVENTARIO.FrmStock.resources
 C:\Users\50588\Desktop\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.Modelo_EOQ_ABCC.ModelosCantidadOptima.resources
 C:\Users\50588\Desktop\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.MRP.FrmMRP.resources

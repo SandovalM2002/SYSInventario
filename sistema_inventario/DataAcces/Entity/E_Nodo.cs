@@ -33,9 +33,10 @@ namespace DataAcces.Entity
         public int Nodo_hijo { get => nodo_hijo; set => nodo_hijo = value; }
         public string Descrip { get => descrip; set => descrip = value; }
         public int Cant { get => cant; set => cant = value; }
+       
+        
         #region "PROCEDURE TO SQL"
 
-        //METODOS PROPIOS
         public DataSet cargaNodosSQL()
         {
             DataSet dts = new DataSet();
@@ -49,7 +50,7 @@ namespace DataAcces.Entity
                     {
                         cmd.Connection = con;
 
-                        cmd.CommandText = "SP_VIEW_NODO";
+                        cmd.CommandText = "SP_VIEW_SEARCH_NODO";
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         SqlDataAdapter leer = new SqlDataAdapter(cmd);
@@ -65,140 +66,7 @@ namespace DataAcces.Entity
             }
 
             return dts;
-        }
-
-        public DataTable View_Nodo()
-        {
-            DataTable res = new DataTable();
-            try
-            {
-                using (var conection = GetConnection())
-                {
-                    conection.Open();
-                    using (var Command = new SqlCommand())
-                    {
-                        Command.Connection = conection;
-
-                        Command.CommandText = "SP_VIEW_NODO";
-                        Command.CommandType = CommandType.StoredProcedure;
-
-
-                        SqlDataAdapter leer = new SqlDataAdapter(Command);
-                        leer.Fill(res);
-
-                        Command.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-            return res;
-        }
-
-        public void Insert_Nodo(E_Nodo n)
-        {
-            try
-            {
-                using (var conection = GetConnection())
-                {
-                    conection.Open();
-
-                    using (var command = new SqlCommand())
-                    {
-                        command.Connection = conection;
-
-                        command.CommandText = "SP_INSERT_NODO";
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        //Parametros del Procedimiento almacenado
-                        command.Parameters.AddWithValue("@hijo", n.Nodo_hijo);
-                        command.Parameters.AddWithValue("@Cant", n.Cant);
-
-                        command.ExecuteNonQuery();
-                        command.Parameters.Clear();
-                    }
-                }
-            }catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
-        }
-        
-        public void Insert_Sub_Nodo (E_Nodo n)
-        {
-            try
-            {
-                using (var connection = GetConnection())
-                {
-                    connection.Open();
-                    using (var command = new SqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandText = "SP_SUB_INSERT_NODO";
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.AddWithValue("@PADRE", n.Nodo_padre);
-                        command.Parameters.AddWithValue("@HIJO", n.Nodo_hijo);
-                        command.Parameters.AddWithValue("@cant", n.Cant);
-
-                        command.ExecuteNonQuery();
-                        command.Parameters.Clear();
-                    }
-                }
-            }catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
-        }
-        
-        public void Update_Nodo(E_Nodo n)
-        {
-            using (var conection = GetConnection())
-            {
-                conection.Open();
-
-                using (var command = new SqlCommand())
-                {
-                    command.Connection = conection;
-
-                    command.CommandText = "SP_UPDATE_NODO";
-                    command.CommandType = CommandType.StoredProcedure;
-
-                    //Parametros del Procedimiento almacenado
-                    command.Parameters.AddWithValue("@Id", n.Id_nodo);
-                    command.Parameters.AddWithValue("@cant", n.Cant);
-
-                    command.ExecuteNonQuery();
-                    command.Parameters.Clear();
-                }
-            }
-        }
-
-        public void Unsubscribe_Nodo(int id, int t)
-        {
-            using (var conection = GetConnection())
-            {
-                conection.Open();
-                using (var Command = new SqlCommand())
-                {
-                    Command.Connection = conection;
-
-                    Command.CommandText = "SP_DELETE_NODO";
-                    Command.CommandType = CommandType.StoredProcedure;
-
-                    Command.Parameters.AddWithValue("@Id", id);
-                    Command.Parameters.AddWithValue("@t", t);
-
-                    Command.ExecuteNonQuery();
-                    Command.Parameters.Clear();
-                }
-            }
-        }
-        
+        }        
         #endregion
     }
 }

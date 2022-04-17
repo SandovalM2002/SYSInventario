@@ -43,14 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionToSQL.cs" />
-    <Compile Include="Controller\C_Material.cs" />
     <Compile Include="Controller\C_ModeloABC.cs" />
     <Compile Include="Controller\C_Nodo.cs" />
-    <Compile Include="Controller\C_Producto.cs" />
-    <Compile Include="Entity\E_Material.cs" />
     <Compile Include="Entity\E_ModeloABC.cs" />
     <Compile Include="Entity\E_Nodo.cs" />
-    <Compile Include="Entity\E_Producto.cs" />
+    <Compile Include="Entity\E_Stock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

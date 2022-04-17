@@ -28,7 +28,7 @@ namespace Views.MRP
         
         private void FrmMRP_Load(object sender, EventArgs e)
         {
-            //CargarDataSQL();
+            CargarDataSQL();
             Load_DataTable("T");
             if (tvArbol.Nodes.Count <= 0)
             {
@@ -49,7 +49,7 @@ namespace Views.MRP
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            C_Nodo.Insert_Nodo("",id_hijo,true,txtCant.Value.ToString());
+            
             Load_DataTable("T");
             CargaDataTreeView();
 
@@ -66,7 +66,7 @@ namespace Views.MRP
 
         private void btnSubAdd_Click(object sender, EventArgs e)
         {
-            C_Nodo.Insert_Nodo(id_padre, id_hijo, false, txtCant.Value.ToString());
+           
             Load_DataTable("T");
             CargaDataTreeView();
         }
@@ -131,36 +131,7 @@ namespace Views.MRP
         #region "METODOS CREADOS"
         private void Load_DataTable(string tipo)
         {
-            if (tipo.Equals("P")) //PRODUCTOS
-            {
-                dgvDatos.DataSource = null;
-                dgvDatos.DataSource = C_Producto.view_search_producto("");
-            }
-            else if (tipo.Equals("M")) //MATERIALES
-            {
-                dgvDatos.DataSource = null;
-                dgvDatos.DataSource = C_Material.view_search_Material("");
-            }
-            else if (tipo.Equals("MRP"))
-            {
-                dgvMRP.DataSource = null;
-                dgvMRP.DataSource = C_Nodo.View_Nodo();
-            }
-            else if (tipo.Equals("T"))
-            {
-                dgvMRP.DataSource = null;
-                dgvMRP.DataSource = C_Nodo.View_Nodo();
-                if (rbtProducto.Checked.Equals(true))
-                {
-                    dgvDatos.DataSource = null;
-                    dgvDatos.DataSource = C_Producto.view_search_producto("");
-                }
-                else
-                {
-                    dgvDatos.DataSource = null;
-                    dgvDatos.DataSource = C_Material.view_search_Material("");
-                }
-            }
+
         }
 
         private void CargaDataTreeView()
@@ -201,23 +172,17 @@ namespace Views.MRP
 
         private void btnUpdate_Click_1(object sender, EventArgs e)
         {
-            C_Nodo.update_Nodo(id_mrp,txtCant.Value.ToString());
-            Load_DataTable("T");
-            CargaDataTreeView();
+
         }
 
         private void btnDelete_Click_1(object sender, EventArgs e)
         {
-            C_Nodo.delete_Nodo(id_mrp,0);
-            Load_DataTable("T");
-            CargaDataTreeView();
+
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            C_Nodo.delete_Nodo(id_mrp, 1);
-            Load_DataTable("T");
-            CargaDataTreeView();
+
         }
     }
 }
