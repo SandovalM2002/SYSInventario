@@ -2,22 +2,22 @@ CREATE DATABASE InventarioSYS
 go
 USE InventarioSYS
 go
-CREATE or alter PROC SP_ABC
+CREATE OR ALTER PROC SP_ABC
 AS
 BEGIN
-	DECLARE @A DECIMAL(18,2) = (SELECT 0.8*(SUM(totalInventario)) FROM STOCK_P)
-	DECLARE @B DECIMAL(18,2) = (SELECT 0.15*(SUM(totalInventario)) FROM STOCK_P)
-	DECLARE @C DECIMAL(18,2) = (SELECT 0.05*(SUM(totalInventario)) FROM STOCK_P)
+	DECLARE @A DECIMAL(18,2) = (SELECT 0.8*(SUM(totalMp)) FROM STOCK)
+	DECLARE @B DECIMAL(18,2) = (SELECT 0.15*(SUM(totalMp)) FROM STOCK)
+	DECLARE @C DECIMAL(18,2) = (SELECT 0.05*(SUM(totalMp)) FROM STOCK)
 
 	SELECT 
-		id_p as [Id],
-		nombre_p as [Nombre],
-		totalInventario[Valor Inventario],
+		id_s as [Cod],
+		nombre_s as [Nombre],
+		totalMp as [Total Inventario],
 		CASE
-			WHEN totalInventario <= @A AND totalInventario > @B THEN 'A'
-			WHEN totalInventario <= @B AND totalInventario > @C THEN 'B'
-			WHEN totalInventario <= @C THEN 'C'
+			WHEN totalMp >= @A AND totalMp > @B THEN 'A'
+			WHEN totalMp <= @B AND totalMp > @C THEN 'B'
+			WHEN totalMp <= @C THEN 'C'
 		END AS [CATEGORIA ABC]
-	FROM STOCK_P GROUP BY  id_p,nombre_p,totalInventario 
+	FROM STOCK GROUP BY  id_s,nombre_s,totalMp
 END;
 go
