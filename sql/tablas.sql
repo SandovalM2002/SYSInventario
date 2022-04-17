@@ -206,15 +206,3 @@ AS BEGIN
 	RETURN @RESULT
 END;
 go
-select * from NODO
-select * from MRP
-select * from DETALLE_MRP WHERE id_MRP = 4
-select * from STOCK
-select * from PLAN_MAESTRO
-select * from RECEPCION_PROGRAMADA
-go
-EXEC SP_EXPLOSION_MRP 4
-go
-EXEC SP_INSERT_MRP 4
-go
-drop table DETALLE_MRP
