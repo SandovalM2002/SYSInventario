@@ -64,6 +64,8 @@ namespace Views.Planeacion_Agregada
             this.gbOutS = new System.Windows.Forms.GroupBox();
             this.txtOutS = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtCostoUnitario = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDYD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlanificacion)).BeginInit();
             this.gbDatosGenerales.SuspendLayout();
@@ -96,6 +98,7 @@ namespace Views.Planeacion_Agregada
             // 
             this.txtPeriodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPeriodos.Location = new System.Drawing.Point(227, 46);
+            this.txtPeriodos.MaxLength = 2;
             this.txtPeriodos.Name = "txtPeriodos";
             this.txtPeriodos.Size = new System.Drawing.Size(100, 22);
             this.txtPeriodos.TabIndex = 49;
@@ -130,6 +133,7 @@ namespace Views.Planeacion_Agregada
             // dgvPlanificacion
             // 
             this.dgvPlanificacion.AllowUserToAddRows = false;
+            this.dgvPlanificacion.AllowUserToDeleteRows = false;
             this.dgvPlanificacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -138,9 +142,10 @@ namespace Views.Planeacion_Agregada
             this.dgvPlanificacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPlanificacion.Location = new System.Drawing.Point(466, 198);
             this.dgvPlanificacion.Name = "dgvPlanificacion";
+            this.dgvPlanificacion.ReadOnly = true;
             this.dgvPlanificacion.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvPlanificacion.RowTemplate.Height = 24;
-            this.dgvPlanificacion.Size = new System.Drawing.Size(648, 676);
+            this.dgvPlanificacion.Size = new System.Drawing.Size(648, 719);
             this.dgvPlanificacion.TabIndex = 52;
             // 
             // label3
@@ -181,7 +186,7 @@ namespace Views.Planeacion_Agregada
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(239, 838);
+            this.btnCalcular.Location = new System.Drawing.Point(239, 897);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(100, 23);
             this.btnCalcular.TabIndex = 57;
@@ -265,7 +270,7 @@ namespace Views.Planeacion_Agregada
             // 
             this.lblCosto.AutoSize = true;
             this.lblCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCosto.Location = new System.Drawing.Point(21, 838);
+            this.lblCosto.Location = new System.Drawing.Point(21, 897);
             this.lblCosto.Name = "lblCosto";
             this.lblCosto.Size = new System.Drawing.Size(114, 24);
             this.lblCosto.TabIndex = 68;
@@ -273,6 +278,8 @@ namespace Views.Planeacion_Agregada
             // 
             // gbDatosGenerales
             // 
+            this.gbDatosGenerales.Controls.Add(this.txtCostoUnitario);
+            this.gbDatosGenerales.Controls.Add(this.label13);
             this.gbDatosGenerales.Controls.Add(this.txtSS);
             this.gbDatosGenerales.Controls.Add(this.label2);
             this.gbDatosGenerales.Controls.Add(this.txtPeriodos);
@@ -285,7 +292,7 @@ namespace Views.Planeacion_Agregada
             this.gbDatosGenerales.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDatosGenerales.Location = new System.Drawing.Point(12, 31);
             this.gbDatosGenerales.Name = "gbDatosGenerales";
-            this.gbDatosGenerales.Size = new System.Drawing.Size(427, 252);
+            this.gbDatosGenerales.Size = new System.Drawing.Size(427, 307);
             this.gbDatosGenerales.TabIndex = 70;
             this.gbDatosGenerales.TabStop = false;
             this.gbDatosGenerales.Text = "Datos Generales";
@@ -299,7 +306,7 @@ namespace Views.Planeacion_Agregada
             this.gbPersecucion.Controls.Add(this.txtDespedir);
             this.gbPersecucion.Controls.Add(this.txtContratar);
             this.gbPersecucion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPersecucion.Location = new System.Drawing.Point(-1, 338);
+            this.gbPersecucion.Location = new System.Drawing.Point(-1, 397);
             this.gbPersecucion.Name = "gbPersecucion";
             this.gbPersecucion.Size = new System.Drawing.Size(427, 173);
             this.gbPersecucion.TabIndex = 71;
@@ -310,7 +317,7 @@ namespace Views.Planeacion_Agregada
             // 
             this.rbPersecucion.AutoSize = true;
             this.rbPersecucion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbPersecucion.Location = new System.Drawing.Point(12, 300);
+            this.rbPersecucion.Location = new System.Drawing.Point(12, 359);
             this.rbPersecucion.Name = "rbPersecucion";
             this.rbPersecucion.Size = new System.Drawing.Size(250, 28);
             this.rbPersecucion.TabIndex = 72;
@@ -341,7 +348,7 @@ namespace Views.Planeacion_Agregada
             // 
             this.rbFuerzaNiv.AutoSize = true;
             this.rbFuerzaNiv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFuerzaNiv.Location = new System.Drawing.Point(12, 517);
+            this.rbFuerzaNiv.Location = new System.Drawing.Point(12, 576);
             this.rbFuerzaNiv.Name = "rbFuerzaNiv";
             this.rbFuerzaNiv.Size = new System.Drawing.Size(271, 28);
             this.rbFuerzaNiv.TabIndex = 73;
@@ -357,7 +364,7 @@ namespace Views.Planeacion_Agregada
             this.gbFuerzaN.Controls.Add(this.label11);
             this.gbFuerzaN.Controls.Add(this.label10);
             this.gbFuerzaN.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbFuerzaN.Location = new System.Drawing.Point(13, 564);
+            this.gbFuerzaN.Location = new System.Drawing.Point(13, 623);
             this.gbFuerzaN.Name = "gbFuerzaN";
             this.gbFuerzaN.Size = new System.Drawing.Size(413, 116);
             this.gbFuerzaN.TabIndex = 74;
@@ -404,7 +411,7 @@ namespace Views.Planeacion_Agregada
             // 
             this.rbOutS.AutoSize = true;
             this.rbOutS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbOutS.Location = new System.Drawing.Point(13, 687);
+            this.rbOutS.Location = new System.Drawing.Point(13, 746);
             this.rbOutS.Name = "rbOutS";
             this.rbOutS.Size = new System.Drawing.Size(220, 28);
             this.rbOutS.TabIndex = 75;
@@ -418,7 +425,7 @@ namespace Views.Planeacion_Agregada
             this.gbOutS.Controls.Add(this.txtOutS);
             this.gbOutS.Controls.Add(this.label12);
             this.gbOutS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbOutS.Location = new System.Drawing.Point(13, 737);
+            this.gbOutS.Location = new System.Drawing.Point(13, 796);
             this.gbOutS.Name = "gbOutS";
             this.gbOutS.Size = new System.Drawing.Size(413, 98);
             this.gbOutS.TabIndex = 76;
@@ -443,11 +450,29 @@ namespace Views.Planeacion_Agregada
             this.label12.TabIndex = 62;
             this.label12.Text = "Costo Outsoursing";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(9, 255);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(167, 24);
+            this.label13.TabIndex = 77;
+            this.label13.Text = "Costo de la unidad\r\n";
+            // 
+            // txtCostoUnitario
+            // 
+            this.txtCostoUnitario.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCostoUnitario.Location = new System.Drawing.Point(227, 255);
+            this.txtCostoUnitario.Name = "txtCostoUnitario";
+            this.txtCostoUnitario.Size = new System.Drawing.Size(100, 22);
+            this.txtCostoUnitario.TabIndex = 77;
+            // 
             // FrmPlaneacionAgregada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1126, 886);
+            this.ClientSize = new System.Drawing.Size(1126, 929);
             this.Controls.Add(this.gbOutS);
             this.Controls.Add(this.rbOutS);
             this.Controls.Add(this.gbFuerzaN);
@@ -516,5 +541,7 @@ namespace Views.Planeacion_Agregada
         private System.Windows.Forms.GroupBox gbOutS;
         private System.Windows.Forms.TextBox txtOutS;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtCostoUnitario;
+        private System.Windows.Forms.Label label13;
     }
 }

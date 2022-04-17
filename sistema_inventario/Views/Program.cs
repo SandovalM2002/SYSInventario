@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Views.INVENTARIO;
 using Views.MRP;
 using Views.Planeacion_Agregada;
+using Views.Modelo_EOQ_ABCC;
 
 namespace Views
 {
@@ -19,7 +20,7 @@ namespace Views
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmPlaneacionAgregada());
+            Application.Run(new FrmDashboard());
         }
     }
 }

@@ -32,12 +32,12 @@ namespace Views
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDashboard));
             this.pnlLeft = new System.Windows.Forms.Panel();
             this.btnInformacion = new System.Windows.Forms.Button();
+            this.btnInventario = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.Logo = new System.Windows.Forms.PictureBox();
             this.lblLine = new System.Windows.Forms.Label();
             this.btnPModulo = new System.Windows.Forms.Button();
             this.padre = new System.Windows.Forms.Panel();
-            this.btnInventario = new System.Windows.Forms.Button();
-            this.Logo = new System.Windows.Forms.PictureBox();
             this.pnlLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
@@ -73,6 +73,30 @@ namespace Views
             this.btnInformacion.TabIndex = 0;
             this.btnInformacion.Text = "Acerca de";
             this.btnInformacion.UseVisualStyleBackColor = false;
+            this.btnInformacion.Click += new System.EventHandler(this.btnInformacion_Click);
+            // 
+            // btnInventario
+            // 
+            this.btnInventario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInventario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnInventario.FlatAppearance.BorderSize = 0;
+            this.btnInventario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
+            this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInventario.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventario.ForeColor = System.Drawing.Color.White;
+            this.btnInventario.Image = global::Views.Properties.Resources.box;
+            this.btnInventario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInventario.Location = new System.Drawing.Point(0, 182);
+            this.btnInventario.Name = "btnInventario";
+            this.btnInventario.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnInventario.Size = new System.Drawing.Size(229, 42);
+            this.btnInventario.TabIndex = 8;
+            this.btnInventario.Text = "   Inventario";
+            this.btnInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInventario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnInventario.UseVisualStyleBackColor = true;
+            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
             // 
             // lblTitle
             // 
@@ -83,6 +107,16 @@ namespace Views
             this.lblTitle.TabIndex = 5;
             this.lblTitle.Text = "Sistema de Inventario Automatizado\r\n";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Logo
+            // 
+            this.Logo.Image = global::Views.Properties.Resources.logo;
+            this.Logo.Location = new System.Drawing.Point(22, 18);
+            this.Logo.Name = "Logo";
+            this.Logo.Size = new System.Drawing.Size(61, 61);
+            this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Logo.TabIndex = 6;
+            this.Logo.TabStop = false;
             // 
             // lblLine
             // 
@@ -118,39 +152,6 @@ namespace Views
             this.padre.Name = "padre";
             this.padre.Size = new System.Drawing.Size(944, 735);
             this.padre.TabIndex = 1;
-            // 
-            // btnInventario
-            // 
-            this.btnInventario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInventario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnInventario.FlatAppearance.BorderSize = 0;
-            this.btnInventario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
-            this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInventario.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInventario.ForeColor = System.Drawing.Color.White;
-            this.btnInventario.Image = global::Views.Properties.Resources.box;
-            this.btnInventario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInventario.Location = new System.Drawing.Point(0, 182);
-            this.btnInventario.Name = "btnInventario";
-            this.btnInventario.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnInventario.Size = new System.Drawing.Size(229, 42);
-            this.btnInventario.TabIndex = 8;
-            this.btnInventario.Text = "   Inventario";
-            this.btnInventario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInventario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnInventario.UseVisualStyleBackColor = true;
-            this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
-            // 
-            // Logo
-            // 
-            this.Logo.Image = global::Views.Properties.Resources.logo;
-            this.Logo.Location = new System.Drawing.Point(22, 18);
-            this.Logo.Name = "Logo";
-            this.Logo.Size = new System.Drawing.Size(61, 61);
-            this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Logo.TabIndex = 6;
-            this.Logo.TabStop = false;
             // 
             // FrmDashboard
             // 

@@ -46,5 +46,10 @@ namespace Views
         {
             AgregarFormHijo(new INVENTARIO.FrmStock());
         }
+
+        private void btnInformacion_Click(object sender, EventArgs e)
+        {
+            AgregarFormHijo(new Home());
+        }
     }
 }

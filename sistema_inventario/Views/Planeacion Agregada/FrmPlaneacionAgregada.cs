@@ -58,7 +58,7 @@ namespace Views.Planeacion_Agregada
             string[] nombres = {"Inventario Inicial", "Pronóstico de la demanda", "Inventario de seguridad",
                 "Requerimiento de producción","Inventario final","Horas de producción requeridas","Días hábiles por mes",
             "Horas al mes por trabajador","Trabajadores requeridos","Nuevos trabajadores contratados","Costo de contratación",
-            "Despido de trabajadores","Costo de despido ","Costo del tiempo normal"};
+            "Despido de trabajadores","Costo de despido ","Costo del tiempo normal","Costo Total Produccion"};
             int periodos = int.Parse(txtPeriodos.Text);
             int horas = int.Parse(txtHoras.Text);
             int trabajadores = int.Parse(txtTrabajadores.Text);
@@ -66,8 +66,9 @@ namespace Views.Planeacion_Agregada
             double costoDespedir = double.Parse(txtDespedir.Text);
             double valorHora = double.Parse(txtValorHora.Text);
             double costoTotal = 0;
+            double costoUnidad = double.Parse(txtCostoUnitario.Text);
 
-            dgvPlanificacion.RowCount = 14;
+            dgvPlanificacion.RowCount = 15;
             dgvPlanificacion.ColumnCount = periodos;
 
             for (int i = 0; i < periodos; i++)
@@ -159,6 +160,11 @@ namespace Views.Planeacion_Agregada
                             dgvPlanificacion.Rows[fila].Cells[col].Style.ForeColor = Color.Red;
                             dgvPlanificacion.Rows[fila].Cells[col].Value = horasReq * valorHora;
                             break;
+                        case 14:
+                            costoTotal += reqProd * costoUnidad;
+                            dgvPlanificacion.Rows[fila].Cells[col].Style.ForeColor = Color.Red;
+                            dgvPlanificacion.Rows[fila].Cells[col].Value = reqProd * costoUnidad;
+                            break;
                     }
                 }
             }
@@ -171,15 +177,16 @@ namespace Views.Planeacion_Agregada
             double stockS = double.Parse(txtSS.Text) / 100;
             string[] nombres = {"Inventario Inicial", "Días hábiles por mes", "Horas de producción disponibles",
                 "Producción real","Pronóstico de la demanda","Inventario final","Costo de escasez",
-            "Inventario de seguridad","Unidades en exceso","Costo de inventarios","Costo del tiempo normal"};
+            "Inventario de seguridad","Unidades en exceso","Costo de inventarios","Costo del tiempo normal","Costo Total Produccion"};
             int periodos = int.Parse(txtPeriodos.Text);
             int horas = int.Parse(txtHoras.Text);
             double costoEscasez = double.Parse(txtEscasez.Text);
             double costoMantener = double.Parse(txtMantener.Text);
             double valorHora = double.Parse(txtValorHora.Text);
             double costoTotal = 0;
+            double costoUnidad = double.Parse(txtCostoUnitario.Text);
 
-            dgvPlanificacion.RowCount = 11;
+            dgvPlanificacion.RowCount = 12;
             dgvPlanificacion.ColumnCount = periodos;
 
             for (int i = 0; i < periodos; i++)
@@ -268,6 +275,11 @@ namespace Views.Planeacion_Agregada
                             dgvPlanificacion.Rows[fila].Cells[col].Value = Math.Round(horasDisponibles * valorHora);
                             costoTotal += Math.Round(horasDisponibles * valorHora);
                             break;
+                        case 11:
+                            dgvPlanificacion.Rows[fila].Cells[col].Style.ForeColor = Color.Red;
+                            dgvPlanificacion.Rows[fila].Cells[col].Value = Math.Round(produccionReal*costoUnidad);
+                            costoTotal += Math.Round(produccionReal * costoUnidad);
+                            break;
 
                     }
                 }
@@ -280,15 +292,16 @@ namespace Views.Planeacion_Agregada
             int invInicial = int.Parse(txtInvIni.Text);
             double stockS = double.Parse(txtSS.Text) / 100;
             string[] nombres = {"Requerimiento de producción", "Días hábiles por mes", "Horas de producción disponibles",
-                "Producción real","Unidades subcontratadas","Costo de la subcontratación","Costo del tiempo normal"};
+                "Producción real","Unidades subcontratadas","Costo de la subcontratación","Costo del tiempo normal","Costo Total Produccion"};
             int periodos = int.Parse(txtPeriodos.Text);
             int horas = int.Parse(txtHoras.Text);
             double valorHora = double.Parse(txtValorHora.Text);
             double costoOut = double.Parse(txtOutS.Text);
             double costoTotal = 0;
+            double costoUnidad = double.Parse(txtCostoUnitario.Text);
 
 
-            dgvPlanificacion.RowCount = 7;
+            dgvPlanificacion.RowCount = 8;
             dgvPlanificacion.ColumnCount = periodos;
 
             for (int i = 0; i < periodos; i++)
@@ -297,7 +310,8 @@ namespace Views.Planeacion_Agregada
             }
 
             int trabajadores = 0;
-            int min=1000;
+            int min = 0, v=0,diasT=0;            
+
             for (int i = 0; i < periodos; i++)
             {
                 int demanda = int.Parse(dgvDYD.Rows[0].Cells[i].Value.ToString());
@@ -305,14 +319,25 @@ namespace Views.Planeacion_Agregada
                 int invS = (int)((int)demanda * stockS);
                 int reqProd = demanda - invInicial + invS;
                 invInicial = invInicial - demanda + reqProd;
+                
+                min = reqProd;
 
-                if (min > reqProd)
+                if (min < v)
                 {
-                    min = reqProd;
-                    trabajadores = (min * horas) / (dias * 8);
-                    MessageBox.Show(trabajadores.ToString());
+                    v = min;
+                    diasT = dias;
                 }
+                else if (v == 0)
+                {
+                    v = min;
+                    diasT = dias;
+                }
+
             }
+
+            double aux = Math.Round((double)(v * horas) / (diasT * 8));
+            trabajadores = (int)aux;
+            MessageBox.Show(trabajadores.ToString());
 
             invInicial = int.Parse(txtInvIni.Text);
             for (int col = 0; col < periodos; col++)
@@ -358,6 +383,11 @@ namespace Views.Planeacion_Agregada
                             dgvPlanificacion.Rows[fila].Cells[col].Style.ForeColor = Color.Red;
                             dgvPlanificacion.Rows[fila].Cells[col].Value = Math.Round(horasDisponibles * valorHora);
                             costoTotal += Math.Round(horasDisponibles * valorHora);
+                            break;
+                        case 7:
+                            dgvPlanificacion.Rows[fila].Cells[col].Style.ForeColor = Color.Red;
+                            dgvPlanificacion.Rows[fila].Cells[col].Value = Math.Round(produccionReal * costoUnidad);
+                            costoTotal += Math.Round(produccionReal * costoUnidad);
                             break;
 
                     }
