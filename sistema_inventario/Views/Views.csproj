@@ -59,29 +59,35 @@
     <Compile Include="FrmDashboard.Designer.cs">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="INVENTARIO\FrmStock.cs">
+    <Compile Include="MODULO I\Cargas del Frame\FrmStock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="INVENTARIO\FrmStock.Designer.cs">
+    <Compile Include="MODULO I\Cargas del Frame\FrmStock.Designer.cs">
       <DependentUpon>FrmStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modelo EOQ-ABCC\FrmGestion.cs">
+    <Compile Include="MODULO I\Cargas del Frame\FrmModelos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modelo EOQ-ABCC\FrmGestion.Designer.cs">
-      <DependentUpon>FrmGestion.cs</DependentUpon>
+    <Compile Include="MODULO I\Cargas del Frame\FrmModelos.Designer.cs">
+      <DependentUpon>FrmModelos.cs</DependentUpon>
     </Compile>
-    <Compile Include="MRP\FrmMRP.cs">
+    <Compile Include="MODULO II\FrmMRP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MRP\FrmMRP.Designer.cs">
+    <Compile Include="MODULO II\FrmMRP.Designer.cs">
       <DependentUpon>FrmMRP.cs</DependentUpon>
     </Compile>
-    <Compile Include="Planeacion Agregada\FrmPlaneacionAgregada.cs">
+    <Compile Include="MODULO III\FrmPlaneacionAgregada.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Planeacion Agregada\FrmPlaneacionAgregada.Designer.cs">
+    <Compile Include="MODULO III\FrmPlaneacionAgregada.Designer.cs">
       <DependentUpon>FrmPlaneacionAgregada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MODULO I\FrmMenu_ModuloI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MODULO I\FrmMenu_ModuloI.Designer.cs">
+      <DependentUpon>FrmMenu_ModuloI.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,17 +97,20 @@
     <EmbeddedResource Include="FrmDashboard.resx">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="INVENTARIO\FrmStock.resx">
+    <EmbeddedResource Include="MODULO I\Cargas del Frame\FrmStock.resx">
       <DependentUpon>FrmStock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modelo EOQ-ABCC\FrmGestion.resx">
-      <DependentUpon>FrmGestion.cs</DependentUpon>
+    <EmbeddedResource Include="MODULO I\Cargas del Frame\FrmModelos.resx">
+      <DependentUpon>FrmModelos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MRP\FrmMRP.resx">
+    <EmbeddedResource Include="MODULO II\FrmMRP.resx">
       <DependentUpon>FrmMRP.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Planeacion Agregada\FrmPlaneacionAgregada.resx">
+    <EmbeddedResource Include="MODULO III\FrmPlaneacionAgregada.resx">
       <DependentUpon>FrmPlaneacionAgregada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MODULO I\FrmMenu_ModuloI.resx">
+      <DependentUpon>FrmMenu_ModuloI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -153,5 +162,18 @@
   <ItemGroup>
     <None Include="Resources\materials.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

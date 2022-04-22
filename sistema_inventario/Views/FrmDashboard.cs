@@ -42,7 +42,11 @@ namespace Views
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
-            AgregarFormHijo(new FrmStock());
+            if (id_frm_child != MODULO_I.FrmMenu_ModuloI.getFrameName())
+            {
+                AgregarFormHijo(new MODULO_I.FrmMenu_ModuloI());
+                id_frm_child = MODULO_I.FrmMenu_ModuloI.getFrameName();
+            }
         }
 
         private void btnHome_Click(object sender, EventArgs e)

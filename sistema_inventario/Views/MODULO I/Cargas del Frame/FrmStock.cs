@@ -13,24 +13,26 @@ namespace Views.INVENTARIO
 {
     public partial class FrmStock : Form
     {
-        private int _row;
-        public int id;
-        public string nombre;
-        public decimal costo;
-        public decimal precio;
-        public int stock;
-        public int stock_s;
+        private static string id_frm = "STOCK";
 
         public FrmStock()
         {
             InitializeComponent();
-            _row = 0;
         }
 
         private void FrmStock_Load(object sender, EventArgs e)
         {
            
         }
+        
+        public static string getFrameName()
+        {
+            return id_frm;
+        }
 
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
