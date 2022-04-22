@@ -1,7 +1,7 @@
 ﻿
 namespace Views.Modelo_EOQ_ABCC
 {
-    partial class ModelosCantidadOptima
+    partial class FrmGestion
     {
         /// <summary>
         /// Required designer variable.

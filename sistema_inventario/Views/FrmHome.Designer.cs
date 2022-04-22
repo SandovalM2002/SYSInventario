@@ -1,7 +1,7 @@
 ﻿
 namespace Views
 {
-    partial class Home
+    partial class FrmHome
     {
         /// <summary>
         /// Required designer variable.
@@ -34,24 +34,29 @@ namespace Views
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(27, 81);
+            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(294, 164);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(540, 148);
+            this.label1.Size = new System.Drawing.Size(247, 147);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Integrantes:\r\n\r\nOmar Jouse Sandoval Maldonado\r\nMayer Antonio Fonseca Solorzano";
+            this.label1.Text = "Integrantes:\r\n\r\nOmar Josue Sandoval Maldonado\r\nMayer Antonio Fonseca Solorzano\r\nE" +
+    "ngel\r\nClaudia\r\nScarleth\r\n";
             // 
-            // AcercaDe
+            // FrmHome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 476);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(828, 509);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "AcercaDe";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "FrmHome";
             this.Text = "AcercaDe";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);

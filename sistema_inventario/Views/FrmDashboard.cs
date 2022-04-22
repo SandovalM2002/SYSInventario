@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Views.INVENTARIO;
 
 namespace Views
 {
     public partial class FrmDashboard : Form
     {
+        private string id_frm_child;
+
         public FrmDashboard()
         {
             InitializeComponent();
@@ -20,7 +22,8 @@ namespace Views
 
         private void FrmDashboard_Load(object sender, EventArgs e)
         {
-
+            AgregarFormHijo(new FrmHome());
+            id_frm_child = FrmHome.getFrameName();
         }
 
         private void AgregarFormHijo(Object formHijo)
@@ -37,19 +40,18 @@ namespace Views
             fh.Show();
         }
 
-        private void btnPModulo_Click(object sender, EventArgs e)
-        {
-            AgregarFormHijo(new Modelo_EOQ_ABCC.ModelosCantidadOptima());
-        }
-        
         private void btnInventario_Click(object sender, EventArgs e)
         {
-            AgregarFormHijo(new INVENTARIO.FrmStock());
+            AgregarFormHijo(new FrmStock());
         }
 
-        private void btnInformacion_Click(object sender, EventArgs e)
+        private void btnHome_Click(object sender, EventArgs e)
         {
-            AgregarFormHijo(new Home());
+            if (id_frm_child != FrmHome.getFrameName())
+            {
+                AgregarFormHijo(new FrmHome());
+                id_frm_child = FrmHome.getFrameName();
+            }
         }
     }
 }

@@ -31,12 +31,13 @@ namespace Views
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDashboard));
             this.pnlLeft = new System.Windows.Forms.Panel();
-            this.btnInformacion = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnMRP = new System.Windows.Forms.Button();
             this.btnInventario = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.Logo = new System.Windows.Forms.PictureBox();
             this.lblLine = new System.Windows.Forms.Label();
-            this.btnPModulo = new System.Windows.Forms.Button();
             this.padre = new System.Windows.Forms.Panel();
             this.pnlLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
@@ -45,35 +46,85 @@ namespace Views
             // pnlLeft
             // 
             this.pnlLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
-            this.pnlLeft.Controls.Add(this.btnInformacion);
+            this.pnlLeft.Controls.Add(this.btnHome);
+            this.pnlLeft.Controls.Add(this.button2);
+            this.pnlLeft.Controls.Add(this.btnMRP);
             this.pnlLeft.Controls.Add(this.btnInventario);
             this.pnlLeft.Controls.Add(this.lblTitle);
             this.pnlLeft.Controls.Add(this.Logo);
             this.pnlLeft.Controls.Add(this.lblLine);
-            this.pnlLeft.Controls.Add(this.btnPModulo);
             this.pnlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlLeft.Location = new System.Drawing.Point(0, 0);
             this.pnlLeft.Name = "pnlLeft";
             this.pnlLeft.Size = new System.Drawing.Size(229, 735);
             this.pnlLeft.TabIndex = 0;
             // 
-            // btnInformacion
+            // btnHome
             // 
-            this.btnInformacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.btnHome.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnInformacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
-            this.btnInformacion.FlatAppearance.BorderSize = 0;
-            this.btnInformacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(74)))), ((int)(((byte)(144)))));
-            this.btnInformacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInformacion.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInformacion.ForeColor = System.Drawing.Color.White;
-            this.btnInformacion.Location = new System.Drawing.Point(47, 683);
-            this.btnInformacion.Name = "btnInformacion";
-            this.btnInformacion.Size = new System.Drawing.Size(136, 40);
-            this.btnInformacion.TabIndex = 0;
-            this.btnInformacion.Text = "Acerca de";
-            this.btnInformacion.UseVisualStyleBackColor = false;
-            this.btnInformacion.Click += new System.EventHandler(this.btnInformacion_Click);
+            this.btnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.ForeColor = System.Drawing.Color.White;
+            this.btnHome.Image = global::Views.Properties.Resources.home;
+            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.Location = new System.Drawing.Point(0, 191);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnHome.Size = new System.Drawing.Size(229, 42);
+            this.btnHome.TabIndex = 11;
+            this.btnHome.Text = "   Inicio";
+            this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Image = global::Views.Properties.Resources.human_resources;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(0, 335);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(229, 42);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "   Planeación Agregada";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // btnMRP
+            // 
+            this.btnMRP.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMRP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMRP.FlatAppearance.BorderSize = 0;
+            this.btnMRP.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
+            this.btnMRP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMRP.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMRP.ForeColor = System.Drawing.Color.White;
+            this.btnMRP.Image = global::Views.Properties.Resources.materials;
+            this.btnMRP.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMRP.Location = new System.Drawing.Point(0, 287);
+            this.btnMRP.Name = "btnMRP";
+            this.btnMRP.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnMRP.Size = new System.Drawing.Size(229, 42);
+            this.btnMRP.TabIndex = 9;
+            this.btnMRP.Text = "   MRP";
+            this.btnMRP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMRP.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMRP.UseVisualStyleBackColor = true;
             // 
             // btnInventario
             // 
@@ -87,7 +138,7 @@ namespace Views
             this.btnInventario.ForeColor = System.Drawing.Color.White;
             this.btnInventario.Image = global::Views.Properties.Resources.box;
             this.btnInventario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInventario.Location = new System.Drawing.Point(0, 182);
+            this.btnInventario.Location = new System.Drawing.Point(0, 239);
             this.btnInventario.Name = "btnInventario";
             this.btnInventario.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnInventario.Size = new System.Drawing.Size(229, 42);
@@ -126,24 +177,6 @@ namespace Views
             this.lblLine.Size = new System.Drawing.Size(3, 59);
             this.lblLine.TabIndex = 7;
             // 
-            // btnPModulo
-            // 
-            this.btnPModulo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPModulo.FlatAppearance.BorderSize = 0;
-            this.btnPModulo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
-            this.btnPModulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPModulo.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F);
-            this.btnPModulo.ForeColor = System.Drawing.Color.White;
-            this.btnPModulo.Location = new System.Drawing.Point(0, 230);
-            this.btnPModulo.Name = "btnPModulo";
-            this.btnPModulo.Size = new System.Drawing.Size(229, 44);
-            this.btnPModulo.TabIndex = 2;
-            this.btnPModulo.Text = "Cantidad Optima";
-            this.btnPModulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPModulo.UseVisualStyleBackColor = true;
-            this.btnPModulo.Click += new System.EventHandler(this.btnPModulo_Click);
-            // 
             // padre
             // 
             this.padre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(242)))));
@@ -177,13 +210,14 @@ namespace Views
         #endregion
 
         private System.Windows.Forms.Panel pnlLeft;
-        private System.Windows.Forms.Button btnPModulo;
         private System.Windows.Forms.Panel padre;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.PictureBox Logo;
         private System.Windows.Forms.Label lblLine;
         private System.Windows.Forms.Button btnInventario;
-        private System.Windows.Forms.Button btnInformacion;
+        private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnMRP;
     }
 }
 

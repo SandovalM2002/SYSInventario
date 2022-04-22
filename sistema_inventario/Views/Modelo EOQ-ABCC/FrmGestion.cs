@@ -12,9 +12,9 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Views.Modelo_EOQ_ABCC
 {
-    public partial class ModelosCantidadOptima : Form
+    public partial class FrmGestion : Form
     {
-        public ModelosCantidadOptima()
+        public FrmGestion()
         {
             InitializeComponent();
             Graficar(500, 30);
