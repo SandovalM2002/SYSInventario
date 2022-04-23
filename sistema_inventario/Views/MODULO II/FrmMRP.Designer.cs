@@ -42,33 +42,31 @@ namespace Views.MRP
             this.txtTiempo = new System.Windows.Forms.Panel();
             this.dgvMRP = new System.Windows.Forms.DataGridView();
             this.gBData = new System.Windows.Forms.GroupBox();
-            this.btnClear = new System.Windows.Forms.Button();
+            this.rbtSubNodo = new System.Windows.Forms.RadioButton();
+            this.rbtNodo = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnMod = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.txtPeriodos = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtCant = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnSubAdd = new System.Windows.Forms.Button();
-            this.rbtMaterial = new System.Windows.Forms.RadioButton();
             this.txtPadre = new System.Windows.Forms.TextBox();
-            this.rbtProducto = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtHijo = new System.Windows.Forms.TextBox();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tvArbol = new System.Windows.Forms.TreeView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnExplosion = new System.Windows.Forms.Button();
+            this.rbtPadre = new System.Windows.Forms.RadioButton();
+            this.rbtHijo = new System.Windows.Forms.RadioButton();
             this.tbMRP.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.txtTiempo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMRP)).BeginInit();
             this.gBData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPeriodos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCant)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
-            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbMRP
@@ -77,22 +75,22 @@ namespace Views.MRP
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbMRP.Controls.Add(this.tabPage1);
-            this.tbMRP.Controls.Add(this.tabPage2);
+            this.tbMRP.ItemSize = new System.Drawing.Size(91, 40);
             this.tbMRP.Location = new System.Drawing.Point(5, 12);
             this.tbMRP.Name = "tbMRP";
             this.tbMRP.SelectedIndex = 0;
-            this.tbMRP.Size = new System.Drawing.Size(831, 735);
+            this.tbMRP.Size = new System.Drawing.Size(898, 737);
             this.tbMRP.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.txtTiempo);
-            this.tabPage1.Location = new System.Drawing.Point(4, 28);
+            this.tabPage1.Location = new System.Drawing.Point(4, 44);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(823, 703);
+            this.tabPage1.Size = new System.Drawing.Size(890, 689);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "MRP-S         ";
+            this.tabPage1.Text = "MRP-S              ";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // txtTiempo
@@ -105,7 +103,7 @@ namespace Views.MRP
             this.txtTiempo.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTiempo.Location = new System.Drawing.Point(3, 3);
             this.txtTiempo.Name = "txtTiempo";
-            this.txtTiempo.Size = new System.Drawing.Size(817, 697);
+            this.txtTiempo.Size = new System.Drawing.Size(884, 683);
             this.txtTiempo.TabIndex = 0;
             // 
             // dgvMRP
@@ -144,7 +142,7 @@ namespace Views.MRP
             this.dgvMRP.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvMRP.EnableHeadersVisualStyles = false;
             this.dgvMRP.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
-            this.dgvMRP.Location = new System.Drawing.Point(364, 50);
+            this.dgvMRP.Location = new System.Drawing.Point(332, 50);
             this.dgvMRP.MultiSelect = false;
             this.dgvMRP.Name = "dgvMRP";
             this.dgvMRP.ReadOnly = true;
@@ -168,7 +166,7 @@ namespace Views.MRP
             dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
             this.dgvMRP.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvMRP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMRP.Size = new System.Drawing.Size(429, 283);
+            this.dgvMRP.Size = new System.Drawing.Size(528, 283);
             this.dgvMRP.TabIndex = 3;
             this.dgvMRP.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMRP_CellDoubleClick);
             // 
@@ -177,70 +175,138 @@ namespace Views.MRP
             this.gBData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gBData.Controls.Add(this.btnClear);
+            this.gBData.Controls.Add(this.rbtHijo);
+            this.gBData.Controls.Add(this.rbtPadre);
+            this.gBData.Controls.Add(this.rbtSubNodo);
+            this.gBData.Controls.Add(this.rbtNodo);
+            this.gBData.Controls.Add(this.label7);
             this.gBData.Controls.Add(this.btnDelete);
-            this.gBData.Controls.Add(this.btnUpdate);
+            this.gBData.Controls.Add(this.btnMod);
+            this.gBData.Controls.Add(this.btnAdd);
+            this.gBData.Controls.Add(this.txtPeriodos);
+            this.gBData.Controls.Add(this.label6);
             this.gBData.Controls.Add(this.txtCant);
             this.gBData.Controls.Add(this.label5);
             this.gBData.Controls.Add(this.dgvDatos);
-            this.gBData.Controls.Add(this.label4);
-            this.gBData.Controls.Add(this.btnSubAdd);
-            this.gBData.Controls.Add(this.rbtMaterial);
             this.gBData.Controls.Add(this.txtPadre);
-            this.gBData.Controls.Add(this.rbtProducto);
-            this.gBData.Controls.Add(this.label3);
-            this.gBData.Controls.Add(this.label2);
             this.gBData.Controls.Add(this.txtHijo);
-            this.gBData.Controls.Add(this.btnAdd);
-            this.gBData.Location = new System.Drawing.Point(29, 339);
+            this.gBData.Location = new System.Drawing.Point(29, 359);
             this.gBData.Name = "gBData";
-            this.gBData.Size = new System.Drawing.Size(764, 344);
+            this.gBData.Size = new System.Drawing.Size(831, 310);
             this.gBData.TabIndex = 2;
             this.gBData.TabStop = false;
             this.gBData.Text = "Datos Para el Mrp";
             // 
-            // btnClear
+            // rbtSubNodo
             // 
-            this.btnClear.Location = new System.Drawing.Point(32, 294);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(109, 31);
-            this.btnClear.TabIndex = 29;
-            this.btnClear.Text = "Borrar Todo";
-            this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.rbtSubNodo.AutoSize = true;
+            this.rbtSubNodo.Location = new System.Drawing.Point(84, 113);
+            this.rbtSubNodo.Name = "rbtSubNodo";
+            this.rbtSubNodo.Size = new System.Drawing.Size(86, 21);
+            this.rbtSubNodo.TabIndex = 36;
+            this.rbtSubNodo.Text = "Sub Nodo";
+            this.rbtSubNodo.UseVisualStyleBackColor = true;
+            // 
+            // rbtNodo
+            // 
+            this.rbtNodo.AutoSize = true;
+            this.rbtNodo.Location = new System.Drawing.Point(18, 113);
+            this.rbtNodo.Name = "rbtNodo";
+            this.rbtNodo.Size = new System.Drawing.Size(60, 21);
+            this.rbtNodo.TabIndex = 35;
+            this.rbtNodo.Text = "Nodo";
+            this.rbtNodo.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label7.Location = new System.Drawing.Point(15, 94);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 15);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "Agregar:";
             // 
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.Location = new System.Drawing.Point(595, 86);
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(51)))), ((int)(((byte)(67)))));
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDelete.Location = new System.Drawing.Point(697, 99);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(144, 31);
-            this.btnDelete.TabIndex = 28;
+            this.btnDelete.Size = new System.Drawing.Size(109, 35);
+            this.btnDelete.TabIndex = 33;
             this.btnDelete.Text = "Eliminar Nodo";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
+            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnDelete.UseVisualStyleBackColor = false;
             // 
-            // btnUpdate
+            // btnMod
             // 
-            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUpdate.Location = new System.Drawing.Point(445, 86);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(144, 31);
-            this.btnUpdate.TabIndex = 27;
-            this.btnUpdate.Text = "Modificar Nodo";
-            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
+            this.btnMod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
+            this.btnMod.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.btnMod.FlatAppearance.BorderSize = 0;
+            this.btnMod.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(51)))), ((int)(((byte)(67)))));
+            this.btnMod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMod.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMod.ForeColor = System.Drawing.Color.White;
+            this.btnMod.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMod.Location = new System.Drawing.Point(582, 99);
+            this.btnMod.Name = "btnMod";
+            this.btnMod.Size = new System.Drawing.Size(109, 35);
+            this.btnMod.TabIndex = 32;
+            this.btnMod.Text = "Modificar ";
+            this.btnMod.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnMod.UseVisualStyleBackColor = false;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(51)))), ((int)(((byte)(67)))));
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAdd.Location = new System.Drawing.Point(187, 99);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(109, 35);
+            this.btnAdd.TabIndex = 9;
+            this.btnAdd.Text = "Agregar";
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            // 
+            // txtPeriodos
+            // 
+            this.txtPeriodos.Location = new System.Drawing.Point(543, 48);
+            this.txtPeriodos.Name = "txtPeriodos";
+            this.txtPeriodos.Size = new System.Drawing.Size(109, 23);
+            this.txtPeriodos.TabIndex = 31;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label6.Location = new System.Drawing.Point(540, 24);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 16);
+            this.label6.TabIndex = 30;
+            this.label6.Text = "Periodos:";
             // 
             // txtCant
             // 
-            this.txtCant.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCant.Location = new System.Drawing.Point(32, 150);
+            this.txtCant.Location = new System.Drawing.Point(419, 48);
             this.txtCant.Name = "txtCant";
-            this.txtCant.Size = new System.Drawing.Size(204, 23);
+            this.txtCant.Size = new System.Drawing.Size(109, 23);
             this.txtCant.TabIndex = 26;
             // 
             // label5
@@ -248,11 +314,11 @@ namespace Views.MRP
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label5.Location = new System.Drawing.Point(29, 131);
+            this.label5.Location = new System.Drawing.Point(416, 24);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(147, 16);
+            this.label5.Size = new System.Drawing.Size(59, 16);
             this.label5.TabIndex = 24;
-            this.label5.Text = "Cantidad Requerida Nivel:";
+            this.label5.Text = "Cantidad:";
             // 
             // dgvDatos
             // 
@@ -291,7 +357,7 @@ namespace Views.MRP
             this.dgvDatos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvDatos.EnableHeadersVisualStyles = false;
             this.dgvDatos.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
-            this.dgvDatos.Location = new System.Drawing.Point(172, 192);
+            this.dgvDatos.Location = new System.Drawing.Point(18, 159);
             this.dgvDatos.MultiSelect = false;
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.ReadOnly = true;
@@ -315,110 +381,25 @@ namespace Views.MRP
             dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
             this.dgvDatos.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDatos.Size = new System.Drawing.Size(564, 146);
+            this.dgvDatos.Size = new System.Drawing.Size(788, 133);
             this.dgvDatos.TabIndex = 21;
             this.dgvDatos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellDoubleClick);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(29, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 16);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Nodo Padre:";
-            // 
-            // btnSubAdd
-            // 
-            this.btnSubAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSubAdd.Location = new System.Drawing.Point(445, 43);
-            this.btnSubAdd.Name = "btnSubAdd";
-            this.btnSubAdd.Size = new System.Drawing.Size(144, 31);
-            this.btnSubAdd.TabIndex = 19;
-            this.btnSubAdd.Text = "Agregar Sub Nodo";
-            this.btnSubAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSubAdd.UseVisualStyleBackColor = true;
-            this.btnSubAdd.Click += new System.EventHandler(this.btnSubAdd_Click);
-            // 
-            // rbtMaterial
-            // 
-            this.rbtMaterial.AutoSize = true;
-            this.rbtMaterial.Location = new System.Drawing.Point(32, 257);
-            this.rbtMaterial.Name = "rbtMaterial";
-            this.rbtMaterial.Size = new System.Drawing.Size(87, 21);
-            this.rbtMaterial.TabIndex = 20;
-            this.rbtMaterial.Text = "Materiales";
-            this.rbtMaterial.UseVisualStyleBackColor = true;
-            this.rbtMaterial.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
-            // 
             // txtPadre
             // 
-            this.txtPadre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPadre.Enabled = false;
-            this.txtPadre.Location = new System.Drawing.Point(32, 49);
+            this.txtPadre.Location = new System.Drawing.Point(18, 48);
             this.txtPadre.Name = "txtPadre";
-            this.txtPadre.Size = new System.Drawing.Size(204, 23);
+            this.txtPadre.Size = new System.Drawing.Size(175, 23);
             this.txtPadre.TabIndex = 12;
-            // 
-            // rbtProducto
-            // 
-            this.rbtProducto.AutoSize = true;
-            this.rbtProducto.Checked = true;
-            this.rbtProducto.Location = new System.Drawing.Point(32, 230);
-            this.rbtProducto.Name = "rbtProducto";
-            this.rbtProducto.Size = new System.Drawing.Size(79, 21);
-            this.rbtProducto.TabIndex = 19;
-            this.rbtProducto.TabStop = true;
-            this.rbtProducto.Text = "Producto";
-            this.rbtProducto.UseVisualStyleBackColor = true;
-            this.rbtProducto.CheckedChanged += new System.EventHandler(this.rbtProducto_CheckedChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(29, 86);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 15);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Nodo hijo:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(29, 201);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 15);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Ver Datos por:";
             // 
             // txtHijo
             // 
-            this.txtHijo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtHijo.Enabled = false;
-            this.txtHijo.Location = new System.Drawing.Point(32, 102);
+            this.txtHijo.Location = new System.Drawing.Point(216, 48);
             this.txtHijo.Name = "txtHijo";
-            this.txtHijo.Size = new System.Drawing.Size(204, 23);
+            this.txtHijo.Size = new System.Drawing.Size(176, 23);
             this.txtHijo.TabIndex = 10;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.Location = new System.Drawing.Point(595, 43);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(144, 31);
-            this.btnAdd.TabIndex = 4;
-            this.btnAdd.Text = "Agregar Nodo";
-            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label1
             // 
@@ -437,37 +418,41 @@ namespace Views.MRP
             this.tvArbol.ForeColor = System.Drawing.SystemColors.InfoText;
             this.tvArbol.Location = new System.Drawing.Point(29, 50);
             this.tvArbol.Name = "tvArbol";
-            this.tvArbol.Size = new System.Drawing.Size(303, 283);
+            this.tvArbol.Size = new System.Drawing.Size(246, 283);
             this.tvArbol.TabIndex = 0;
             // 
-            // tabPage2
+            // rbtPadre
             // 
-            this.tabPage2.Controls.Add(this.btnExplosion);
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(823, 703);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "MRP-E         ";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.rbtPadre.AutoSize = true;
+            this.rbtPadre.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold);
+            this.rbtPadre.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.rbtPadre.Location = new System.Drawing.Point(21, 22);
+            this.rbtPadre.Name = "rbtPadre";
+            this.rbtPadre.Size = new System.Drawing.Size(57, 20);
+            this.rbtPadre.TabIndex = 37;
+            this.rbtPadre.Text = "Padre";
+            this.rbtPadre.UseVisualStyleBackColor = true;
             // 
-            // btnExplosion
+            // rbtHijo
             // 
-            this.btnExplosion.Location = new System.Drawing.Point(40, 30);
-            this.btnExplosion.Name = "btnExplosion";
-            this.btnExplosion.Size = new System.Drawing.Size(131, 38);
-            this.btnExplosion.TabIndex = 1;
-            this.btnExplosion.Text = "EXPLOSION";
-            this.btnExplosion.UseVisualStyleBackColor = true;
+            this.rbtHijo.AutoSize = true;
+            this.rbtHijo.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold);
+            this.rbtHijo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.rbtHijo.Location = new System.Drawing.Point(217, 22);
+            this.rbtHijo.Name = "rbtHijo";
+            this.rbtHijo.Size = new System.Drawing.Size(48, 20);
+            this.rbtHijo.TabIndex = 38;
+            this.rbtHijo.Text = "Hijo";
+            this.rbtHijo.UseVisualStyleBackColor = true;
             // 
             // FrmMRP
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(51)))), ((int)(((byte)(67)))));
-            this.ClientSize = new System.Drawing.Size(841, 759);
+            this.ClientSize = new System.Drawing.Size(908, 761);
             this.Controls.Add(this.tbMRP);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmMRP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMRP";
@@ -479,9 +464,9 @@ namespace Views.MRP
             ((System.ComponentModel.ISupportInitialize)(this.dgvMRP)).EndInit();
             this.gBData.ResumeLayout(false);
             this.gBData.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPeriodos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCant)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
-            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -490,27 +475,25 @@ namespace Views.MRP
 
         private System.Windows.Forms.TabControl tbMRP;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel txtTiempo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TreeView tvArbol;
-        private System.Windows.Forms.Button btnExplosion;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox gBData;
         private System.Windows.Forms.TextBox txtHijo;
         private System.Windows.Forms.TextBox txtPadre;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnSubAdd;
-        private System.Windows.Forms.RadioButton rbtMaterial;
-        private System.Windows.Forms.RadioButton rbtProducto;
         private System.Windows.Forms.DataGridView dgvMRP;
         private System.Windows.Forms.DataGridView dgvDatos;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown txtCant;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.NumericUpDown txtPeriodos;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnMod;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.RadioButton rbtSubNodo;
+        private System.Windows.Forms.RadioButton rbtNodo;
+        private System.Windows.Forms.RadioButton rbtHijo;
+        private System.Windows.Forms.RadioButton rbtPadre;
     }
 }

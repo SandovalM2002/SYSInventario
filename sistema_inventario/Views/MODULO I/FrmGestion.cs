@@ -14,6 +14,7 @@ namespace Views.Modelo_EOQ_ABCC
 {
     public partial class FrmGestion : Form
     {
+
         public FrmGestion()
         {
             InitializeComponent();
@@ -267,5 +268,11 @@ namespace Views.Modelo_EOQ_ABCC
 
             #endregion
         }
+
+        public static string getFrameName()
+        {
+            return "EOQ";
+        }
+
     }
 }

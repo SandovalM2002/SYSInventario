@@ -28,60 +28,52 @@ namespace Views.MRP
         
         private void FrmMRP_Load(object sender, EventArgs e)
         {
-            CargarDataSQL();
-            Load_DataTable("T");
-            if (tvArbol.Nodes.Count <= 0)
-            {
-                btnSubAdd.Enabled = false;
-            }
+
         }
 
-        #region "METODOS GENERADOS"
         private void dgvDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex > -1)
+            try
             {
-                this.id_hijo = dgvDatos.Rows[e.RowIndex].Cells["Cod"].Value.ToString();
-                this.txtHijo.Text = dgvDatos.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
-                
-            }
-        }
+                if (e.RowIndex > -1)
+                {
+                    if (rbtPadre.Checked.Equals(true))
+                    {
+                        this.id_padre = dgvDatos.Rows[e.RowIndex].Cells["Cod"].Value.ToString();
+                        this.txtPadre.Text = dgvDatos.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            
-            Load_DataTable("T");
-            CargaDataTreeView();
-
-            if (tvArbol.Nodes.Count <= 0)
+                    }
+                    else if (rbtHijo.Checked.Equals(true))
+                    {
+                        this.id_hijo = dgvDatos.Rows[e.RowIndex].Cells["Cod"].Value.ToString();
+                        this.txtHijo.Text = dgvDatos.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+                    }
+                }
+            }catch(Exception ex)
             {
-                MessageBox.Show("Debe Ingresar un Nodo Para poder Agregar un Sub Nodo");
+                MessageBox.Show(ex.Message);
                 return;
             }
-            else
+        }
+
+        private void dgvMRP_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
             {
-                btnSubAdd.Enabled = true;
+                if (e.RowIndex > -1)
+                {
+                    this.id_mrp = dgvMRP.Rows[e.RowIndex].Cells["id_nodo"].Value.ToString();
+                    this.id_hijo = dgvMRP.Rows[e.RowIndex].Cells["nodo_hijo"].Value.ToString();
+                    this.txtHijo.Text = dgvMRP.Rows[e.RowIndex].Cells["des_nodo"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
 
-        private void btnSubAdd_Click(object sender, EventArgs e)
-        {
-           
-            Load_DataTable("T");
-            CargaDataTreeView();
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        #endregion
         #region "METODOS NODO"
         public void CargarDataSQL()
         {
@@ -105,84 +97,40 @@ namespace Views.MRP
         /// <param name="nodePadre"></param>
         private void CrearNodosDelPadre(int indicePadre, TreeNode nodePadre)
         {
-            // Crear un DataView con los Nodos que dependen del Nodo padre pasado como parámetro.
-            DataView dataViewHijos = new DataView(dtsN.Tables["Nodo"]);
-            dataViewHijos.RowFilter = dtsN.Tables["Nodo"].Columns["nodo_padre"].ColumnName + " = " + indicePadre;
-
-            // Agregar al TreeView los nodos Hijos que se han obtenido.
-            foreach (DataRowView dataRowCurrent in dataViewHijos)
+            try
             {
-                TreeNode nuevoNodo = new TreeNode();
-                nuevoNodo.Text = dataRowCurrent["des_nodo"].ToString().Trim();   //Dato a mostrar
-                nuevoNodo.Name = dataRowCurrent["nodo_hijo"].ToString().Trim();  //Valor guardado en le nombre 
+                // Crear un DataView con los Nodos que dependen del Nodo padre pasado como parámetro.
+                DataView dataViewHijos = new DataView(dtsN.Tables["Nodo"]);
+                dataViewHijos.RowFilter = dtsN.Tables["Nodo"].Columns["nodo_padre"].ColumnName + " = " + indicePadre;
 
-                // si el parámetro nodoPadre es nulo es porque es la primera llamada, son los Nodos
-                // del primer nivel que no dependen de otro nodo.
-                if (nodePadre == null)
-                    tvArbol.Nodes.Add(nuevoNodo);
-                else
-                    nodePadre.Nodes.Add(nuevoNodo); // se añade el nuevo nodo al nodo padre.
+                // Agregar al TreeView los nodos Hijos que se han obtenido.
+                foreach (DataRowView dataRowCurrent in dataViewHijos)
+                {
+                    TreeNode nuevoNodo = new TreeNode();
+                    nuevoNodo.Text = dataRowCurrent["des_nodo"].ToString().Trim();   //Dato a mostrar
+                    nuevoNodo.Name = dataRowCurrent["nodo_hijo"].ToString().Trim();  //Valor guardado en le nombre 
 
-                // Llamada recurrente al mismo método para agregar los Hijos del Nodo recién agregado.
-                CrearNodosDelPadre(Int32.Parse(dataRowCurrent["nodo_hijo"].ToString()), nuevoNodo);
+                    // si el parámetro nodoPadre es nulo es porque es la primera llamada, son los Nodos
+                    // del primer nivel que no dependen de otro nodo.
+                    if (nodePadre == null)
+                        tvArbol.Nodes.Add(nuevoNodo);
+                    else
+                        nodePadre.Nodes.Add(nuevoNodo); // se añade el nuevo nodo al nodo padre.
+
+                    // Llamada recurrente al mismo método para agregar los Hijos del Nodo recién agregado.
+                    CrearNodosDelPadre(Int32.Parse(dataRowCurrent["nodo_hijo"].ToString()), nuevoNodo);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
         #endregion
-        #region "METODOS CREADOS"
-        private void Load_DataTable(string tipo)
+        public static string getFrameName()
         {
-
-        }
-
-        private void CargaDataTreeView()
-        {
-            tvArbol.Nodes.Clear();
-            CargarDataSQL();
-            ClearTxt();
-        }
-
-        private void ClearTxt()
-        {
-            this.txtHijo.Text = "";
-            this.txtPadre.Text = "";
-            this.id_hijo = "";
-            this.id_padre = "";
-        }
-        #endregion
-
-        private void rbtProducto_CheckedChanged(object sender, EventArgs e)
-        {
-            Load_DataTable("P");
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            Load_DataTable("M");
-        }
-
-        private void dgvMRP_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex > -1)
-            {
-                this.id_mrp = dgvMRP.Rows[e.RowIndex].Cells["id_nodo"].Value.ToString();
-                this.id_padre = dgvMRP.Rows[e.RowIndex].Cells["nodo_hijo"].Value.ToString();
-                this.txtPadre.Text = dgvMRP.Rows[e.RowIndex].Cells["des_nodo"].Value.ToString();
-            }
-        }
-
-        private void btnUpdate_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDelete_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-
+            return "MRP";
         }
     }
 }

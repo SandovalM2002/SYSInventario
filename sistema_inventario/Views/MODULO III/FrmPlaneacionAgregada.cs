@@ -420,5 +420,10 @@ namespace Views.Planeacion_Agregada
             gbFuerzaN.Enabled = false;
             gbPersecucion.Enabled = false;
         }
+
+        public static string getFrame()
+        {
+            return "PLANEACION";
+        }
     }
 }

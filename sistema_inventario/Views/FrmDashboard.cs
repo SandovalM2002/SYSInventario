@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Views.INVENTARIO;
+using Views.MRP;
 
 namespace Views
 {
@@ -42,10 +43,10 @@ namespace Views
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
-            if (id_frm_child != MODULO_I.FrmMenu_ModuloI.getFrameName())
+            if (id_frm_child != FrmStock.getFrameName())
             {
-                AgregarFormHijo(new MODULO_I.FrmMenu_ModuloI());
-                id_frm_child = MODULO_I.FrmMenu_ModuloI.getFrameName();
+                AgregarFormHijo(new FrmStock());
+                id_frm_child = FrmStock.getFrameName();
             }
         }
 
@@ -55,6 +56,33 @@ namespace Views
             {
                 AgregarFormHijo(new FrmHome());
                 id_frm_child = FrmHome.getFrameName();
+            }
+        }
+
+        private void btnEOQ_Click(object sender, EventArgs e)
+        {
+            if (id_frm_child != Views.Modelo_EOQ_ABCC.FrmGestion.getFrameName())
+            {
+                AgregarFormHijo(new Modelo_EOQ_ABCC.FrmGestion());
+                id_frm_child = Modelo_EOQ_ABCC.FrmGestion.getFrameName();
+            }
+        }
+
+        private void btnMRP_Click(object sender, EventArgs e)
+        {
+            if (id_frm_child != FrmMRP.getFrameName())
+            {
+                AgregarFormHijo(new FrmMRP());
+                id_frm_child = FrmMRP.getFrameName();
+            }
+        }
+
+        private void btnPlaneacion_Agregada_Click(object sender, EventArgs e)
+        {
+            if (id_frm_child != Views.Planeacion_Agregada.FrmPlaneacionAgregada.getFrame())
+            {
+                AgregarFormHijo(new Planeacion_Agregada.FrmPlaneacionAgregada());
+                id_frm_child = Planeacion_Agregada.FrmPlaneacionAgregada.getFrame();
             }
         }
     }

@@ -24,6 +24,7 @@ AS BEGIN
 	END
 END;
 go
+
 CREATE OR ALTER PROC SP_VIEW_SEARCH_STOCK(@DATO VARCHAR(MAX), @T BIT) 
 AS BEGIN
 	IF (@T = 0) BEGIN
@@ -42,7 +43,8 @@ AS BEGIN
 				WHEN estado_mp = 1 THEN 'ACTIVO'
 				WHEN estado_mp = 0 THEN 'INACTIVO'
 			END AS [Estado]
-		FROM STOCK WHERE nombre_s LIKE @DATO + '%' OR
+		FROM STOCK WHERE estado_mp = 0 and 
+					     nombre_s LIKE @DATO + '%' OR
 						 estado_mp LIKE @DATO + '%'
 	END
 	ELSE IF (@T = 1) BEGIN
@@ -62,7 +64,8 @@ AS BEGIN
 				WHEN estado_mp = 1 THEN 'ACTIVO'
 				WHEN estado_mp = 0 THEN 'INACTIVO'
 			END AS [Estado]
-		FROM STOCK WHERE nombre_s LIKE @DATO + '%' OR
+		FROM STOCK WHERE estado_mp = 1 and 
+					     nombre_s LIKE @DATO + '%' OR
 						 estado_mp LIKE @DATO + '%'
 	END
 END
