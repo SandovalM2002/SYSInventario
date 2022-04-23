@@ -24,52 +24,34 @@ AS BEGIN
 	END
 END;
 go
-
-CREATE OR ALTER PROC SP_VIEW_SEARCH_STOCK(@DATO VARCHAR(MAX), @T BIT) 
+CREATE OR ALTER PROC SP_VIEW_SEARCH_STOCK(@DATO VARCHAR(MAX)) 
 AS BEGIN
-	IF (@T = 0) BEGIN
-		SELECT
-			id_s AS [Cod],
-			nombre_s AS [Nombre],
-			CASE 
-				WHEN tipo_s = 0 THEN 'MATERIAL'
-				WHEN tipo_s = 1 THEN 'PRODUCTO'
-			END AS [Tipo],
-			costo_s AS [Costo],
-			existencia_s AS [Inventario],
-			stock_seg_s AS [Stock Seguridad],
-			totalMp AS [Total],
-			CASE
-				WHEN estado_mp = 1 THEN 'ACTIVO'
-				WHEN estado_mp = 0 THEN 'INACTIVO'
-			END AS [Estado]
-		FROM STOCK WHERE estado_mp = 0 and 
-					     nombre_s LIKE @DATO + '%' OR
-						 estado_mp LIKE @DATO + '%'
-	END
-	ELSE IF (@T = 1) BEGIN
-		SELECT
-			id_s AS [Cod],
-			nombre_s AS [Nombre],
-			CASE 
-				WHEN tipo_s = 0 THEN 'MATERIAL'
-				WHEN tipo_s = 1 THEN 'PRODUCTO'
-			END AS [Tipo],
-			costo_s AS [Costo],
-			precio_p AS[Precio],
-			existencia_s AS [Inventario],
-			stock_seg_s AS [Stock Seguridad],
-			totalMp AS [Total],
-			CASE
-				WHEN estado_mp = 1 THEN 'ACTIVO'
-				WHEN estado_mp = 0 THEN 'INACTIVO'
-			END AS [Estado]
-		FROM STOCK WHERE estado_mp = 1 and 
-					     nombre_s LIKE @DATO + '%' OR
-						 estado_mp LIKE @DATO + '%'
-	END
+	SELECT
+		id_s AS [Cod],
+		nombre_s AS [Nombre],
+		CASE 
+			WHEN tipo_s = 0 THEN 'MATERIAL'
+			WHEN tipo_s = 1 THEN 'PRODUCTO'
+		END AS [Tipo],
+		costo_s AS [Costo],
+		precio_p AS[Precio],
+		existencia_s AS [Inventario],
+		stock_seg_s AS [Stock Seguridad],
+		totalMp AS [Total],
+		CASE
+			WHEN estado_mp = 1 THEN 'ACTIVO'
+			WHEN estado_mp = 0 THEN 'INACTIVO'
+		END AS [Estado]
+	FROM STOCK WHERE estado_mp = 1 and  nombre_s LIKE @DATO + '%'
 END
-GO
+
+
+
+
+
+go
+
+--------------------------------------||METODOS DEL NODO
 CREATE OR ALTER PROC SP_ADD_NODO (@p int, @h int, @q int, @t int)
 AS BEGIN
 	IF NOT EXISTS (SELECT nodo_hijo FROM NODO WHERE nodo_hijo =@h) BEGIN
@@ -85,8 +67,11 @@ END;
 go
 CREATE OR ALTER PROC SP_UPDATE_NODO (@Id int, @q int, @t int) 
 AS BEGIN
-	IF EXISTS (SELECT id_nodo FROM NODO WHERE id_nodo =@Id) BEGIN
-		UPDATE NODO SET cant_nodo =@q, t_nodo=@t WHERE id_nodo =@Id
+	IF EXISTS (SELECT id_nodo FROM NODO WHERE id_nodo = @Id) BEGIN
+		DECLARE @H AS INT = (SELECT nodo_hijo FROM NODO WHERE id_nodo = @Id)
+		DECLARE @DESC AS VARCHAR(70) = (SELECT nombre_s FROM STOCK WHERE id_s = @h) + '( '+convert(varchar,@q)+' )'
+
+		UPDATE NODO SET cant_nodo =@q, t_nodo=@t, des_nodo =@DESC WHERE id_nodo =@Id
 	END
 END
 go
@@ -99,6 +84,13 @@ END
 go
 CREATE OR ALTER PROC SP_VIEW_SEARCH_NODO 
 AS BEGIN
-	SELECT * FROM NODO N
+	SELECT  
+		id_nodo as [Cod],
+		nodo_padre as [Padre],
+		nodo_hijo as [Hijo],
+		des_nodo as [Descripción],
+		cant_nodo as [Cantidad],
+		t_nodo as [Periodos]
+	FROM NODO N
 END
 go

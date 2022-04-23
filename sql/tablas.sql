@@ -65,6 +65,18 @@ CREATE TABLE DETALLE_MRP
 );
 go
 --|| ==========================================================================|| STORAGE PROCEDURES MRP METODO LOTE X LOTE
+CREATE OR ALTER PROC SP_VIEW_MRP (@nodo int)
+AS BEGIN
+	SELECT 
+		periodo as [Periodo],
+		NB_MRP as [Necesidades Brutas],
+		RP_MRP as [Recepciones Programadas],
+		D_MRP as [Disponible],
+		RO_MRP as [Recepción de Orden],
+		LO_MRP as [Lanzamiento de Orden]
+	FROM DETALLE_MRP WHERE id_MRP = (SELECT id_MRP FROM MRP WHERE id_nodo = @nodo)
+END;
+go
 CREATE OR ALTER PROC SP_INSERT_MRP (@Nodo INT)
 AS BEGIN
 	IF NOT EXISTS (SELECT id_nodo FROM MRP WHERE id_nodo = @Nodo)
@@ -82,6 +94,8 @@ AS BEGIN
 	DECLARE @D INT
 	DECLARE @NN INT
 	
+	EXEC SP_INSERT_MRP @nodo
+
 	DECLARE @COUNT INT = 1
 
 	IF NOT EXISTS (SELECT id_MRP FROM DETALLE_MRP WHERE id_MRP = @MRP) BEGIN
@@ -206,3 +220,5 @@ AS BEGIN
 	RETURN @RESULT
 END;
 go
+exec SP_EXPLOSION_MRP 7
+select * from DETALLE_MRP where id_MRP = 3

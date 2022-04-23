@@ -21,6 +21,7 @@ namespace DataAcces.Entity
         private int total;
         private bool estado;
 
+        public E_Stock() { }
         public E_Stock(int id, string nombre, bool tipo, decimal costo, decimal precio, int stock, int stock_s, int total, bool estado)
         {
             this.id = id;
@@ -46,7 +47,7 @@ namespace DataAcces.Entity
 
         #region "STORAGE PROCEDURE IN DATABASE"
 
-        public DataTable View_Stock(string data, bool t)
+        public DataTable View_Stock(string data)
         {
             DataTable res = new DataTable();
             try
@@ -54,6 +55,7 @@ namespace DataAcces.Entity
                 using (var conection = GetConnection())
                 {
                     conection.Open();
+
                     using (var Command = new SqlCommand())
                     {
                         Command.Connection = conection;
@@ -63,7 +65,6 @@ namespace DataAcces.Entity
 
 
                         Command.Parameters.AddWithValue("@dato", data);
-                        Command.Parameters.AddWithValue("@T", t);
 
                         SqlDataAdapter leer = new SqlDataAdapter(Command);
                         leer.Fill(res);
@@ -119,9 +120,7 @@ namespace DataAcces.Entity
 
                     command.CommandText = "SP_UPDATE_STOCK";
                     command.CommandType = CommandType.StoredProcedure;
-
-                    //Parametros del Procedimiento almacenado
-                    
+  
                     command.Parameters.AddWithValue("@Id", producto.Id);
                     command.Parameters.AddWithValue("@N", producto.Nombre);
                     command.Parameters.AddWithValue("@T", producto.Tipo);

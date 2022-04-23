@@ -9,10 +9,9 @@ using System.Windows.Forms;
 
 namespace DataAcces.Entity
 {
-    public class E_ModeloABC:ConnectionToSQL
+    public class E_Explosion: ConnectionToSQL
     {
-    
-        public DataTable ABC()
+        public  DataTable View_Explosion(int nodo)
         {
             DataTable res = new DataTable();
             try
@@ -20,12 +19,15 @@ namespace DataAcces.Entity
                 using (var conection = GetConnection())
                 {
                     conection.Open();
+
                     using (var Command = new SqlCommand())
                     {
                         Command.Connection = conection;
 
-                        Command.CommandText = "SP_ABC";
+                        Command.CommandText = "SP_VIEW_MRP";
                         Command.CommandType = CommandType.StoredProcedure;
+
+                        Command.Parameters.AddWithValue("@nodo", nodo);
 
                         SqlDataAdapter leer = new SqlDataAdapter(Command);
                         leer.Fill(res);
@@ -40,6 +42,28 @@ namespace DataAcces.Entity
                 MessageBox.Show(e.Message);
             }
             return res;
+        }
+        
+        public void Insert_Explosion(int nodo) 
+        {
+            using (var conection = GetConnection())
+            {
+                conection.Open();
+
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = conection;
+
+                    command.CommandText = "SP_EXPLOSION_MRP";
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    //Parametros del Procedimiento almacenado
+                    command.Parameters.AddWithValue("@nodo", nodo);
+
+                    command.ExecuteNonQuery();
+                    command.Parameters.Clear();
+                }
+            }
         }
     }
 }

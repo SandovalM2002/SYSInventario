@@ -43,8 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionToSQL.cs" />
+    <Compile Include="Controller\C_Explosion.cs" />
     <Compile Include="Controller\C_ModeloABC.cs" />
     <Compile Include="Controller\C_Nodo.cs" />
+    <Compile Include="Controller\C_Stock.cs" />
+    <Compile Include="Entity\E_Explosion.cs" />
     <Compile Include="Entity\E_ModeloABC.cs" />
     <Compile Include="Entity\E_Nodo.cs" />
     <Compile Include="Entity\E_Stock.cs" />
