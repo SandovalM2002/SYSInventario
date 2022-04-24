@@ -29,12 +29,18 @@ namespace Views.Planeacion_Agregada
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPeriodos = new System.Windows.Forms.TextBox();
             this.btnGenerar = new System.Windows.Forms.Button();
-            this.dgvDYD = new System.Windows.Forms.DataGridView();
-            this.dgvPlanificacion = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.txtInvIni = new System.Windows.Forms.TextBox();
             this.txtSS = new System.Windows.Forms.TextBox();
@@ -52,10 +58,10 @@ namespace Views.Planeacion_Agregada
             this.gbDatosGenerales = new System.Windows.Forms.GroupBox();
             this.txtCostoUnitario = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.gbPersecucion = new System.Windows.Forms.GroupBox();
-            this.rbPersecucion = new System.Windows.Forms.RadioButton();
             this.txtValorHora = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.gbPersecucion = new System.Windows.Forms.GroupBox();
+            this.rbPersecucion = new System.Windows.Forms.RadioButton();
             this.rbFuerzaNiv = new System.Windows.Forms.RadioButton();
             this.gbFuerzaN = new System.Windows.Forms.GroupBox();
             this.txtMantener = new System.Windows.Forms.TextBox();
@@ -66,12 +72,14 @@ namespace Views.Planeacion_Agregada
             this.gbOutS = new System.Windows.Forms.GroupBox();
             this.txtOutS = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDYD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlanificacion)).BeginInit();
+            this.dgvPlanificacion = new System.Windows.Forms.DataGridView();
+            this.dgvDYD = new System.Windows.Forms.DataGridView();
             this.gbDatosGenerales.SuspendLayout();
             this.gbPersecucion.SuspendLayout();
             this.gbFuerzaN.SuspendLayout();
             this.gbOutS.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPlanificacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDYD)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -81,7 +89,7 @@ namespace Views.Planeacion_Agregada
             this.label2.Location = new System.Drawing.Point(4, 37);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(152, 18);
+            this.label2.Size = new System.Drawing.Size(195, 24);
             this.label2.TabIndex = 48;
             this.label2.Text = "Cantidad de periodos:";
             // 
@@ -92,7 +100,7 @@ namespace Views.Planeacion_Agregada
             this.label1.Location = new System.Drawing.Point(372, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(235, 26);
+            this.label1.Size = new System.Drawing.Size(309, 32);
             this.label1.TabIndex = 47;
             this.label1.Text = "Planificacion Agregada";
             // 
@@ -103,8 +111,9 @@ namespace Views.Planeacion_Agregada
             this.txtPeriodos.Margin = new System.Windows.Forms.Padding(2);
             this.txtPeriodos.MaxLength = 2;
             this.txtPeriodos.Name = "txtPeriodos";
-            this.txtPeriodos.Size = new System.Drawing.Size(76, 22);
+            this.txtPeriodos.Size = new System.Drawing.Size(76, 26);
             this.txtPeriodos.TabIndex = 49;
+            this.txtPeriodos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosEnteros);
             // 
             // btnGenerar
             // 
@@ -118,42 +127,6 @@ namespace Views.Planeacion_Agregada
             this.btnGenerar.UseVisualStyleBackColor = true;
             this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
-            // dgvDYD
-            // 
-            this.dgvDYD.AllowUserToAddRows = false;
-            this.dgvDYD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvDYD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDYD.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvDYD.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            this.dgvDYD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDYD.Location = new System.Drawing.Point(377, 86);
-            this.dgvDYD.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvDYD.Name = "dgvDYD";
-            this.dgvDYD.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvDYD.RowTemplate.Height = 24;
-            this.dgvDYD.Size = new System.Drawing.Size(506, 86);
-            this.dgvDYD.TabIndex = 51;
-            // 
-            // dgvPlanificacion
-            // 
-            this.dgvPlanificacion.AllowUserToAddRows = false;
-            this.dgvPlanificacion.AllowUserToDeleteRows = false;
-            this.dgvPlanificacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvPlanificacion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPlanificacion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvPlanificacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPlanificacion.Location = new System.Drawing.Point(377, 187);
-            this.dgvPlanificacion.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvPlanificacion.Name = "dgvPlanificacion";
-            this.dgvPlanificacion.ReadOnly = true;
-            this.dgvPlanificacion.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgvPlanificacion.RowTemplate.Height = 24;
-            this.dgvPlanificacion.Size = new System.Drawing.Size(506, 550);
-            this.dgvPlanificacion.TabIndex = 52;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -161,7 +134,7 @@ namespace Views.Planeacion_Agregada
             this.label3.Location = new System.Drawing.Point(4, 72);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 18);
+            this.label3.Size = new System.Drawing.Size(148, 24);
             this.label3.TabIndex = 53;
             this.label3.Text = "Inventario Inicial:\r\n";
             // 
@@ -171,8 +144,9 @@ namespace Views.Planeacion_Agregada
             this.txtInvIni.Location = new System.Drawing.Point(163, 72);
             this.txtInvIni.Margin = new System.Windows.Forms.Padding(2);
             this.txtInvIni.Name = "txtInvIni";
-            this.txtInvIni.Size = new System.Drawing.Size(76, 22);
+            this.txtInvIni.Size = new System.Drawing.Size(76, 26);
             this.txtInvIni.TabIndex = 54;
+            this.txtInvIni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
             // txtSS
             // 
@@ -180,7 +154,7 @@ namespace Views.Planeacion_Agregada
             this.txtSS.Location = new System.Drawing.Point(163, 101);
             this.txtSS.Margin = new System.Windows.Forms.Padding(2);
             this.txtSS.Name = "txtSS";
-            this.txtSS.Size = new System.Drawing.Size(76, 22);
+            this.txtSS.Size = new System.Drawing.Size(76, 26);
             this.txtSS.TabIndex = 55;
             // 
             // label4
@@ -190,7 +164,7 @@ namespace Views.Planeacion_Agregada
             this.label4.Location = new System.Drawing.Point(4, 103);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(150, 18);
+            this.label4.Size = new System.Drawing.Size(189, 24);
             this.label4.TabIndex = 56;
             this.label4.Text = "% stock de seguridad";
             // 
@@ -213,7 +187,7 @@ namespace Views.Planeacion_Agregada
             this.label5.Location = new System.Drawing.Point(4, 132);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(122, 18);
+            this.label5.Size = new System.Drawing.Size(155, 24);
             this.label5.TabIndex = 58;
             this.label5.Text = "Horas requeridas";
             // 
@@ -223,7 +197,7 @@ namespace Views.Planeacion_Agregada
             this.txtHoras.Location = new System.Drawing.Point(163, 132);
             this.txtHoras.Margin = new System.Windows.Forms.Padding(2);
             this.txtHoras.Name = "txtHoras";
-            this.txtHoras.Size = new System.Drawing.Size(76, 22);
+            this.txtHoras.Size = new System.Drawing.Size(76, 26);
             this.txtHoras.TabIndex = 59;
             // 
             // label6
@@ -233,7 +207,7 @@ namespace Views.Planeacion_Agregada
             this.label6.Location = new System.Drawing.Point(16, 31);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(155, 18);
+            this.label6.Size = new System.Drawing.Size(198, 24);
             this.label6.TabIndex = 60;
             this.label6.Text = "Trabajadores Actuales\r\n";
             // 
@@ -243,7 +217,7 @@ namespace Views.Planeacion_Agregada
             this.txtTrabajadores.Location = new System.Drawing.Point(180, 31);
             this.txtTrabajadores.Margin = new System.Windows.Forms.Padding(2);
             this.txtTrabajadores.Name = "txtTrabajadores";
-            this.txtTrabajadores.Size = new System.Drawing.Size(122, 22);
+            this.txtTrabajadores.Size = new System.Drawing.Size(122, 26);
             this.txtTrabajadores.TabIndex = 61;
             // 
             // label7
@@ -253,7 +227,7 @@ namespace Views.Planeacion_Agregada
             this.label7.Location = new System.Drawing.Point(15, 65);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(132, 18);
+            this.label7.Size = new System.Drawing.Size(162, 24);
             this.label7.TabIndex = 62;
             this.label7.Text = "Costo de contratar";
             // 
@@ -264,7 +238,7 @@ namespace Views.Planeacion_Agregada
             this.label8.Location = new System.Drawing.Point(16, 101);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(129, 18);
+            this.label8.Size = new System.Drawing.Size(164, 24);
             this.label8.TabIndex = 63;
             this.label8.Text = "Costo de despedir\r\n";
             // 
@@ -274,7 +248,7 @@ namespace Views.Planeacion_Agregada
             this.txtContratar.Location = new System.Drawing.Point(180, 65);
             this.txtContratar.Margin = new System.Windows.Forms.Padding(2);
             this.txtContratar.Name = "txtContratar";
-            this.txtContratar.Size = new System.Drawing.Size(122, 22);
+            this.txtContratar.Size = new System.Drawing.Size(122, 26);
             this.txtContratar.TabIndex = 65;
             // 
             // txtDespedir
@@ -283,7 +257,7 @@ namespace Views.Planeacion_Agregada
             this.txtDespedir.Location = new System.Drawing.Point(180, 101);
             this.txtDespedir.Margin = new System.Windows.Forms.Padding(2);
             this.txtDespedir.Name = "txtDespedir";
-            this.txtDespedir.Size = new System.Drawing.Size(122, 22);
+            this.txtDespedir.Size = new System.Drawing.Size(122, 26);
             this.txtDespedir.TabIndex = 66;
             // 
             // lblCosto
@@ -293,7 +267,7 @@ namespace Views.Planeacion_Agregada
             this.lblCosto.Location = new System.Drawing.Point(374, 49);
             this.lblCosto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCosto.Name = "lblCosto";
-            this.lblCosto.Size = new System.Drawing.Size(94, 18);
+            this.lblCosto.Size = new System.Drawing.Size(114, 24);
             this.lblCosto.TabIndex = 68;
             this.lblCosto.Text = "Costo Total: ";
             // 
@@ -328,7 +302,7 @@ namespace Views.Planeacion_Agregada
             this.txtCostoUnitario.Location = new System.Drawing.Point(163, 185);
             this.txtCostoUnitario.Margin = new System.Windows.Forms.Padding(2);
             this.txtCostoUnitario.Name = "txtCostoUnitario";
-            this.txtCostoUnitario.Size = new System.Drawing.Size(76, 22);
+            this.txtCostoUnitario.Size = new System.Drawing.Size(76, 26);
             this.txtCostoUnitario.TabIndex = 77;
             // 
             // label13
@@ -338,9 +312,29 @@ namespace Views.Planeacion_Agregada
             this.label13.Location = new System.Drawing.Point(4, 188);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(131, 18);
+            this.label13.Size = new System.Drawing.Size(167, 24);
             this.label13.TabIndex = 77;
             this.label13.Text = "Costo de la unidad\r\n";
+            // 
+            // txtValorHora
+            // 
+            this.txtValorHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValorHora.Location = new System.Drawing.Point(163, 159);
+            this.txtValorHora.Margin = new System.Windows.Forms.Padding(2);
+            this.txtValorHora.Name = "txtValorHora";
+            this.txtValorHora.Size = new System.Drawing.Size(76, 26);
+            this.txtValorHora.TabIndex = 69;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(4, 162);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(182, 24);
+            this.label9.TabIndex = 68;
+            this.label9.Text = "Costo hora trabajada\r\n";
             // 
             // gbPersecucion
             // 
@@ -366,32 +360,12 @@ namespace Views.Planeacion_Agregada
             this.rbPersecucion.Location = new System.Drawing.Point(17, 302);
             this.rbPersecucion.Margin = new System.Windows.Forms.Padding(2);
             this.rbPersecucion.Name = "rbPersecucion";
-            this.rbPersecucion.Size = new System.Drawing.Size(222, 22);
+            this.rbPersecucion.Size = new System.Drawing.Size(275, 28);
             this.rbPersecucion.TabIndex = 72;
             this.rbPersecucion.TabStop = true;
             this.rbPersecucion.Text = "Estrategia de persecución";
             this.rbPersecucion.UseVisualStyleBackColor = true;
             this.rbPersecucion.CheckedChanged += new System.EventHandler(this.rbPersecucion_CheckedChanged);
-            // 
-            // txtValorHora
-            // 
-            this.txtValorHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValorHora.Location = new System.Drawing.Point(163, 159);
-            this.txtValorHora.Margin = new System.Windows.Forms.Padding(2);
-            this.txtValorHora.Name = "txtValorHora";
-            this.txtValorHora.Size = new System.Drawing.Size(76, 22);
-            this.txtValorHora.TabIndex = 69;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(4, 162);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(147, 18);
-            this.label9.TabIndex = 68;
-            this.label9.Text = "Costo hora trabajada\r\n";
             // 
             // rbFuerzaNiv
             // 
@@ -400,7 +374,7 @@ namespace Views.Planeacion_Agregada
             this.rbFuerzaNiv.Location = new System.Drawing.Point(18, 473);
             this.rbFuerzaNiv.Margin = new System.Windows.Forms.Padding(2);
             this.rbFuerzaNiv.Name = "rbFuerzaNiv";
-            this.rbFuerzaNiv.Size = new System.Drawing.Size(243, 22);
+            this.rbFuerzaNiv.Size = new System.Drawing.Size(300, 28);
             this.rbFuerzaNiv.TabIndex = 73;
             this.rbFuerzaNiv.TabStop = true;
             this.rbFuerzaNiv.Text = "Estrategia de fuerza nivelada";
@@ -428,7 +402,7 @@ namespace Views.Planeacion_Agregada
             this.txtMantener.Location = new System.Drawing.Point(178, 61);
             this.txtMantener.Margin = new System.Windows.Forms.Padding(2);
             this.txtMantener.Name = "txtMantener";
-            this.txtMantener.Size = new System.Drawing.Size(122, 22);
+            this.txtMantener.Size = new System.Drawing.Size(122, 26);
             this.txtMantener.TabIndex = 68;
             // 
             // txtEscasez
@@ -437,7 +411,7 @@ namespace Views.Planeacion_Agregada
             this.txtEscasez.Location = new System.Drawing.Point(178, 28);
             this.txtEscasez.Margin = new System.Windows.Forms.Padding(2);
             this.txtEscasez.Name = "txtEscasez";
-            this.txtEscasez.Size = new System.Drawing.Size(122, 22);
+            this.txtEscasez.Size = new System.Drawing.Size(122, 26);
             this.txtEscasez.TabIndex = 67;
             // 
             // label11
@@ -447,7 +421,7 @@ namespace Views.Planeacion_Agregada
             this.label11.Location = new System.Drawing.Point(10, 61);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(135, 18);
+            this.label11.Size = new System.Drawing.Size(170, 24);
             this.label11.TabIndex = 62;
             this.label11.Text = "Costo de mantener\r\n";
             // 
@@ -458,7 +432,7 @@ namespace Views.Planeacion_Agregada
             this.label10.Location = new System.Drawing.Point(10, 28);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(129, 18);
+            this.label10.Size = new System.Drawing.Size(159, 24);
             this.label10.TabIndex = 61;
             this.label10.Text = "Costo de escasez\r\n";
             // 
@@ -469,7 +443,7 @@ namespace Views.Planeacion_Agregada
             this.rbOutS.Location = new System.Drawing.Point(18, 631);
             this.rbOutS.Margin = new System.Windows.Forms.Padding(2);
             this.rbOutS.Name = "rbOutS";
-            this.rbOutS.Size = new System.Drawing.Size(199, 22);
+            this.rbOutS.Size = new System.Drawing.Size(242, 28);
             this.rbOutS.TabIndex = 75;
             this.rbOutS.TabStop = true;
             this.rbOutS.Text = "Estrategia Outsoursing";
@@ -495,7 +469,7 @@ namespace Views.Planeacion_Agregada
             this.txtOutS.Location = new System.Drawing.Point(178, 32);
             this.txtOutS.Margin = new System.Windows.Forms.Padding(2);
             this.txtOutS.Name = "txtOutS";
-            this.txtOutS.Size = new System.Drawing.Size(122, 22);
+            this.txtOutS.Size = new System.Drawing.Size(122, 26);
             this.txtOutS.TabIndex = 63;
             // 
             // label12
@@ -505,15 +479,133 @@ namespace Views.Planeacion_Agregada
             this.label12.Location = new System.Drawing.Point(10, 32);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(134, 18);
+            this.label12.Size = new System.Drawing.Size(165, 24);
             this.label12.TabIndex = 62;
             this.label12.Text = "Costo Outsoursing";
+            // 
+            // dgvPlanificacion
+            // 
+            this.dgvPlanificacion.AllowUserToAddRows = false;
+            this.dgvPlanificacion.AllowUserToDeleteRows = false;
+            this.dgvPlanificacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvPlanificacion.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPlanificacion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvPlanificacion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            this.dgvPlanificacion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvPlanificacion.CausesValidation = false;
+            this.dgvPlanificacion.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvPlanificacion.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dgvPlanificacion.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPlanificacion.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvPlanificacion.ColumnHeadersHeight = 42;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPlanificacion.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvPlanificacion.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvPlanificacion.EnableHeadersVisualStyles = false;
+            this.dgvPlanificacion.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            this.dgvPlanificacion.Location = new System.Drawing.Point(378, 181);
+            this.dgvPlanificacion.MultiSelect = false;
+            this.dgvPlanificacion.Name = "dgvPlanificacion";
+            this.dgvPlanificacion.ReadOnly = true;
+            this.dgvPlanificacion.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPlanificacion.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvPlanificacion.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvPlanificacion.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvPlanificacion.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPlanificacion.Size = new System.Drawing.Size(505, 556);
+            this.dgvPlanificacion.TabIndex = 77;
+            // 
+            // dgvDYD
+            // 
+            this.dgvDYD.AllowUserToAddRows = false;
+            this.dgvDYD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDYD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDYD.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvDYD.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            this.dgvDYD.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvDYD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDYD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvDYD.ColumnHeadersHeight = 39;
+            this.dgvDYD.Cursor = System.Windows.Forms.Cursors.Default;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(48)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDYD.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvDYD.EnableHeadersVisualStyles = false;
+            this.dgvDYD.GridColor = System.Drawing.Color.DimGray;
+            this.dgvDYD.Location = new System.Drawing.Point(378, 79);
+            this.dgvDYD.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvDYD.Name = "dgvDYD";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDYD.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvDYD.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvDYD.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvDYD.RowTemplate.Height = 24;
+            this.dgvDYD.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvDYD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvDYD.Size = new System.Drawing.Size(505, 85);
+            this.dgvDYD.TabIndex = 78;
             // 
             // FrmPlaneacionAgregada
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(894, 790);
+            this.Controls.Add(this.dgvDYD);
+            this.Controls.Add(this.dgvPlanificacion);
             this.Controls.Add(this.gbOutS);
             this.Controls.Add(this.rbOutS);
             this.Controls.Add(this.gbFuerzaN);
@@ -523,16 +615,12 @@ namespace Views.Planeacion_Agregada
             this.Controls.Add(this.gbDatosGenerales);
             this.Controls.Add(this.lblCosto);
             this.Controls.Add(this.btnCalcular);
-            this.Controls.Add(this.dgvPlanificacion);
-            this.Controls.Add(this.dgvDYD);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmPlaneacionAgregada";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPlaneacionAgregada";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDYD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlanificacion)).EndInit();
             this.gbDatosGenerales.ResumeLayout(false);
             this.gbDatosGenerales.PerformLayout();
             this.gbPersecucion.ResumeLayout(false);
@@ -541,6 +629,8 @@ namespace Views.Planeacion_Agregada
             this.gbFuerzaN.PerformLayout();
             this.gbOutS.ResumeLayout(false);
             this.gbOutS.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPlanificacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDYD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -552,8 +642,6 @@ namespace Views.Planeacion_Agregada
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtPeriodos;
         private System.Windows.Forms.Button btnGenerar;
-        private System.Windows.Forms.DataGridView dgvDYD;
-        private System.Windows.Forms.DataGridView dgvPlanificacion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtInvIni;
         private System.Windows.Forms.TextBox txtSS;
@@ -585,5 +673,7 @@ namespace Views.Planeacion_Agregada
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtCostoUnitario;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridView dgvPlanificacion;
+        private System.Windows.Forms.DataGridView dgvDYD;
     }
 }

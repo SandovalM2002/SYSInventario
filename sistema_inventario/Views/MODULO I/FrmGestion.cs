@@ -33,15 +33,15 @@ namespace Views.Modelo_EOQ_ABCC
                 {
                     GraficaEOQ.Series["ModeloQ"].Points.AddXY(x, j);
                     GraficaEOQ.Series["ROP"].Points.AddXY(x, rop);
-                    x++;
                 }
-                x--;
+                
                 for (double j = eoq; j >= 0; j -= cantidad)
                 {
                     GraficaEOQ.Series["ModeloQ"].Points.AddXY(x, j);
                     GraficaEOQ.Series["ROP"].Points.AddXY(x, rop);
                     x++;
                 }
+                x--;
             }
         }
 
@@ -98,7 +98,6 @@ namespace Views.Modelo_EOQ_ABCC
                  || string.IsNullOrWhiteSpace(txtCostoProd.Text) || string.IsNullOrWhiteSpace(txtPlazoEnt.Text)
                   || string.IsNullOrWhiteSpace(txtDiasH.Text))
             {
-                errorProvider1.SetError(txtDemanda, "Debe ingresar la demanda");
                 MessageBox.Show("No debe dejar campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             } else if (txtCostoMant.Enabled==true && string.IsNullOrWhiteSpace(txtCostoMant.Text))
@@ -110,10 +109,10 @@ namespace Views.Modelo_EOQ_ABCC
             {
                 MessageBox.Show("No debe dejar campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }
-            else
+            }else if(!rbCostoMant.Checked && !rbTasaMan.Checked)
             {
-                errorProvider1.Clear();
+                MessageBox.Show("Debe elegir la tasa o el costo de mantener", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             double diasHabiles = double.Parse(txtDiasH.Text);
@@ -136,7 +135,6 @@ namespace Views.Modelo_EOQ_ABCC
 
             double costoT = ((demanda*costoPedir)/eoq)+((eoq*costoMantener)/2)+(demanda*costoProd);
             lblCostoT.Text = "Costo Total:" + Math.Round(costoT).ToString();
-            MessageBox.Show(costoT.ToString());
 
             Graficar(eoq, rop);
         }
@@ -148,125 +146,170 @@ namespace Views.Modelo_EOQ_ABCC
 
         private void btnCalcularPU_Click(object sender, EventArgs e)
         {
-            double precioC = double.Parse(txtPrCompra.Text);
-            double precioV = double.Parse(txtPrVenta.Text);
-            double precioRV = double.Parse(txtPrReventa.Text);
-            double desviacion = double.Parse(txtDesvPU.Text);
-            double demanda = double.Parse(txtDemPU.Text);
+            try
+            {
 
-            double excedente = precioC - precioRV;
-            double faltante = precioV - precioC;
+                if (string.IsNullOrWhiteSpace(txtPrCompra.Text) || string.IsNullOrWhiteSpace(txtPrVenta.Text)
+                    || string.IsNullOrWhiteSpace(txtPrReventa.Text) || string.IsNullOrWhiteSpace(txtDesvPU.Text)
+                    || string.IsNullOrWhiteSpace(txtDemPU.Text))
+                {
+                    MessageBox.Show("No debe dejar campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-            double probabilidad = faltante/(faltante+excedente);
+                double precioC = double.Parse(txtPrCompra.Text);
+                double precioV = double.Parse(txtPrVenta.Text);
+                double precioRV = double.Parse(txtPrReventa.Text);
+                double desviacion = double.Parse(txtDesvPU.Text);
+                double demanda = double.Parse(txtDemPU.Text);
 
-            Chart mychart = new Chart();
-            double z = mychart.DataManipulator.Statistics.InverseNormalDistribution(probabilidad);
+                double excedente = precioC - precioRV;
+                double faltante = precioV - precioC;
 
-            double resultado = demanda + (z * desviacion);
+                double probabilidad = faltante / (faltante + excedente);
 
-            lblPF.Text = "Precio del faltante es: " + faltante.ToString();
-            lblPS.Text = "Precio del sobrante es: " + excedente.ToString();
-            lblCOPU.Text = "Cantidad Optima a pedir: " + Math.Round(resultado, 0).ToString();
+                Chart mychart = new Chart();
+                double z = mychart.DataManipulator.Statistics.InverseNormalDistribution(probabilidad);
+
+                double resultado = demanda + (z * desviacion);
+
+                lblPF.Text = "Precio del faltante es: " + faltante.ToString();
+                lblPS.Text = "Precio del sobrante es: " + excedente.ToString();
+                lblCOPU.Text = "Cantidad Optima a pedir: " + Math.Round(resultado, 0).ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurido un error" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnGenerarTabla_Click(object sender, EventArgs e)
         {
-            dgvDatosAM.ColumnCount = 2;
-            dgvDatosAM.Columns[0].Name = "Demanda";
-            dgvDatosAM.Columns[1].Name = "Probabilidad";
-            dgvDatosAM.RowCount = int.Parse(txtCantDatos.Text);
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtCantDatos.Text))
+                {
+                    MessageBox.Show("No debe dejar campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                dgvDatosAM.ColumnCount = 2;
+                dgvDatosAM.Columns[0].Name = "Demanda";
+                dgvDatosAM.Columns[1].Name = "Probabilidad";
+                dgvDatosAM.RowCount = int.Parse(txtCantDatos.Text);
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurido un error" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAM_Click(object sender, EventArgs e)
         {
-            #region Variables
-            double suma = 0;
-            double demanda = 0;
-            double faltante = double.Parse(txtPFAM.Text);
-            double excedente = double.Parse(txtPSAM.Text);
-            double probabilidad = faltante / (faltante + excedente);
-            #endregion
-
-            #region calculo produccion optima
-            for (int fila = 0; fila < dgvDatosAM.Rows.Count; fila++)
+            try
             {
-                if (suma > probabilidad)
+                if (string.IsNullOrWhiteSpace(txtPFAM.Text) || string.IsNullOrWhiteSpace(txtPSAM.Text))
                 {
-                    lblAm.Text = "Cantidad Optima a Producir es de: " + demanda.ToString();
-                    break;
+                    MessageBox.Show("No debe dejar campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
-                for (int col = 0; col < dgvDatosAM.Rows[fila].Cells.Count; col++)
+                #region Variables
+                double suma = 0;
+                double demanda = 0;
+                double faltante = double.Parse(txtPFAM.Text);
+                double excedente = double.Parse(txtPSAM.Text);
+                double probabilidad = faltante / (faltante + excedente);
+                #endregion
+
+                #region calculo produccion optima
+                for (int fila = 0; fila < dgvDatosAM.Rows.Count; fila++)
                 {
-                    if (col == 0)
+                    if (suma > probabilidad)
                     {
-                        string d = dgvDatosAM.Rows[fila].Cells[col].Value.ToString();
-                        demanda = double.Parse(d);
-                    }
-                    else
-                    {
-                        string valor = dgvDatosAM.Rows[fila].Cells[col].Value.ToString();
-                        suma += double.Parse(valor);
+                        lblAm.Text = "Cantidad Optima a Producir es de: " + demanda.ToString();
+                        break;
                     }
 
-
-                }
-            }
-            #endregion
-
-            #region calculo AM
-            int cantidad = int.Parse(txtCantDatos.Text);
-            dgvAM.ColumnCount = cantidad;
-            dgvAM.RowCount = cantidad + 1;
-            for (int i = 0; i < cantidad; i++)
-            {
-                dgvAM.Columns[i].Name =  dgvDatosAM.Rows[i].Cells[0].Value.ToString();
-            }
-
-            double auxEx = excedente;
-            double auxFal = faltante;
-            for (int fila = 0; fila < dgvAM.Rows.Count-1; fila++)
-            {
-                auxEx = excedente;
-                auxFal = faltante * fila;
-                for (int col = 0; col < dgvAM.Rows[fila].Cells.Count; col++)
-                {
-                    if (fila == col)
+                    for (int col = 0; col < dgvDatosAM.Rows[fila].Cells.Count; col++)
                     {
-                        dgvAM.Rows[fila].Cells[col].Value = 0;
-                    }else if (fila < col)
-                    {
-                        dgvAM.Rows[fila].Cells[col].Value = auxEx;
-                        auxEx += excedente;
-                    }
-                    else if (fila > col)
-                    {
-                        dgvAM.Rows[fila].Cells[col].Value = auxFal;
-                        auxFal -= faltante;
+                        if (col == 0)
+                        {
+                            string d = dgvDatosAM.Rows[fila].Cells[col].Value.ToString();
+                            demanda = double.Parse(d);
+                        }
+                        else
+                        {
+                            string valor = dgvDatosAM.Rows[fila].Cells[col].Value.ToString();
+                            suma += double.Parse(valor);
+                        }
+
+
                     }
                 }
-            }
+                #endregion
 
-            int pos = 0;
-            for (int fila = dgvAM.Rows.Count - 1; fila < dgvAM.Rows.Count; fila++)
-            {
-                for (int col = 0; col < dgvAM.Rows[fila].Cells.Count; col++)
+                #region calculo AM
+                int cantidad = int.Parse(txtCantDatos.Text);
+                dgvAM.ColumnCount = cantidad;
+                dgvAM.RowCount = cantidad + 1;
+                for (int i = 0; i < cantidad; i++)
                 {
-                    double costo = 0;
-                    
-                    for (int i = 0; i < cantidad; i++)
-                    {
-                        double a = double.Parse(dgvDatosAM.Rows[i].Cells[1].Value.ToString());
-                        double b = double.Parse(dgvAM.Rows[i].Cells[pos].Value.ToString());
-                        costo += (a * b );
-                    }
-                    pos++;
-                    dgvAM.Rows[fila].Cells[col].Value = costo;
-                    dgvAM.Rows[fila].Cells[col].Style.ForeColor = Color.Red ;
+                    dgvAM.Columns[i].Name = dgvDatosAM.Rows[i].Cells[0].Value.ToString();
                 }
-            }
 
-            #endregion
+                double auxEx = excedente;
+                double auxFal = faltante;
+                for (int fila = 0; fila < dgvAM.Rows.Count - 1; fila++)
+                {
+                    auxEx = excedente;
+                    auxFal = faltante * fila;
+                    for (int col = 0; col < dgvAM.Rows[fila].Cells.Count; col++)
+                    {
+                        if (fila == col)
+                        {
+                            dgvAM.Rows[fila].Cells[col].Value = 0;
+                        }
+                        else if (fila < col)
+                        {
+                            dgvAM.Rows[fila].Cells[col].Value = auxEx;
+                            auxEx += excedente;
+                        }
+                        else if (fila > col)
+                        {
+                            dgvAM.Rows[fila].Cells[col].Value = auxFal;
+                            auxFal -= faltante;
+                        }
+                    }
+                }
+
+                int pos = 0;
+                for (int fila = dgvAM.Rows.Count - 1; fila < dgvAM.Rows.Count; fila++)
+                {
+                    for (int col = 0; col < dgvAM.Rows[fila].Cells.Count; col++)
+                    {
+                        double costo = 0;
+
+                        for (int i = 0; i < cantidad; i++)
+                        {
+                            double a = double.Parse(dgvDatosAM.Rows[i].Cells[1].Value.ToString());
+                            double b = double.Parse(dgvAM.Rows[i].Cells[pos].Value.ToString());
+                            costo += (a * b);
+                        }
+                        pos++;
+                        dgvAM.Rows[fila].Cells[col].Value = costo;
+                        dgvAM.Rows[fila].Cells[col].Style.ForeColor = Color.Red;
+                    }
+                }
+
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurido un error" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public static string getFrameName()
