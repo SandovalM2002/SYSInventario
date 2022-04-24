@@ -40,22 +40,10 @@ namespace Views.Planeacion_Agregada
         //Validar solo numeros decimales
         private void validarNumerosDecimales(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == '.')
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (Char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
+            TextBox txt = new TextBox();
+            txt = (TextBox)sender;
+
+            ValidacionesNumericas.validarNumerosDecimales(e, txt.Text);
         }
 
         //Generar tabla datos

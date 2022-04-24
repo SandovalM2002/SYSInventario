@@ -156,6 +156,7 @@ namespace Views.Planeacion_Agregada
             this.txtSS.Name = "txtSS";
             this.txtSS.Size = new System.Drawing.Size(76, 26);
             this.txtSS.TabIndex = 55;
+            this.txtSS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
             // label4
             // 
@@ -199,6 +200,7 @@ namespace Views.Planeacion_Agregada
             this.txtHoras.Name = "txtHoras";
             this.txtHoras.Size = new System.Drawing.Size(76, 26);
             this.txtHoras.TabIndex = 59;
+            this.txtHoras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
             // label6
             // 
@@ -219,6 +221,7 @@ namespace Views.Planeacion_Agregada
             this.txtTrabajadores.Name = "txtTrabajadores";
             this.txtTrabajadores.Size = new System.Drawing.Size(122, 26);
             this.txtTrabajadores.TabIndex = 61;
+            this.txtTrabajadores.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
             // label7
             // 
@@ -250,6 +253,7 @@ namespace Views.Planeacion_Agregada
             this.txtContratar.Name = "txtContratar";
             this.txtContratar.Size = new System.Drawing.Size(122, 26);
             this.txtContratar.TabIndex = 65;
+            this.txtContratar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
             // txtDespedir
             // 
@@ -259,6 +263,7 @@ namespace Views.Planeacion_Agregada
             this.txtDespedir.Name = "txtDespedir";
             this.txtDespedir.Size = new System.Drawing.Size(122, 26);
             this.txtDespedir.TabIndex = 66;
+            this.txtDespedir.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
             // lblCosto
             // 
@@ -304,6 +309,7 @@ namespace Views.Planeacion_Agregada
             this.txtCostoUnitario.Name = "txtCostoUnitario";
             this.txtCostoUnitario.Size = new System.Drawing.Size(76, 26);
             this.txtCostoUnitario.TabIndex = 77;
+            this.txtCostoUnitario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
             // label13
             // 
@@ -324,6 +330,7 @@ namespace Views.Planeacion_Agregada
             this.txtValorHora.Name = "txtValorHora";
             this.txtValorHora.Size = new System.Drawing.Size(76, 26);
             this.txtValorHora.TabIndex = 69;
+            this.txtValorHora.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
             // label9
             // 
@@ -404,6 +411,7 @@ namespace Views.Planeacion_Agregada
             this.txtMantener.Name = "txtMantener";
             this.txtMantener.Size = new System.Drawing.Size(122, 26);
             this.txtMantener.TabIndex = 68;
+            this.txtMantener.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
             // txtEscasez
             // 
@@ -413,6 +421,7 @@ namespace Views.Planeacion_Agregada
             this.txtEscasez.Name = "txtEscasez";
             this.txtEscasez.Size = new System.Drawing.Size(122, 26);
             this.txtEscasez.TabIndex = 67;
+            this.txtEscasez.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
             // label11
             // 
@@ -471,6 +480,7 @@ namespace Views.Planeacion_Agregada
             this.txtOutS.Name = "txtOutS";
             this.txtOutS.Size = new System.Drawing.Size(122, 26);
             this.txtOutS.TabIndex = 63;
+            this.txtOutS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
             // label12
             // 
