@@ -117,7 +117,17 @@ namespace Views.Planeacion_Agregada
                 }
 
                 int invInicial = int.Parse(txtInvIni.Text);
-                double stockS = double.Parse(txtSS.Text) / 100;
+                double stockS = 0;
+                if (cbxSS.Checked == true)
+                {
+                    stockS = double.Parse(txtSS.Text) / 100;
+                }
+                else
+                {
+                    stockS = double.Parse(txtSS.Text);
+                }
+
+
                 string[] nombres = {"Inventario Inicial", "Pronóstico de la demanda", "Inventario de seguridad",
                 "Requerimiento de producción","Inventario final","Horas de producción requeridas","Días hábiles por mes",
                  "Horas al mes por trabajador","Trabajadores requeridos","Nuevos trabajadores contratados","Costo de contratación",
@@ -142,7 +152,19 @@ namespace Views.Planeacion_Agregada
                 for (int col = 0; col < periodos; col++)
                 {
                     int demanda = int.Parse(dgvDYD.Rows[0].Cells[col].Value.ToString());
-                    int invS = (int)((int)demanda * stockS);
+                    int invS = 0;
+
+                    if (cbxSS.Checked == true)
+                    {
+                        invS = (int)((int)demanda * stockS);
+                    }
+                    else
+                    {
+                        invS = (int)stockS;
+                    }
+
+
+
                     int reqProd = demanda - invInicial + invS;
                     double horasReq = horas * reqProd;
                     int diasH = int.Parse(dgvDYD.Rows[1].Cells[col].Value.ToString());
@@ -258,7 +280,16 @@ namespace Views.Planeacion_Agregada
                 }
 
                 int invInicial = int.Parse(txtInvIni.Text);
-                double stockS = double.Parse(txtSS.Text) / 100;
+                double stockS = 0;
+                if (cbxSS.Checked == true)
+                {
+                    stockS= double.Parse(txtSS.Text) / 100;
+                }
+                else
+                {
+                    stockS = double.Parse(txtSS.Text);
+                }
+
                 string[] nombres = {"Inventario Inicial", "Días hábiles por mes", "Horas de producción disponibles",
                 "Producción real","Pronóstico de la demanda","Inventario final","Costo de escasez",
             "Inventario de seguridad","Unidades en exceso","Costo de inventarios","Costo del tiempo normal","Costo Total Produccion"};
@@ -295,7 +326,18 @@ namespace Views.Planeacion_Agregada
                     int produccionReal = horasDisponibles / horas;
                     int demanda = int.Parse(dgvDYD.Rows[0].Cells[col].Value.ToString());
                     double costoEsc = 0;
-                    int invS = (int)((int)demanda * stockS);
+                    int invS = 0;
+
+                    if (cbxSS.Checked==true)
+                    {
+                        invS = (int)((int)demanda * stockS);
+                    }
+                    else
+                    {
+                        invS = (int)stockS;
+                    }
+
+                   
                     int unidadesExc = 0;
 
 
@@ -394,7 +436,17 @@ namespace Views.Planeacion_Agregada
                 }
 
                 int invInicial = int.Parse(txtInvIni.Text);
-                double stockS = double.Parse(txtSS.Text) / 100;
+                double stockS = 0;
+                if (cbxSS.Checked == true)
+                {
+                    stockS = double.Parse(txtSS.Text) / 100;
+                }
+                else
+                {
+                    stockS = double.Parse(txtSS.Text);
+                }
+
+
                 string[] nombres = {"Requerimiento de producción", "Días hábiles por mes", "Horas de producción disponibles",
                 "Producción real","Unidades subcontratadas","Costo de la subcontratación","Costo del tiempo normal","Costo Total Produccion"};
                 int periodos = int.Parse(txtPeriodos.Text);
@@ -420,7 +472,17 @@ namespace Views.Planeacion_Agregada
                 {
                     int demanda = int.Parse(dgvDYD.Rows[0].Cells[i].Value.ToString());
                     int dias = int.Parse(dgvDYD.Rows[1].Cells[i].Value.ToString());
-                    int invS = (int)((int)demanda * stockS);
+                    int invS = 0;
+
+                    if (cbxSS.Checked == true)
+                    {
+                        invS = (int)((int)demanda * stockS);
+                    }
+                    else
+                    {
+                        invS = (int)stockS;
+                    }
+
                     int reqProd = demanda - invInicial + invS;
                     invInicial = invInicial - demanda + reqProd;
 
@@ -448,7 +510,17 @@ namespace Views.Planeacion_Agregada
                 {
 
                     int demanda = int.Parse(dgvDYD.Rows[0].Cells[col].Value.ToString());
-                    int invS = (int)((int)demanda * stockS);
+                    int invS = 0;
+
+                    if (cbxSS.Checked == true)
+                    {
+                        invS = (int)((int)demanda * stockS);
+                    }
+                    else
+                    {
+                        invS = (int)stockS;
+                    }
+
                     int reqProd = demanda - invInicial + invS;
                     invInicial = invInicial - demanda + reqProd;
 
