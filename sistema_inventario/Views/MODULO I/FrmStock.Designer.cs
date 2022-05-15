@@ -66,19 +66,19 @@ namespace Views.INVENTARIO
             this.label3 = new System.Windows.Forms.Label();
             this.txtFinder = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.txtId_PM = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtDemanda_MP = new System.Windows.Forms.NumericUpDown();
-            this.cmbNodo_PM = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtPeriodo_PM = new System.Windows.Forms.NumericUpDown();
+            this.dgvPlan_Maestro = new System.Windows.Forms.DataGridView();
             this.btnDelete_PM = new System.Windows.Forms.Button();
             this.btnEdit_PM = new System.Windows.Forms.Button();
             this.btnAdd_PM = new System.Windows.Forms.Button();
-            this.dgvPlan_Maestro = new System.Windows.Forms.DataGridView();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtPeriodo_PM = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cmbNodo_PM = new System.Windows.Forms.ComboBox();
+            this.txtDemanda_MP = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtId_PM = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvRP = new System.Windows.Forms.DataGridView();
             this.btnDelete_RP = new System.Windows.Forms.Button();
             this.btnEdit_RP = new System.Windows.Forms.Button();
@@ -101,10 +101,10 @@ namespace Views.INVENTARIO
             ((System.ComponentModel.ISupportInitialize)(this.txtPrecio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCosto)).BeginInit();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDemanda_MP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPeriodo_PM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPlan_Maestro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPeriodo_PM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDemanda_MP)).BeginInit();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPeriodo_RP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidad_RP)).BeginInit();
@@ -143,10 +143,10 @@ namespace Views.INVENTARIO
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.txtFinder);
-            this.tabPage1.Location = new System.Drawing.Point(4, 28);
+            this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(925, 619);
+            this.tabPage1.Size = new System.Drawing.Size(925, 617);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Inventario";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -256,7 +256,7 @@ namespace Views.INVENTARIO
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.dgvStock.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStock.Size = new System.Drawing.Size(909, 283);
+            this.dgvStock.Size = new System.Drawing.Size(909, 278);
             this.dgvStock.TabIndex = 19;
             this.dgvStock.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStock_CellDoubleClick);
             // 
@@ -314,7 +314,7 @@ namespace Views.INVENTARIO
             this.label8.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(522, 104);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(161, 19);
+            this.label8.Size = new System.Drawing.Size(214, 23);
             this.label8.TabIndex = 27;
             this.label8.Text = "Existencia de seguridad*:";
             // 
@@ -323,7 +323,7 @@ namespace Views.INVENTARIO
             this.txtNombre.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(130, 47);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(331, 27);
+            this.txtNombre.Size = new System.Drawing.Size(331, 32);
             this.txtNombre.TabIndex = 2;
             // 
             // txtSS
@@ -336,7 +336,7 @@ namespace Views.INVENTARIO
             0,
             0});
             this.txtSS.Name = "txtSS";
-            this.txtSS.Size = new System.Drawing.Size(157, 25);
+            this.txtSS.Size = new System.Drawing.Size(157, 29);
             this.txtSS.TabIndex = 7;
             // 
             // txtCod
@@ -345,7 +345,7 @@ namespace Views.INVENTARIO
             this.txtCod.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCod.Location = new System.Drawing.Point(10, 47);
             this.txtCod.Name = "txtCod";
-            this.txtCod.Size = new System.Drawing.Size(106, 25);
+            this.txtCod.Size = new System.Drawing.Size(106, 29);
             this.txtCod.TabIndex = 1;
             // 
             // label7
@@ -354,7 +354,7 @@ namespace Views.INVENTARIO
             this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(352, 104);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 19);
+            this.label7.Size = new System.Drawing.Size(102, 23);
             this.label7.TabIndex = 26;
             this.label7.Text = "Existencia*:";
             // 
@@ -364,7 +364,7 @@ namespace Views.INVENTARIO
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(6, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 19);
+            this.label1.Size = new System.Drawing.Size(47, 23);
             this.label1.TabIndex = 16;
             this.label1.Text = "Cod:";
             // 
@@ -378,7 +378,7 @@ namespace Views.INVENTARIO
             0,
             0});
             this.txtExistencia.Name = "txtExistencia";
-            this.txtExistencia.Size = new System.Drawing.Size(146, 25);
+            this.txtExistencia.Size = new System.Drawing.Size(146, 29);
             this.txtExistencia.TabIndex = 6;
             // 
             // label2
@@ -387,7 +387,7 @@ namespace Views.INVENTARIO
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(126, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 19);
+            this.label2.Size = new System.Drawing.Size(90, 23);
             this.label2.TabIndex = 19;
             this.label2.Text = "Nombre*:";
             // 
@@ -397,7 +397,7 @@ namespace Views.INVENTARIO
             this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(178, 104);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 19);
+            this.label6.Size = new System.Drawing.Size(73, 23);
             this.label6.TabIndex = 25;
             this.label6.Text = "Precio*:";
             // 
@@ -411,7 +411,7 @@ namespace Views.INVENTARIO
             "Producto"});
             this.cmbTipo.Location = new System.Drawing.Point(485, 47);
             this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(331, 27);
+            this.cmbTipo.Size = new System.Drawing.Size(331, 29);
             this.cmbTipo.TabIndex = 3;
             // 
             // txtPrecio
@@ -430,7 +430,7 @@ namespace Views.INVENTARIO
             0,
             0});
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(146, 25);
+            this.txtPrecio.Size = new System.Drawing.Size(146, 29);
             this.txtPrecio.TabIndex = 5;
             // 
             // label4
@@ -439,7 +439,7 @@ namespace Views.INVENTARIO
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(481, 25);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 19);
+            this.label4.Size = new System.Drawing.Size(59, 23);
             this.label4.TabIndex = 22;
             this.label4.Text = "Tipo*:";
             // 
@@ -449,7 +449,7 @@ namespace Views.INVENTARIO
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(8, 104);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 19);
+            this.label5.Size = new System.Drawing.Size(69, 23);
             this.label5.TabIndex = 24;
             this.label5.Text = "Costo*:";
             // 
@@ -469,7 +469,7 @@ namespace Views.INVENTARIO
             0,
             0});
             this.txtCosto.Name = "txtCosto";
-            this.txtCosto.Size = new System.Drawing.Size(146, 25);
+            this.txtCosto.Size = new System.Drawing.Size(146, 29);
             this.txtCosto.TabIndex = 4;
             // 
             // label3
@@ -478,7 +478,7 @@ namespace Views.INVENTARIO
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(8, 265);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 19);
+            this.label3.Size = new System.Drawing.Size(67, 23);
             this.label3.TabIndex = 13;
             this.label3.Text = "Buscar:";
             // 
@@ -488,7 +488,7 @@ namespace Views.INVENTARIO
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFinder.Location = new System.Drawing.Point(8, 287);
             this.txtFinder.Name = "txtFinder";
-            this.txtFinder.Size = new System.Drawing.Size(909, 25);
+            this.txtFinder.Size = new System.Drawing.Size(909, 29);
             this.txtFinder.TabIndex = 18;
             this.txtFinder.Click += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -506,179 +506,13 @@ namespace Views.INVENTARIO
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.txtId_PM);
             this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
+            this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(925, 619);
+            this.tabPage2.Size = new System.Drawing.Size(925, 617);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Plan Maestro";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.dgvRP);
-            this.tabPage3.Controls.Add(this.btnDelete_RP);
-            this.tabPage3.Controls.Add(this.btnEdit_RP);
-            this.tabPage3.Controls.Add(this.btnAdd_RP);
-            this.tabPage3.Controls.Add(this.label13);
-            this.tabPage3.Controls.Add(this.txtPeriodo_RP);
-            this.tabPage3.Controls.Add(this.label14);
-            this.tabPage3.Controls.Add(this.cmbNodo_RP);
-            this.tabPage3.Controls.Add(this.txtCantidad_RP);
-            this.tabPage3.Controls.Add(this.label15);
-            this.tabPage3.Controls.Add(this.txtId_RP);
-            this.tabPage3.Controls.Add(this.label16);
-            this.tabPage3.Location = new System.Drawing.Point(4, 28);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(925, 619);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Recepciones Programadas";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // txtId_PM
-            // 
-            this.txtId_PM.Enabled = false;
-            this.txtId_PM.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId_PM.Location = new System.Drawing.Point(18, 39);
-            this.txtId_PM.Name = "txtId_PM";
-            this.txtId_PM.Size = new System.Drawing.Size(106, 25);
-            this.txtId_PM.TabIndex = 17;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(14, 17);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(37, 19);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Cod:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(141, 17);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(47, 19);
-            this.label10.TabIndex = 20;
-            this.label10.Text = "Nodo:";
-            // 
-            // txtDemanda_MP
-            // 
-            this.txtDemanda_MP.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDemanda_MP.Location = new System.Drawing.Point(386, 39);
-            this.txtDemanda_MP.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.txtDemanda_MP.Name = "txtDemanda_MP";
-            this.txtDemanda_MP.Size = new System.Drawing.Size(146, 25);
-            this.txtDemanda_MP.TabIndex = 21;
-            // 
-            // cmbNodo_PM
-            // 
-            this.cmbNodo_PM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbNodo_PM.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbNodo_PM.FormattingEnabled = true;
-            this.cmbNodo_PM.Location = new System.Drawing.Point(145, 39);
-            this.cmbNodo_PM.Name = "cmbNodo_PM";
-            this.cmbNodo_PM.Size = new System.Drawing.Size(218, 27);
-            this.cmbNodo_PM.TabIndex = 22;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(382, 17);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(71, 19);
-            this.label11.TabIndex = 23;
-            this.label11.Text = "Demanda:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(543, 17);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(59, 19);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "Periodo:";
-            // 
-            // txtPeriodo_PM
-            // 
-            this.txtPeriodo_PM.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPeriodo_PM.Location = new System.Drawing.Point(547, 39);
-            this.txtPeriodo_PM.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.txtPeriodo_PM.Name = "txtPeriodo_PM";
-            this.txtPeriodo_PM.Size = new System.Drawing.Size(146, 25);
-            this.txtPeriodo_PM.TabIndex = 24;
-            // 
-            // btnDelete_PM
-            // 
-            this.btnDelete_PM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
-            this.btnDelete_PM.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.btnDelete_PM.FlatAppearance.BorderSize = 0;
-            this.btnDelete_PM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(51)))), ((int)(((byte)(67)))));
-            this.btnDelete_PM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete_PM.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete_PM.ForeColor = System.Drawing.Color.White;
-            this.btnDelete_PM.Image = global::Views.Properties.Resources.bin;
-            this.btnDelete_PM.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDelete_PM.Location = new System.Drawing.Point(240, 104);
-            this.btnDelete_PM.Name = "btnDelete_PM";
-            this.btnDelete_PM.Size = new System.Drawing.Size(96, 35);
-            this.btnDelete_PM.TabIndex = 28;
-            this.btnDelete_PM.Text = "Eliminar";
-            this.btnDelete_PM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete_PM.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnDelete_PM.UseVisualStyleBackColor = false;
-            // 
-            // btnEdit_PM
-            // 
-            this.btnEdit_PM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
-            this.btnEdit_PM.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.btnEdit_PM.FlatAppearance.BorderSize = 0;
-            this.btnEdit_PM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(51)))), ((int)(((byte)(67)))));
-            this.btnEdit_PM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit_PM.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit_PM.ForeColor = System.Drawing.Color.White;
-            this.btnEdit_PM.Image = global::Views.Properties.Resources.pencil;
-            this.btnEdit_PM.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEdit_PM.Location = new System.Drawing.Point(129, 104);
-            this.btnEdit_PM.Name = "btnEdit_PM";
-            this.btnEdit_PM.Size = new System.Drawing.Size(96, 35);
-            this.btnEdit_PM.TabIndex = 27;
-            this.btnEdit_PM.Text = "Modificar";
-            this.btnEdit_PM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit_PM.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnEdit_PM.UseVisualStyleBackColor = false;
-            // 
-            // btnAdd_PM
-            // 
-            this.btnAdd_PM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
-            this.btnAdd_PM.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
-            this.btnAdd_PM.FlatAppearance.BorderSize = 0;
-            this.btnAdd_PM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(51)))), ((int)(((byte)(67)))));
-            this.btnAdd_PM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd_PM.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd_PM.ForeColor = System.Drawing.Color.White;
-            this.btnAdd_PM.Image = global::Views.Properties.Resources.plus;
-            this.btnAdd_PM.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdd_PM.Location = new System.Drawing.Point(18, 104);
-            this.btnAdd_PM.Name = "btnAdd_PM";
-            this.btnAdd_PM.Size = new System.Drawing.Size(96, 35);
-            this.btnAdd_PM.TabIndex = 26;
-            this.btnAdd_PM.Text = "Agregar";
-            this.btnAdd_PM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd_PM.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnAdd_PM.UseVisualStyleBackColor = false;
             // 
             // dgvPlan_Maestro
             // 
@@ -741,8 +575,178 @@ namespace Views.INVENTARIO
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
             this.dgvPlan_Maestro.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvPlan_Maestro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPlan_Maestro.Size = new System.Drawing.Size(882, 350);
+            this.dgvPlan_Maestro.Size = new System.Drawing.Size(882, 345);
             this.dgvPlan_Maestro.TabIndex = 29;
+            this.dgvPlan_Maestro.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPlan_Maestro_CellDoubleClick);
+            // 
+            // btnDelete_PM
+            // 
+            this.btnDelete_PM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
+            this.btnDelete_PM.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.btnDelete_PM.FlatAppearance.BorderSize = 0;
+            this.btnDelete_PM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(51)))), ((int)(((byte)(67)))));
+            this.btnDelete_PM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete_PM.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete_PM.ForeColor = System.Drawing.Color.White;
+            this.btnDelete_PM.Image = global::Views.Properties.Resources.bin;
+            this.btnDelete_PM.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDelete_PM.Location = new System.Drawing.Point(240, 104);
+            this.btnDelete_PM.Name = "btnDelete_PM";
+            this.btnDelete_PM.Size = new System.Drawing.Size(96, 35);
+            this.btnDelete_PM.TabIndex = 28;
+            this.btnDelete_PM.Text = "Eliminar";
+            this.btnDelete_PM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete_PM.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnDelete_PM.UseVisualStyleBackColor = false;
+            this.btnDelete_PM.Click += new System.EventHandler(this.btnDelete_PM_Click);
+            // 
+            // btnEdit_PM
+            // 
+            this.btnEdit_PM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
+            this.btnEdit_PM.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.btnEdit_PM.FlatAppearance.BorderSize = 0;
+            this.btnEdit_PM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(51)))), ((int)(((byte)(67)))));
+            this.btnEdit_PM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit_PM.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit_PM.ForeColor = System.Drawing.Color.White;
+            this.btnEdit_PM.Image = global::Views.Properties.Resources.pencil;
+            this.btnEdit_PM.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEdit_PM.Location = new System.Drawing.Point(129, 104);
+            this.btnEdit_PM.Name = "btnEdit_PM";
+            this.btnEdit_PM.Size = new System.Drawing.Size(96, 35);
+            this.btnEdit_PM.TabIndex = 27;
+            this.btnEdit_PM.Text = "Modificar";
+            this.btnEdit_PM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit_PM.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnEdit_PM.UseVisualStyleBackColor = false;
+            this.btnEdit_PM.Click += new System.EventHandler(this.btnEdit_PM_Click);
+            // 
+            // btnAdd_PM
+            // 
+            this.btnAdd_PM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
+            this.btnAdd_PM.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
+            this.btnAdd_PM.FlatAppearance.BorderSize = 0;
+            this.btnAdd_PM.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(51)))), ((int)(((byte)(67)))));
+            this.btnAdd_PM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd_PM.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd_PM.ForeColor = System.Drawing.Color.White;
+            this.btnAdd_PM.Image = global::Views.Properties.Resources.plus;
+            this.btnAdd_PM.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAdd_PM.Location = new System.Drawing.Point(18, 104);
+            this.btnAdd_PM.Name = "btnAdd_PM";
+            this.btnAdd_PM.Size = new System.Drawing.Size(96, 35);
+            this.btnAdd_PM.TabIndex = 26;
+            this.btnAdd_PM.Text = "Agregar";
+            this.btnAdd_PM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd_PM.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnAdd_PM.UseVisualStyleBackColor = false;
+            this.btnAdd_PM.Click += new System.EventHandler(this.btnAdd_PM_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(543, 17);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(78, 23);
+            this.label12.TabIndex = 25;
+            this.label12.Text = "Periodo:";
+            // 
+            // txtPeriodo_PM
+            // 
+            this.txtPeriodo_PM.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPeriodo_PM.Location = new System.Drawing.Point(547, 39);
+            this.txtPeriodo_PM.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.txtPeriodo_PM.Name = "txtPeriodo_PM";
+            this.txtPeriodo_PM.Size = new System.Drawing.Size(146, 29);
+            this.txtPeriodo_PM.TabIndex = 24;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(382, 17);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(92, 23);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "Demanda:";
+            // 
+            // cmbNodo_PM
+            // 
+            this.cmbNodo_PM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNodo_PM.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbNodo_PM.FormattingEnabled = true;
+            this.cmbNodo_PM.Location = new System.Drawing.Point(145, 39);
+            this.cmbNodo_PM.Name = "cmbNodo_PM";
+            this.cmbNodo_PM.Size = new System.Drawing.Size(218, 29);
+            this.cmbNodo_PM.TabIndex = 22;
+            // 
+            // txtDemanda_MP
+            // 
+            this.txtDemanda_MP.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDemanda_MP.Location = new System.Drawing.Point(386, 39);
+            this.txtDemanda_MP.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.txtDemanda_MP.Name = "txtDemanda_MP";
+            this.txtDemanda_MP.Size = new System.Drawing.Size(146, 29);
+            this.txtDemanda_MP.TabIndex = 21;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(141, 17);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(61, 23);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "Nodo:";
+            // 
+            // txtId_PM
+            // 
+            this.txtId_PM.Enabled = false;
+            this.txtId_PM.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId_PM.Location = new System.Drawing.Point(18, 39);
+            this.txtId_PM.Name = "txtId_PM";
+            this.txtId_PM.Size = new System.Drawing.Size(106, 29);
+            this.txtId_PM.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(14, 17);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(47, 23);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Cod:";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.dgvRP);
+            this.tabPage3.Controls.Add(this.btnDelete_RP);
+            this.tabPage3.Controls.Add(this.btnEdit_RP);
+            this.tabPage3.Controls.Add(this.btnAdd_RP);
+            this.tabPage3.Controls.Add(this.label13);
+            this.tabPage3.Controls.Add(this.txtPeriodo_RP);
+            this.tabPage3.Controls.Add(this.label14);
+            this.tabPage3.Controls.Add(this.cmbNodo_RP);
+            this.tabPage3.Controls.Add(this.txtCantidad_RP);
+            this.tabPage3.Controls.Add(this.label15);
+            this.tabPage3.Controls.Add(this.txtId_RP);
+            this.tabPage3.Controls.Add(this.label16);
+            this.tabPage3.Location = new System.Drawing.Point(4, 30);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(925, 617);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Recepciones Programadas";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // dgvRP
             // 
@@ -805,8 +809,9 @@ namespace Views.INVENTARIO
             dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
             this.dgvRP.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvRP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRP.Size = new System.Drawing.Size(882, 350);
+            this.dgvRP.Size = new System.Drawing.Size(882, 345);
             this.dgvRP.TabIndex = 41;
+            this.dgvRP.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRP_CellDoubleClick);
             // 
             // btnDelete_RP
             // 
@@ -827,6 +832,7 @@ namespace Views.INVENTARIO
             this.btnDelete_RP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete_RP.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnDelete_RP.UseVisualStyleBackColor = false;
+            this.btnDelete_RP.Click += new System.EventHandler(this.btnDelete_RP_Click);
             // 
             // btnEdit_RP
             // 
@@ -847,6 +853,7 @@ namespace Views.INVENTARIO
             this.btnEdit_RP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEdit_RP.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnEdit_RP.UseVisualStyleBackColor = false;
+            this.btnEdit_RP.Click += new System.EventHandler(this.btnEdit_RP_Click);
             // 
             // btnAdd_RP
             // 
@@ -867,6 +874,7 @@ namespace Views.INVENTARIO
             this.btnAdd_RP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdd_RP.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnAdd_RP.UseVisualStyleBackColor = false;
+            this.btnAdd_RP.Click += new System.EventHandler(this.btnAdd_RP_Click);
             // 
             // label13
             // 
@@ -874,7 +882,7 @@ namespace Views.INVENTARIO
             this.label13.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(548, 26);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(59, 19);
+            this.label13.Size = new System.Drawing.Size(78, 23);
             this.label13.TabIndex = 37;
             this.label13.Text = "Periodo:";
             // 
@@ -888,7 +896,7 @@ namespace Views.INVENTARIO
             0,
             0});
             this.txtPeriodo_RP.Name = "txtPeriodo_RP";
-            this.txtPeriodo_RP.Size = new System.Drawing.Size(146, 25);
+            this.txtPeriodo_RP.Size = new System.Drawing.Size(146, 29);
             this.txtPeriodo_RP.TabIndex = 36;
             // 
             // label14
@@ -897,7 +905,7 @@ namespace Views.INVENTARIO
             this.label14.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(387, 26);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(67, 19);
+            this.label14.Size = new System.Drawing.Size(86, 23);
             this.label14.TabIndex = 35;
             this.label14.Text = "Cantidad:";
             // 
@@ -911,7 +919,7 @@ namespace Views.INVENTARIO
             "Producto"});
             this.cmbNodo_RP.Location = new System.Drawing.Point(150, 48);
             this.cmbNodo_RP.Name = "cmbNodo_RP";
-            this.cmbNodo_RP.Size = new System.Drawing.Size(218, 27);
+            this.cmbNodo_RP.Size = new System.Drawing.Size(218, 29);
             this.cmbNodo_RP.TabIndex = 34;
             // 
             // txtCantidad_RP
@@ -924,7 +932,7 @@ namespace Views.INVENTARIO
             0,
             0});
             this.txtCantidad_RP.Name = "txtCantidad_RP";
-            this.txtCantidad_RP.Size = new System.Drawing.Size(146, 25);
+            this.txtCantidad_RP.Size = new System.Drawing.Size(146, 29);
             this.txtCantidad_RP.TabIndex = 33;
             // 
             // label15
@@ -933,7 +941,7 @@ namespace Views.INVENTARIO
             this.label15.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(146, 26);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(47, 19);
+            this.label15.Size = new System.Drawing.Size(61, 23);
             this.label15.TabIndex = 32;
             this.label15.Text = "Nodo:";
             // 
@@ -943,7 +951,7 @@ namespace Views.INVENTARIO
             this.txtId_RP.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId_RP.Location = new System.Drawing.Point(23, 48);
             this.txtId_RP.Name = "txtId_RP";
-            this.txtId_RP.Size = new System.Drawing.Size(106, 25);
+            this.txtId_RP.Size = new System.Drawing.Size(106, 29);
             this.txtId_RP.TabIndex = 30;
             // 
             // label16
@@ -952,7 +960,7 @@ namespace Views.INVENTARIO
             this.label16.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(19, 26);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(37, 19);
+            this.label16.Size = new System.Drawing.Size(47, 23);
             this.label16.TabIndex = 31;
             this.label16.Text = "Cod:";
             // 
@@ -979,11 +987,11 @@ namespace Views.INVENTARIO
             ((System.ComponentModel.ISupportInitialize)(this.txtCosto)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPlan_Maestro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPeriodo_PM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDemanda_MP)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDemanda_MP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPeriodo_PM)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPlan_Maestro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPeriodo_RP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCantidad_RP)).EndInit();

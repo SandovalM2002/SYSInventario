@@ -23,6 +23,7 @@ namespace Views.INVENTARIO
         private void FrmStock_Load(object sender, EventArgs e)
         {
             load_Table("");
+            load_table_PM_RP();
         }
         
         private void load_Table(string param)
@@ -33,6 +34,20 @@ namespace Views.INVENTARIO
             cmbNodo_PM.DataSource = C_Nodo.view();
             cmbNodo_PM.DisplayMember = "Descripción";
             cmbNodo_PM.ValueMember = "Cod";
+
+            cmbNodo_RP.DataSource = C_Nodo.view();
+            cmbNodo_RP.DisplayMember = "Descripción";
+            cmbNodo_RP.ValueMember = "Cod";
+
+        }
+
+        private void load_table_PM_RP()
+        {
+            dgvPlan_Maestro.DataSource = null;
+            dgvPlan_Maestro.DataSource = C_PlanMaestro.view_Plan_Maestro();
+
+            dgvRP.DataSource = null;
+            dgvRP.DataSource = C_RecepcionesProgramadas.view_recepciones_programdas();
         }
 
         public static string getFrameName()
@@ -130,5 +145,141 @@ namespace Views.INVENTARIO
             }
         }
 
+
+        /*Plan maestro*/
+        private void btnAdd_PM_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbNodo_PM.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Seleccion un nodo, en caso de no existir, agregue uno");
+                    return;
+                }
+
+
+                C_PlanMaestro.Insert_Plan_Maestro(cmbNodo_PM.SelectedValue.ToString(), txtDemanda_MP.Value.ToString(),txtPeriodo_PM.Value.ToString());
+                load_table_PM_RP();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnEdit_PM_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                C_PlanMaestro.Update_Plan_Maestro(txtId_PM.Text, cmbNodo_PM.SelectedValue.ToString(), txtDemanda_MP.Value.ToString(), txtPeriodo_PM.Value.ToString());
+                load_table_PM_RP();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnDelete_PM_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                C_PlanMaestro.Delete_Plan_Maestro(txtId_PM.Text);
+                load_table_PM_RP();
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
+
+        private void dgvPlan_Maestro_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    txtId_PM.Text = dgvPlan_Maestro.Rows[e.RowIndex].Cells["Id"].Value.ToString();
+                    cmbNodo_PM.SelectedValue = dgvPlan_Maestro.Rows[e.RowIndex].Cells["Nodo"].Value; 
+
+                    txtDemanda_MP.Value = Convert.ToDecimal(dgvPlan_Maestro.Rows[e.RowIndex].Cells["Demanda"].Value.ToString());
+                    txtPeriodo_PM.Value = Convert.ToDecimal(dgvPlan_Maestro.Rows[e.RowIndex].Cells["Periodo"].Value.ToString());
+                }
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
+
+
+        /*Recepcion Programada*/
+        private void btnAdd_RP_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbNodo_RP.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Seleccion un nodo, en caso de no existir, agregue uno");
+                    return;
+                }
+
+                C_RecepcionesProgramadas.insert_recepciones_programadas(cmbNodo_RP.SelectedValue.ToString(), txtCantidad_RP.Value.ToString(), txtPeriodo_RP.Value.ToString());
+                load_table_PM_RP();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnEdit_RP_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                C_RecepcionesProgramadas.update_recepciones_programadas(txtId_RP.Text, cmbNodo_RP.SelectedValue.ToString(), txtCantidad_RP.Value.ToString(), txtPeriodo_RP.Value.ToString());
+                load_table_PM_RP();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnDelete_RP_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                C_RecepcionesProgramadas.delete_recepciones_programadas(txtId_RP.Text);
+                load_table_PM_RP();
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
+
+        private void dgvRP_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0)
+                {
+                    txtId_RP.Text = dgvRP.Rows[e.RowIndex].Cells["Id"].Value.ToString();
+                    cmbNodo_RP.SelectedValue = dgvRP.Rows[e.RowIndex].Cells["Nodo"].Value;
+
+                    txtCantidad_RP.Value = Convert.ToDecimal(dgvRP.Rows[e.RowIndex].Cells["Cantidad"].Value.ToString());
+                    txtPeriodo_RP.Value = Convert.ToDecimal(dgvRP.Rows[e.RowIndex].Cells["Periodo"].Value.ToString());
+                }
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
     }
 }

@@ -32,7 +32,7 @@ namespace DataAcces.Controller
             }
         }
 
-        public static void Update_Plan_Maestro(string id, string demanda, string periodo)
+        public static void Update_Plan_Maestro(string id,string nodo, string demanda, string periodo)
         {
             if (string.IsNullOrWhiteSpace(id) || string.IsNullOrWhiteSpace(demanda) || string.IsNullOrWhiteSpace(periodo))
             {
@@ -42,7 +42,7 @@ namespace DataAcces.Controller
 
             if (Convert.ToInt32(demanda) > 0 && Convert.ToInt32(periodo) > 0)
             {
-                E_PlanMaestro obj = new E_PlanMaestro(Convert.ToInt32(id),0 ,Convert.ToInt32(demanda), Convert.ToInt32(periodo));
+                E_PlanMaestro obj = new E_PlanMaestro(Convert.ToInt32(id), Convert.ToInt32(nodo), Convert.ToInt32(demanda), Convert.ToInt32(periodo));
                 obj.Update_Plan_Maestro(obj);
             }
         }

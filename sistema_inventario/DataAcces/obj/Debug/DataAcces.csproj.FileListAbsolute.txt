@@ -24,7 +24,6 @@ C:\Users\50588\Desktop\SYSPanaderia\sistema_inventario\DataAcces\obj\Debug\DataA
 C:\Users\50588\Desktop\SYSPanaderia\sistema_inventario\DataAcces\obj\Debug\DataAcces.pdb
 D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\DataAcces\bin\Debug\DataAcces.dll
 D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\DataAcces\bin\Debug\DataAcces.pdb
-D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.csproj.AssemblyReference.cache
 D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.csproj.CoreCompileInputs.cache
 D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.dll
 D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.pdb

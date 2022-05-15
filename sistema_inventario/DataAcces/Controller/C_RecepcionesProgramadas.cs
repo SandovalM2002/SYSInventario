@@ -31,13 +31,13 @@ namespace DataAcces.Controller
             int nod = Convert.ToInt32(nodo);
             if (cant > 0 && perd > 0)
             {
-                E_RepecionProgramada obj = new E_RepecionProgramada(0, nod,cant,perd);
+                E_RepecionProgramada obj = new E_RepecionProgramada(0, nod, cant, perd);
                 obj.Insert_Recepciones_Programadas(obj);
             }
         }
 
 
-        public static void update_stock(string id, string nodo, string cantidad, string periodo)
+        public static void update_recepciones_programadas(string id, string nodo, string cantidad, string periodo)
         {
 
             if (string.IsNullOrWhiteSpace(id) || string.IsNullOrWhiteSpace(nodo) || string.IsNullOrWhiteSpace(cantidad.ToString()) || string.IsNullOrWhiteSpace(periodo.ToString()))

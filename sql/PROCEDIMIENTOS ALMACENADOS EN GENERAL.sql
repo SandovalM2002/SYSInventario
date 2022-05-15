@@ -100,6 +100,7 @@ AS BEGIN
 		INSERT INTO PLAN_MAESTRO VALUES (@Nodo,@Demanda,@periodo)
 END;
 go
+
 CREATE OR ALTER PROC SP_UPDATE_PM
 (@ID int, @Nodo int, @Demanda int, @periodo int)
 AS BEGIN
@@ -108,10 +109,12 @@ IF EXISTS (SELECT id FROM PLAN_MAESTRO WHERE id=@ID)
 		UPDATE PLAN_MAESTRO SET demanda =@Demanda, periodo =@periodo WHERE id =@ID
 END;
 go
+
+
 CREATE OR ALTER PROC SP_DELETE_PM
 (@id int)
 AS BEGIN
-	IF EXISTS (SELECT id FROM PLAN_MAESTRO WHERE id=@ID)
+	IF EXISTS (SELECT id FROM PLAN_MAESTRO WHERE id=@id)
 		DELETE PLAN_MAESTRO WHERE id =@id;
 END;
 go
@@ -126,6 +129,7 @@ AS BEGIN
 	FROM PLAN_MAESTRO PM INNER JOIN NODO N ON PM.Nodo = N.id_nodo
 END;
 go
+
 
 create or alter proc SP_ADD_RP
 (@nodo int, @periodo int, @cantidad int)
@@ -147,7 +151,7 @@ go
 create or alter proc SP_DELETE_RP
 (@id int)
 as begin
-	if exists (select id from RECEPCION_PROGRAMADA where id=id)
+	if exists (select id from RECEPCION_PROGRAMADA where id=@id)
 		delete from RECEPCION_PROGRAMADA where id=@id
 end;
 go

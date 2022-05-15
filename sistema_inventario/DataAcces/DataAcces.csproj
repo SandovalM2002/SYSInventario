@@ -47,11 +47,13 @@
     <Compile Include="Controller\C_ModeloABC.cs" />
     <Compile Include="Controller\C_Nodo.cs" />
     <Compile Include="Controller\C_PlanMaestro.cs" />
+    <Compile Include="Controller\C_RecepcionesProgramadas.cs" />
     <Compile Include="Controller\C_Stock.cs" />
     <Compile Include="Entity\E_Explosion.cs" />
     <Compile Include="Entity\E_ModeloABC.cs" />
     <Compile Include="Entity\E_Nodo.cs" />
     <Compile Include="Entity\E_PlanMaestro.cs" />
+    <Compile Include="Entity\E_RecepcionProgramada.cs" />
     <Compile Include="Entity\E_Stock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

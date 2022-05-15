@@ -9,30 +9,33 @@ using System.Windows.Forms;
 
 namespace DataAcces.Entity
 {
-    public class E_PlanMaestro:ConnectionToSQL
+    public class E_RepecionProgramada : ConnectionToSQL
     {
-        private int id_pm;
-        private int nodo_pm;
-        private int demanda;
-        private int periodo;
+        private int id_rp;
+        private int nodo_rp;
+        private int cantidad_rp;
+        private int periodo_rp;
 
-        public E_PlanMaestro() { }
-
-        public E_PlanMaestro(int id_pm, int nodo_pm, int demanda, int periodo)
+        public E_RepecionProgramada()
         {
-            this.id_pm = id_pm;
-            this.nodo_pm = nodo_pm;
-            this.demanda = demanda;
-            this.periodo = periodo;
         }
 
-        public int Id_pm { get => id_pm; set => id_pm = value; }
-        public int Nodo_pm { get => nodo_pm; set => nodo_pm = value; }
-        public int Demanda { get => demanda; set => demanda = value; }
-        public int Periodo { get => periodo; set => periodo = value; }
+        public E_RepecionProgramada(int id_rp, int nodo_rp, int cantidad_rp, int periodo_rp)
+        {
+            this.id_rp = id_rp;
+            this.nodo_rp = nodo_rp;
+            this.cantidad_rp = cantidad_rp;
+            this.periodo_rp = periodo_rp;
+        }
 
-        #region "PROCEDURE TO SQL"
-        public DataTable View_Plan_Maestro ()
+        public int Id_rp { get => id_rp; set => id_rp = value; }
+        public int Nodo_rp { get => nodo_rp; set => nodo_rp = value; }
+        public int Cantidad_rp { get => cantidad_rp; set => cantidad_rp = value; }
+        public int Periodo_rp { get => periodo_rp; set => periodo_rp = value; }
+
+        #region "STORAGE PROCEDURE IN DATABASE"
+
+        public DataTable View_Recepciones_Programadas()
         {
             DataTable res = new DataTable();
             try
@@ -45,9 +48,8 @@ namespace DataAcces.Entity
                     {
                         Command.Connection = conection;
 
-                        Command.CommandText = "SP_VIEW_PM";
+                        Command.CommandText = "SP_VIEW_RP";
                         Command.CommandType = CommandType.StoredProcedure;
-
 
                         SqlDataAdapter leer = new SqlDataAdapter(Command);
                         leer.Fill(res);
@@ -64,7 +66,7 @@ namespace DataAcces.Entity
             return res;
         }
 
-        public void Insert_Plan_Maestro(E_PlanMaestro pm)
+        public void Insert_Recepciones_Programadas(E_RepecionProgramada repecionProgramada)
         {
             using (var conection = GetConnection())
             {
@@ -74,12 +76,13 @@ namespace DataAcces.Entity
                 {
                     command.Connection = conection;
 
-                    command.CommandText = "SP_ADD_PM";
+                    command.CommandText = "SP_ADD_RP";
                     command.CommandType = CommandType.StoredProcedure;
 
-                    command.Parameters.AddWithValue("@Nodo", pm.Nodo_pm);
-                    command.Parameters.AddWithValue("@Demanda", pm.Demanda);
-                    command.Parameters.AddWithValue("@Periodo", pm.Periodo);
+                    //Parametros del Procedimiento almacenado
+                    command.Parameters.AddWithValue("@nodo", repecionProgramada.Nodo_rp);
+                    command.Parameters.AddWithValue("@periodo", repecionProgramada.Periodo_rp);
+                    command.Parameters.AddWithValue("@cantidad", repecionProgramada.Cantidad_rp);
 
                     command.ExecuteNonQuery();
                     command.Parameters.Clear();
@@ -87,7 +90,7 @@ namespace DataAcces.Entity
             }
         }
 
-        public void Update_Plan_Maestro(E_PlanMaestro pm)
+        public void Update_Recepciones_Programadas(E_RepecionProgramada repecionProgramada)
         {
             using (var conection = GetConnection())
             {
@@ -97,13 +100,13 @@ namespace DataAcces.Entity
                 {
                     command.Connection = conection;
 
-                    command.CommandText = "SP_UPDATE_PM";
+                    command.CommandText = "SP_UPDATE_RP";
                     command.CommandType = CommandType.StoredProcedure;
 
-                    command.Parameters.AddWithValue("@ID", pm.Id_pm);
-                    command.Parameters.AddWithValue("@Nodo", pm.Nodo_pm);
-                    command.Parameters.AddWithValue("@Demanda", pm.Demanda);
-                    command.Parameters.AddWithValue("@Periodo", pm.Periodo);
+                    command.Parameters.AddWithValue("@id", repecionProgramada.Id_rp);
+                    command.Parameters.AddWithValue("@nodo", repecionProgramada.Nodo_rp);
+                    command.Parameters.AddWithValue("@periodo", repecionProgramada.Periodo_rp);
+                    command.Parameters.AddWithValue("@cantidad", repecionProgramada.Cantidad_rp);
 
                     command.ExecuteNonQuery();
                     command.Parameters.Clear();
@@ -111,7 +114,7 @@ namespace DataAcces.Entity
             }
         }
 
-        public void Delete_Plan_Maestro(int id)
+        public void Unsubscribe_Recepciones_Programadas(int id)
         {
             using (var conection = GetConnection())
             {
@@ -120,7 +123,7 @@ namespace DataAcces.Entity
                 {
                     Command.Connection = conection;
 
-                    Command.CommandText = "SP_DELETE_PM";
+                    Command.CommandText = "SP_DELETE_RP";
                     Command.CommandType = CommandType.StoredProcedure;
 
                     Command.Parameters.AddWithValue("@id", id);
@@ -130,6 +133,7 @@ namespace DataAcces.Entity
                 }
             }
         }
+
         #endregion
     }
 }
