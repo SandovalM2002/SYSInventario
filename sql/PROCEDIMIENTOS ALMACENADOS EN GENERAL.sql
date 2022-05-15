@@ -93,3 +93,35 @@ AS BEGIN
 	FROM NODO N
 END
 go
+CREATE OR ALTER PROC SP_ADD_PM
+(@Nodo int, @Demanda int, @periodo int)
+AS BEGIN
+	IF EXISTS (SELECT id_nodo FROM NODO WHERE id_nodo = @Nodo)
+		INSERT INTO PLAN_MAESTRO VALUES (@Nodo,@Demanda,@periodo)
+END;
+go
+CREATE OR ALTER PROC SP_UPDATE_PM
+(@ID int, @Nodo int, @Demanda int, @periodo int)
+AS BEGIN
+IF EXISTS (SELECT id FROM PLAN_MAESTRO WHERE id=@ID)
+	IF EXISTS (SELECT id_nodo FROM NODO WHERE id_nodo = @Nodo)
+		UPDATE PLAN_MAESTRO SET demanda =@Demanda, periodo =@periodo WHERE id =@ID
+END;
+go
+CREATE OR ALTER PROC SP_DELETE_PM
+(@id int)
+AS BEGIN
+	IF EXISTS (SELECT id FROM PLAN_MAESTRO WHERE id=@ID)
+		DELETE PLAN_MAESTRO WHERE id =@id;
+END;
+go
+CREATE OR ALTER PROC SP_VIEW_PM
+AS BEGIN
+	SELECT  
+		PM.id as [Id],
+		PM.Nodo as [Nodo],
+		N.des_nodo as [Descripcion Nodo],
+		PM.demanda as [Demanda],
+		PM.periodo as [Periodo]
+	FROM PLAN_MAESTRO PM INNER JOIN NODO N ON PM.Nodo = N.id_nodo
+END;
