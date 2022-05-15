@@ -125,3 +125,41 @@ AS BEGIN
 		PM.periodo as [Periodo]
 	FROM PLAN_MAESTRO PM INNER JOIN NODO N ON PM.Nodo = N.id_nodo
 END;
+go
+
+create or alter proc SP_ADD_RP
+(@nodo int, @periodo int, @cantidad int)
+as begin
+	if exists (select id_nodo from NODO where id_nodo= @nodo)
+		insert into RECEPCION_PROGRAMADA values(@nodo,@periodo,@cantidad)
+end;
+go
+
+create or alter proc SP_UPDATE_RP
+(@id int,@nodo int, @periodo int, @cantidad int)
+as begin
+	if exists (select id from RECEPCION_PROGRAMADA where id= @id)
+		if exists (select id_nodo from NODO where id_nodo= @nodo)
+			update RECEPCION_PROGRAMADA set cantidad=@cantidad, periodo=@periodo where id=@id
+end;
+go
+
+create or alter proc SP_DELETE_RP
+(@id int)
+as begin
+	if exists (select id from RECEPCION_PROGRAMADA where id=id)
+		delete from RECEPCION_PROGRAMADA where id=@id
+end;
+go
+
+create or alter proc SP_VIEW_RP
+as begin
+	SELECT  
+		RP.id as [Id],
+		RP.Nodo as [Nodo],
+		N.des_nodo as [Descripcion Nodo],
+		RP.cantidad as [Cantidad],
+		RP.periodo as [Periodo]
+	FROM RECEPCION_PROGRAMADA RP INNER JOIN NODO N ON RP.Nodo = N.id_nodo
+end;
+go
