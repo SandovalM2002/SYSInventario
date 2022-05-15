@@ -33,9 +33,11 @@ namespace Views.INVENTARIO
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.pnlUp = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.pnlCenter = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.dgvStock = new System.Windows.Forms.DataGridView();
@@ -57,8 +59,9 @@ namespace Views.INVENTARIO
             this.txtCosto = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.txtFinder = new System.Windows.Forms.TextBox();
-            this.pnlUp.SuspendLayout();
             this.pnlCenter.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStock)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSS)).BeginInit();
@@ -67,43 +70,65 @@ namespace Views.INVENTARIO
             ((System.ComponentModel.ISupportInitialize)(this.txtCosto)).BeginInit();
             this.SuspendLayout();
             // 
-            // pnlUp
-            // 
-            this.pnlUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
-            this.pnlUp.Controls.Add(this.label9);
-            this.pnlUp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlUp.Location = new System.Drawing.Point(0, 0);
-            this.pnlUp.Name = "pnlUp";
-            this.pnlUp.Size = new System.Drawing.Size(877, 47);
-            this.pnlUp.TabIndex = 7;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(17, 13);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(174, 21);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Sección de Inventario";
-            // 
             // pnlCenter
             // 
             this.pnlCenter.BackColor = System.Drawing.Color.White;
-            this.pnlCenter.Controls.Add(this.btnDelete);
-            this.pnlCenter.Controls.Add(this.btnUpdate);
-            this.pnlCenter.Controls.Add(this.dgvStock);
-            this.pnlCenter.Controls.Add(this.btnAdd);
-            this.pnlCenter.Controls.Add(this.groupBox1);
-            this.pnlCenter.Controls.Add(this.label3);
-            this.pnlCenter.Controls.Add(this.txtFinder);
+            this.pnlCenter.Controls.Add(this.tabControl1);
             this.pnlCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlCenter.Location = new System.Drawing.Point(0, 47);
+            this.pnlCenter.Location = new System.Drawing.Point(0, 0);
             this.pnlCenter.Name = "pnlCenter";
-            this.pnlCenter.Size = new System.Drawing.Size(877, 462);
+            this.pnlCenter.Size = new System.Drawing.Size(933, 651);
             this.pnlCenter.TabIndex = 9;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(933, 651);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.btnDelete);
+            this.tabPage1.Controls.Add(this.btnUpdate);
+            this.tabPage1.Controls.Add(this.dgvStock);
+            this.tabPage1.Controls.Add(this.btnAdd);
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.txtFinder);
+            this.tabPage1.Location = new System.Drawing.Point(4, 28);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(925, 619);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Inventario";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 28);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(925, 619);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Plan Maestro";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 28);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(925, 619);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Recepciones Programadas";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // btnDelete
             // 
@@ -117,15 +142,14 @@ namespace Views.INVENTARIO
             this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Image = global::Views.Properties.Resources.bin;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDelete.Location = new System.Drawing.Point(722, 203);
+            this.btnDelete.Location = new System.Drawing.Point(789, 181);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(132, 35);
-            this.btnDelete.TabIndex = 10;
+            this.btnDelete.TabIndex = 17;
             this.btnDelete.Text = "Eliminar";
             this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -139,15 +163,14 @@ namespace Views.INVENTARIO
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
             this.btnUpdate.Image = global::Views.Properties.Resources.pencil;
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUpdate.Location = new System.Drawing.Point(584, 203);
+            this.btnUpdate.Location = new System.Drawing.Point(651, 181);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(132, 35);
-            this.btnUpdate.TabIndex = 9;
+            this.btnUpdate.TabIndex = 16;
             this.btnUpdate.Text = "Modificar";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // dgvStock
             // 
@@ -186,7 +209,7 @@ namespace Views.INVENTARIO
             this.dgvStock.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvStock.EnableHeadersVisualStyles = false;
             this.dgvStock.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
-            this.dgvStock.Location = new System.Drawing.Point(21, 297);
+            this.dgvStock.Location = new System.Drawing.Point(8, 275);
             this.dgvStock.MultiSelect = false;
             this.dgvStock.Name = "dgvStock";
             this.dgvStock.ReadOnly = true;
@@ -210,10 +233,8 @@ namespace Views.INVENTARIO
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.dgvStock.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvStock.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStock.Size = new System.Drawing.Size(833, 153);
-            this.dgvStock.TabIndex = 12;
-            this.dgvStock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStock_CellContentClick);
-            this.dgvStock.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStock_CellDoubleClick);
+            this.dgvStock.Size = new System.Drawing.Size(913, 360);
+            this.dgvStock.TabIndex = 19;
             // 
             // btnAdd
             // 
@@ -227,15 +248,14 @@ namespace Views.INVENTARIO
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Image = global::Views.Properties.Resources.plus;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdd.Location = new System.Drawing.Point(446, 203);
+            this.btnAdd.Location = new System.Drawing.Point(513, 181);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(132, 35);
-            this.btnAdd.TabIndex = 8;
+            this.btnAdd.TabIndex = 15;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // groupBox1
             // 
@@ -256,10 +276,10 @@ namespace Views.INVENTARIO
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtCosto);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(21, 6);
+            this.groupBox1.Location = new System.Drawing.Point(8, -16);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(833, 182);
-            this.groupBox1.TabIndex = 6;
+            this.groupBox1.Size = new System.Drawing.Size(913, 182);
+            this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Formulario";
             // 
@@ -431,37 +451,35 @@ namespace Views.INVENTARIO
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(17, 231);
+            this.label3.Location = new System.Drawing.Point(4, 209);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 19);
-            this.label3.TabIndex = 3;
+            this.label3.TabIndex = 13;
             this.label3.Text = "Buscar:";
             // 
             // txtFinder
             // 
             this.txtFinder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFinder.Location = new System.Drawing.Point(21, 255);
+            this.txtFinder.Location = new System.Drawing.Point(8, 233);
             this.txtFinder.Name = "txtFinder";
-            this.txtFinder.Size = new System.Drawing.Size(833, 25);
-            this.txtFinder.TabIndex = 11;
-            this.txtFinder.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.txtFinder.Size = new System.Drawing.Size(913, 25);
+            this.txtFinder.TabIndex = 18;
             // 
             // FrmStock
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(877, 509);
+            this.ClientSize = new System.Drawing.Size(933, 651);
             this.Controls.Add(this.pnlCenter);
-            this.Controls.Add(this.pnlUp);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmStock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmStock_Load);
-            this.pnlUp.ResumeLayout(false);
-            this.pnlUp.PerformLayout();
             this.pnlCenter.ResumeLayout(false);
-            this.pnlCenter.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStock)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -474,29 +492,31 @@ namespace Views.INVENTARIO
         }
 
         #endregion
-        private System.Windows.Forms.Panel pnlUp;
         private System.Windows.Forms.Panel pnlCenter;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtFinder;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.DataGridView dgvStock;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.GroupBox groupBox1;
         public System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.NumericUpDown txtSS;
+        private System.Windows.Forms.TextBox txtCod;
         public System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown txtExistencia;
+        private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cmbTipo;
         private System.Windows.Forms.NumericUpDown txtPrecio;
+        public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown txtCosto;
-        public System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cmbTipo;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtCod;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.DataGridView dgvStock;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtFinder;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
     }
 }
