@@ -86,7 +86,6 @@ go
 CREATE OR ALTER PROC SP_EXPLOSION_MRP (@nodo INT)
 AS BEGIN
 	DECLARE @PADRE INT = (SELECT nodo_padre FROM NODO WHERE id_nodo = @nodo)
-	DECLARE @MRP INT = (SELECT id_MRP FROM MRP WHERE id_nodo = @nodo)
 	DECLARE @t_nodo AS INT = (SELECT t_nodo FROM NODO WHERE id_nodo = @nodo)
 
 	DECLARE @DEMANDA INT
@@ -95,6 +94,7 @@ AS BEGIN
 	DECLARE @NN INT
 	
 	EXEC SP_INSERT_MRP @nodo
+	DECLARE @MRP INT = (SELECT id_MRP FROM MRP WHERE id_nodo = @nodo)
 
 	DECLARE @COUNT INT = 1
 
@@ -220,5 +220,9 @@ AS BEGIN
 	RETURN @RESULT
 END;
 go
-exec SP_EXPLOSION_MRP 7
-select * from DETALLE_MRP where id_MRP = 3
+
+
+select * from STOCK
+exec SP_EXPLOSION_MRP 1
+select * from MRP
+select * from DETALLE_MRP
