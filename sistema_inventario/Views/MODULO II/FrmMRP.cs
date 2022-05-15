@@ -236,9 +236,16 @@ namespace Views.MRP
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            dgvExplosion.DataSource = null;
-            C_Explosion.Insert(Convert.ToInt32(id_nodo));
-            dgvExplosion.DataSource = C_Explosion.view(Convert.ToInt32(id_nodo));
+            try
+            {
+                dgvExplosion.DataSource = null;
+                C_Explosion.Insert(Convert.ToInt32(id_nodo));
+                dgvExplosion.DataSource = C_Explosion.view(Convert.ToInt32(id_nodo));
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -120,49 +120,58 @@ namespace Views.Modelo_EOQ_ABCC
 
         private void txtCalcular_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtDemanda.Text) || string.IsNullOrWhiteSpace(txtCostoPedido.Text)
-                 || string.IsNullOrWhiteSpace(txtCostoProd.Text) || string.IsNullOrWhiteSpace(txtPlazoEnt.Text)
-                  || string.IsNullOrWhiteSpace(txtDiasH.Text))
+            try
             {
-                MessageBox.Show("No debe dejar campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            } else if (txtCostoMant.Enabled==true && string.IsNullOrWhiteSpace(txtCostoMant.Text))
-            {
-                MessageBox.Show("No debe dejar campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                if (string.IsNullOrWhiteSpace(txtDemanda.Text) || string.IsNullOrWhiteSpace(txtCostoPedido.Text)
+                         || string.IsNullOrWhiteSpace(txtCostoProd.Text) || string.IsNullOrWhiteSpace(txtPlazoEnt.Text)
+                          || string.IsNullOrWhiteSpace(txtDiasH.Text))
+                {
+                    MessageBox.Show("No debe dejar campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (txtCostoMant.Enabled == true && string.IsNullOrWhiteSpace(txtCostoMant.Text))
+                {
+                    MessageBox.Show("No debe dejar campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (txtTasaMant.Enabled == true && string.IsNullOrWhiteSpace(txtTasaMant.Text))
+                {
+                    MessageBox.Show("No debe dejar campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (!rbCostoMant.Checked && !rbTasaMan.Checked)
+                {
+                    MessageBox.Show("Debe elegir la tasa o el costo de mantener", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                double diasHabiles = double.Parse(txtDiasH.Text);
+                double multiplicadorDemanda = cbDemanda.SelectedIndex == 0 ? 1 : cbDemanda.SelectedIndex == 1 ? 12 : cbDemanda.SelectedIndex == 2 ? 52 : diasHabiles;
+                double multiplicadorTasa = cbTasaMan.SelectedIndex == 0 ? 1 : cbTasaMan.SelectedIndex == 1 ? 12 : cbTasaMan.SelectedIndex == 2 ? 52 : cbTasaMan.SelectedIndex == 3 ? diasHabiles : 1;
+                double multiplicadorCostoM = cbCostoMant.SelectedIndex == 0 ? 1 : cbCostoMant.SelectedIndex == 1 ? 12 : cbCostoMant.SelectedIndex == 2 ? 52 : cbCostoMant.SelectedIndex == 3 ? diasHabiles : 1;
+
+                double tasaMant = txtTasaMant.Enabled == true ? double.Parse(txtTasaMant.Text) / 100 * multiplicadorTasa : 1;
+                double demanda = double.Parse(txtDemanda.Text) * multiplicadorDemanda;
+                double costoPedir = double.Parse(txtCostoPedido.Text);
+                double costoProd = double.Parse(txtCostoProd.Text);
+                double costoMantener = txtCostoMant.Enabled == true ? double.Parse(txtCostoMant.Text) * multiplicadorCostoM : costoProd * tasaMant;
+                double plazoEntrega = double.Parse(txtPlazoEnt.Text);
+
+                double eoq = Math.Sqrt((2 * demanda * costoPedir) / costoMantener);
+                lblEQO.Text = "Q optimo:" + Math.Floor(eoq).ToString();
+
+                double rop = demanda / diasHabiles * plazoEntrega;
+                lblRop.Text = "ROP: " + Math.Floor(rop).ToString();
+
+                double costoT = ((demanda * costoPedir) / eoq) + ((eoq * costoMantener) / 2) + (demanda * costoProd);
+                lblCostoT.Text = "Costo Total:" + Math.Round(costoT).ToString();
+
+                Graficar(eoq, rop);
             }
-            else if (txtTasaMant.Enabled == true && string.IsNullOrWhiteSpace(txtTasaMant.Text))
+            catch(Exception ex)
             {
-                MessageBox.Show("No debe dejar campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }else if(!rbCostoMant.Checked && !rbTasaMan.Checked)
-            {
-                MessageBox.Show("Debe elegir la tasa o el costo de mantener", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                MessageBox.Show(ex.Message);
             }
-
-            double diasHabiles = double.Parse(txtDiasH.Text);
-            double multiplicadorDemanda = cbDemanda.SelectedIndex == 0 ? 1 : cbDemanda.SelectedIndex==1 ? 12: cbDemanda.SelectedIndex==2 ? 52 : diasHabiles;
-            double multiplicadorTasa = cbTasaMan.SelectedIndex == 0 ? 1 : cbTasaMan.SelectedIndex==1 ? 12: cbTasaMan.SelectedIndex==2 ? 52 : cbTasaMan.SelectedIndex==3 ? diasHabiles : 1;
-            double multiplicadorCostoM = cbCostoMant.SelectedIndex == 0 ? 1 : cbCostoMant.SelectedIndex == 1 ? 12 : cbCostoMant.SelectedIndex == 2 ? 52 : cbCostoMant.SelectedIndex == 3 ? diasHabiles : 1;
-
-            double tasaMant = txtTasaMant.Enabled==true ? double.Parse(txtTasaMant.Text)/100*multiplicadorTasa : 1;
-            double demanda = double.Parse(txtDemanda.Text)*multiplicadorDemanda;
-            double costoPedir = double.Parse(txtCostoPedido.Text);
-            double costoProd = double.Parse(txtCostoProd.Text);
-            double costoMantener = txtCostoMant.Enabled==true ? double.Parse(txtCostoMant.Text)*multiplicadorCostoM: costoProd*tasaMant;
-            double plazoEntrega = double.Parse(txtPlazoEnt.Text);
-
-            double eoq = Math.Sqrt((2*demanda*costoPedir)/costoMantener);
-            lblEQO.Text = "Q optimo:" + Math.Floor(eoq).ToString();
-
-            double rop = demanda / diasHabiles * plazoEntrega;
-            lblRop.Text = "ROP: " + Math.Floor(rop).ToString();
-
-            double costoT = ((demanda*costoPedir)/eoq)+((eoq*costoMantener)/2)+(demanda*costoProd);
-            lblCostoT.Text = "Costo Total:" + Math.Round(costoT).ToString();
-
-            Graficar(eoq, rop);
         }
 
         private void cbCostoMant_KeyPress(object sender, KeyPressEventArgs e)

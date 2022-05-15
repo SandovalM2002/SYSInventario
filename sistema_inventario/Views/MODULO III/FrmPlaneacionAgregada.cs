@@ -83,6 +83,13 @@ namespace Views.Planeacion_Agregada
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
+            //LLAMAR VALIDACION DE TABLA NULA
+            if (ValidateGrid().Equals(true))
+            {
+                MessageBox.Show("Debe ingresar datos a la tabla, debe poner ceros si no hay dato");
+                return;
+            }
+
             //llamar metodo para calcular por medio de la estrategia de persecucion
             if (rbPersecucion.Checked)
             {
@@ -151,7 +158,10 @@ namespace Views.Planeacion_Agregada
 
                 for (int col = 0; col < periodos; col++)
                 {
-                    int demanda = int.Parse(dgvDYD.Rows[0].Cells[col].Value.ToString());
+                    int demanda = 0;
+                   
+                    demanda = int.Parse(dgvDYD.Rows[0].Cells[col].Value.ToString());
+                    
                     int invS = 0;
 
                     if (cbxSS.Checked == true)
@@ -164,10 +174,13 @@ namespace Views.Planeacion_Agregada
                     }
 
 
-
                     int reqProd = demanda - invInicial + invS;
                     double horasReq = horas * reqProd;
-                    int diasH = int.Parse(dgvDYD.Rows[1].Cells[col].Value.ToString());
+                    int diasH = 0;
+                    
+                    diasH = int.Parse(dgvDYD.Rows[1].Cells[col].Value.ToString());
+
+
                     double horasMesTrabajador = diasH * 8;
                     double trabaReq = horasReq / horasMesTrabajador;
                     trabaReq = Math.Round(trabaReq);
@@ -187,8 +200,6 @@ namespace Views.Planeacion_Agregada
 
                     for (int fila = 0; fila < dgvPlanificacion.RowCount; fila++)
                     {
-
-
                         dgvPlanificacion.Rows[fila].HeaderCell.Value = nombres[fila];
 
                         switch (fila)
@@ -254,10 +265,6 @@ namespace Views.Planeacion_Agregada
                     }
                 }
                 lblCosto.Text = "Costo Total: " + costoTotal;
-            }
-            catch (NullReferenceException ex)
-            {
-                MessageBox.Show("Ha ocurido un error" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
@@ -605,6 +612,21 @@ namespace Views.Planeacion_Agregada
         public static string getFrame()
         {
             return "PLANEACION";
+        }
+
+        private bool ValidateGrid()
+        {
+            for (int i = 0; i < dgvDYD.RowCount - 1; i++)
+            {
+                for (int j = 0; j < dgvDYD.ColumnCount; j++)
+                {
+                    if (dgvDYD.Rows[i].Cells[j].Value == null)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 }
