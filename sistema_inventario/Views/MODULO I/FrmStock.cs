@@ -29,6 +29,10 @@ namespace Views.INVENTARIO
         {
             dgvStock.DataSource = null;
             dgvStock.DataSource = C_Stock.view_stock(param);
+
+            cmbNodo_PM.DataSource = C_Nodo.view();
+            cmbNodo_PM.DisplayMember = "Descripción";
+            cmbNodo_PM.ValueMember = "Cod";
         }
 
         public static string getFrameName()
@@ -126,9 +130,5 @@ namespace Views.INVENTARIO
             }
         }
 
-        private void dgvStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }
