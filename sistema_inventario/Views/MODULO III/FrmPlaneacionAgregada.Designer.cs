@@ -74,6 +74,7 @@ namespace Views.Planeacion_Agregada
             this.label12 = new System.Windows.Forms.Label();
             this.dgvPlanificacion = new System.Windows.Forms.DataGridView();
             this.dgvDYD = new System.Windows.Forms.DataGridView();
+            this.cbxSS = new System.Windows.Forms.CheckBox();
             this.gbDatosGenerales.SuspendLayout();
             this.gbPersecucion.SuspendLayout();
             this.gbFuerzaN.SuspendLayout();
@@ -165,9 +166,9 @@ namespace Views.Planeacion_Agregada
             this.label4.Location = new System.Drawing.Point(4, 103);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(189, 24);
+            this.label4.Size = new System.Drawing.Size(169, 24);
             this.label4.TabIndex = 56;
-            this.label4.Text = "% stock de seguridad";
+            this.label4.Text = "stock de seguridad";
             // 
             // btnCalcular
             // 
@@ -278,6 +279,7 @@ namespace Views.Planeacion_Agregada
             // 
             // gbDatosGenerales
             // 
+            this.gbDatosGenerales.Controls.Add(this.cbxSS);
             this.gbDatosGenerales.Controls.Add(this.txtCostoUnitario);
             this.gbDatosGenerales.Controls.Add(this.label13);
             this.gbDatosGenerales.Controls.Add(this.txtSS);
@@ -609,6 +611,16 @@ namespace Views.Planeacion_Agregada
             this.dgvDYD.Size = new System.Drawing.Size(505, 85);
             this.dgvDYD.TabIndex = 78;
             // 
+            // cbxSS
+            // 
+            this.cbxSS.AutoSize = true;
+            this.cbxSS.Location = new System.Drawing.Point(247, 100);
+            this.cbxSS.Name = "cbxSS";
+            this.cbxSS.Size = new System.Drawing.Size(47, 28);
+            this.cbxSS.TabIndex = 78;
+            this.cbxSS.Text = "%";
+            this.cbxSS.UseVisualStyleBackColor = true;
+            // 
             // FrmPlaneacionAgregada
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -685,5 +697,6 @@ namespace Views.Planeacion_Agregada
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridView dgvPlanificacion;
         private System.Windows.Forms.DataGridView dgvDYD;
+        private System.Windows.Forms.CheckBox cbxSS;
     }
 }

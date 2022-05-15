@@ -21,6 +21,32 @@ namespace Views.Modelo_EOQ_ABCC
             Graficar(500, 30);
         }
 
+        //Validar solo numeros enteros
+        private void validarNumerosEnteros(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        //Validar solo numeros decimales
+        private void validarNumerosDecimales(object sender, KeyPressEventArgs e)
+        {
+            TextBox txt = new TextBox();
+            txt = (TextBox)sender;
+
+            ValidacionesNumericas.validarNumerosDecimales(e, txt.Text);
+        }
+
         private void Graficar(double eoq, double rop)
         {
             GraficaEOQ.Series["ModeloQ"].Points.Clear();
