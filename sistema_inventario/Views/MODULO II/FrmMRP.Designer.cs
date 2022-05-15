@@ -470,6 +470,7 @@ namespace Views.MRP
             this.tvArbol.Name = "tvArbol";
             this.tvArbol.Size = new System.Drawing.Size(246, 283);
             this.tvArbol.TabIndex = 0;
+            this.tvArbol.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvArbol_AfterSelect);
             // 
             // tabPage2
             // 

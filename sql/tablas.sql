@@ -222,7 +222,3 @@ END;
 go
 
 
-select * from STOCK
-exec SP_EXPLOSION_MRP 1
-select * from MRP
-select * from DETALLE_MRP

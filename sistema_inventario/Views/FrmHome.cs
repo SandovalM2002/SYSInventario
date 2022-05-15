@@ -21,6 +21,16 @@ namespace Views
         public static string getFrameName()
         {
             return id_frm;
-        } 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmHome_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -86,6 +86,9 @@ namespace Views.MRP
         {
             try
             {
+                tvArbol.Nodes.Clear();
+                tvExplosion.Nodes.Clear();
+
                 dtsN = C_Nodo.CargarNodos();
                 CrearNodosDelPadre(0, null);
                 CrearNodosExplosion(0, null);
@@ -174,6 +177,7 @@ namespace Views.MRP
             }
         }
         #endregion
+
         public static string getFrameName()
         {
             return "MRP";
@@ -190,20 +194,32 @@ namespace Views.MRP
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (id_padre == id_hijo)
+            {
+                MessageBox.Show("Error");
+                return;
+            }
+
             C_Nodo.Insert(id_padre, id_hijo,Convert.ToInt32(txtCant.Value),Convert.ToInt32(txtPeriodos.Value));
             Clear_Box();
+            Tablas();
+            CargarDataSQL();
         }
 
         private void btnMod_Click(object sender, EventArgs e)
         {
             C_Nodo.update(id_mrp,Convert.ToInt32(txtCant.Value), Convert.ToInt32(txtPeriodos.Value));
             Clear_Box();
+            Tablas();
+            CargarDataSQL();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             C_Nodo.delete(txtId.Text);
             Clear_Box();
+            Tablas();
+            CargarDataSQL();
         }
 
         private void Clear_Box()
@@ -246,6 +262,11 @@ namespace Views.MRP
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void tvArbol_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
         }
     }
 }

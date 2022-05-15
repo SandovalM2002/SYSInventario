@@ -64,7 +64,7 @@ namespace DataAcces.Entity
                         Command.CommandType = CommandType.StoredProcedure;
 
 
-                        Command.Parameters.AddWithValue("@dato", data);
+                        Command.Parameters.AddWithValue("@DATO", data);
 
                         SqlDataAdapter leer = new SqlDataAdapter(Command);
                         leer.Fill(res);

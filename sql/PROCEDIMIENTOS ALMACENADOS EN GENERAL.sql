@@ -50,7 +50,6 @@ END
 
 
 go
-
 --------------------------------------||METODOS DEL NODO
 CREATE OR ALTER PROC SP_ADD_NODO (@p int, @h int, @q int, @t int)
 AS BEGIN
