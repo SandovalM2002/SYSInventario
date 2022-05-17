@@ -166,6 +166,23 @@
   <ItemGroup>
     <None Include="Resources\next.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\xbutton_83749.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\squareroundedemptyoutlinedbuttonshape_80680.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copytwosquaresoutlinedinterfacesymbol_79929.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus-gross-horizontal-straight-line-symbol_icon-icons.com_74137.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\124109.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\755194.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
