@@ -23,8 +23,8 @@ namespace Views
 
         private void FrmDashboard_Load(object sender, EventArgs e)
         {
-            AgregarFormHijo(new FrmHome());
-            id_frm_child = FrmHome.getFrameName();
+            AgregarFormHijo(new principal());
+            id_frm_child = principal.getFrameName();
         }
 
         private void AgregarFormHijo(Object formHijo)
@@ -52,10 +52,10 @@ namespace Views
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            if (id_frm_child != FrmHome.getFrameName())
+            if (id_frm_child != principal.getFrameName())
             {
-                AgregarFormHijo(new FrmHome());
-                id_frm_child = FrmHome.getFrameName();
+                AgregarFormHijo(new principal());
+                id_frm_child = principal.getFrameName();
             }
         }
 

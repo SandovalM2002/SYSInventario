@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Views
 {
-    public partial class FrmHome : Form
+    public partial class principal : Form
     {
         public static string id_frm = "HOME";
-        public FrmHome()
+        public principal()
         {
             InitializeComponent();
         }
@@ -31,6 +31,17 @@ namespace Views
         private void FrmHome_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void title_var_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void hora_Tick(object sender, EventArgs e)
+        {
+            lblReloj.Text=DateTime.Now.ToLongTimeString();
+            lblFecha.Text=DateTime.Now.ToLongDateString();
         }
     }
 }

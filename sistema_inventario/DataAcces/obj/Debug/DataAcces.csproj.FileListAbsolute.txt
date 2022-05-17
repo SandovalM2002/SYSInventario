@@ -27,3 +27,9 @@ D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\DataAcces\bin\
 D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.csproj.CoreCompileInputs.cache
 D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.dll
 D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.pdb
+C:\Users\DELL\Source\Repos\SandovalM2002\SYSInventario\sistema_inventario\DataAcces\bin\Debug\DataAcces.dll
+C:\Users\DELL\Source\Repos\SandovalM2002\SYSInventario\sistema_inventario\DataAcces\bin\Debug\DataAcces.pdb
+C:\Users\DELL\Source\Repos\SandovalM2002\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.csproj.AssemblyReference.cache
+C:\Users\DELL\Source\Repos\SandovalM2002\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Source\Repos\SandovalM2002\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.dll
+C:\Users\DELL\Source\Repos\SandovalM2002\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.pdb
