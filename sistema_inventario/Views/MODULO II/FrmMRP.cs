@@ -264,9 +264,227 @@ namespace Views.MRP
             }
         }
 
-        private void tvArbol_AfterSelect(object sender, TreeViewEventArgs e)
+        private void btnGenerar_Periodos_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtPeriodo_TL.Text))
+                {
+                    MessageBox.Show("No debe dejar campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
+
+                int periodos = int.Parse(txtPeriodo_TL.Text);
+                dgvTL_Datos.RowCount = 1;
+                dgvTL_Datos.ColumnCount = periodos;
+
+                dgvTL_Datos.Rows[0].HeaderCell.Value = "Demanda";
+
+                for (int i = 0; i < periodos; i++)
+                {
+                    dgvTL_Datos.Columns[i].Name = "Periodo " + (i + 1);
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Ha ocurido un error" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurido un error" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool ValidateGrid()
+        {
+            for (int i = 0; i < dgvTL_Datos.RowCount - 1; i++)
+            {
+                for (int j = 0; j < dgvTL_Datos.ColumnCount; j++)
+                {
+                    if (dgvTL_Datos.Rows[i].Cells[j].Value == null)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        private void txtCalcular_TamanoLote_Click(object sender, EventArgs e)
+        {
+            if (ValidateGrid().Equals(true))
+            {
+                MessageBox.Show("Debe ingresar datos a la tabla, debe poner ceros si no hay dato");
+                return;
+            }
+
+            Lote_Lote(float.Parse(txtCosto_Producto.Text),Costo_H(),float.Parse(txtS.Text));
+            EOQ(float.Parse(txtCosto_Producto.Text), Costo_H(), float.Parse(txtS.Text));
+        }
+
+        private void Lote_Lote(float costo, float H, float S)
+        {
+            //PERIODO  DEMANDA PRODUCCION INV.F H S CT
+
+            double CostoT = 0;
+
+            dgvLxL.ColumnCount = 7;
+            dgvLxL.RowCount = dgvTL_Datos.Columns.Count;
+
+
+            dgvLxL.Columns[0].Name = "Periodo";
+            dgvLxL.Columns[1].Name = "Demanda";
+            dgvLxL.Columns[2].Name = "Producción";
+            dgvLxL.Columns[3].Name = "Inv.Final";
+            dgvLxL.Columns[4].Name = "H";
+            dgvLxL.Columns[5].Name = "S";
+            dgvLxL.Columns[6].Name = "CT";
+
+            for (int i = 0; i < dgvTL_Datos.Columns.Count; i++)
+            {
+                dgvLxL.Rows[i].Cells[0].Value = i + 1;
+                dgvLxL.Rows[i].Cells[1].Value = dgvTL_Datos.Rows[0].Cells[i].Value;
+                dgvLxL.Rows[i].Cells[2].Value = dgvTL_Datos.Rows[0].Cells[i].Value;
+                dgvLxL.Rows[i].Cells[3].Value = 0;
+                dgvLxL.Rows[i].Cells[4].Value = 0;
+                dgvLxL.Rows[i].Cells[5].Value = S;
+                
+                if (i != 0)
+                {
+                    dgvLxL.Rows[i].Cells[6].Value = S + float.Parse(dgvLxL.Rows[i-1].Cells[6].Value.ToString());
+                }
+                else if(i == 0) {
+                    dgvLxL.Rows[i].Cells[6].Value = S;
+                }
+            }
+            CostoT =  double.Parse( dgvLxL.Rows[dgvTL_Datos.Columns.Count - 1].Cells[6].Value.ToString());
+        }
+
+        private void EOQ(float costo, float H, float S)
+        {
+            float acumulada = 0;
+
+            for (int i = 0; i < dgvTL_Datos.Columns.Count; i++)
+            {
+                acumulada += int.Parse(dgvTL_Datos.Rows[0].Cells[i].Value.ToString());
+            }
+
+            float D = Demanda_Anual(acumulada)/ dgvTL_Datos.Columns.Count;
+
+            double EOQ = Math.Sqrt((2*D*S)/(Cantidad_H(H)));
+
+            dgvEOQ.ColumnCount = 7;
+            dgvEOQ.RowCount = dgvTL_Datos.Columns.Count;
+
+            dgvEOQ.Columns[0].Name = "Periodo";
+            dgvEOQ.Columns[1].Name = "Demanda";
+            dgvEOQ.Columns[2].Name = "Producción";
+            dgvEOQ.Columns[3].Name = "Inv.Final";
+            dgvEOQ.Columns[4].Name = "H";
+            dgvEOQ.Columns[5].Name = "S";
+            dgvEOQ.Columns[6].Name = "CT";
+
+            for (int i = 0; i < dgvTL_Datos.Columns.Count; i++)
+            {
+                dgvEOQ.Rows[i].Cells[0].Value = i + 1;//PERIODO
+                dgvEOQ.Rows[i].Cells[1].Value = dgvTL_Datos.Rows[0].Cells[i].Value;//DEMANDA
+
+                if (i != 0)
+                {
+                    int IF_A = int.Parse(dgvEOQ.Rows[i-1].Cells[3].Value.ToString());
+                    int Demanda = int.Parse(dgvEOQ.Rows[i].Cells[1].Value.ToString());
+                    float CT = 0;
+
+                    if (IF_A < Demanda ) 
+                    {
+                        dgvEOQ.Rows[i].Cells[2].Value = Convert.ToInt32(EOQ); //PRODUCCION
+                        dgvEOQ.Rows[i].Cells[3].Value = IF_A + Convert.ToInt32(EOQ) - Demanda;//INV FINAL
+                        dgvEOQ.Rows[i].Cells[5].Value = S; //S
+                        CT += S;
+                    }
+                    else if(IF_A >= Demanda)
+                    {
+                        dgvEOQ.Rows[i].Cells[2].Value = 0; //PRODUCCION
+                        dgvEOQ.Rows[i].Cells[3].Value = IF_A - Demanda; // INV FINAL
+                        dgvEOQ.Rows[i].Cells[5].Value = 0; //S
+                        CT += 0;
+                    }
+                    
+                    float CH = H * float.Parse(dgvEOQ.Rows[i].Cells[3].Value.ToString());
+                    dgvEOQ.Rows[i].Cells[4].Value = CH; // H
+
+                    CT += CH;
+
+                    dgvEOQ.Rows[i].Cells[6].Value = float.Parse(dgvEOQ.Rows[i - 1].Cells[6].Value.ToString()) + CT;
+                }
+                else if (i == 0)
+                {
+                    dgvEOQ.Rows[i].Cells[2].Value = Convert.ToInt32(EOQ); //PRODUCCION
+                    dgvEOQ.Rows[i].Cells[3].Value = Convert.ToInt32(EOQ) -  int.Parse(dgvTL_Datos.Rows[0].Cells[i].Value.ToString()); // INV FINAL
+                    dgvEOQ.Rows[i].Cells[4].Value = H * float.Parse(dgvEOQ.Rows[i].Cells[3].Value.ToString()); // H
+                    dgvEOQ.Rows[i].Cells[5].Value = S; //S
+                    dgvEOQ.Rows[i].Cells[6].Value = float.Parse(dgvEOQ.Rows[i].Cells[4].Value.ToString()) + float.Parse(dgvEOQ.Rows[i].Cells[5].Value.ToString()); //CT
+                }
+            }
+        }
+
+        private float Demanda_Anual(float acumulada) 
+        {
+           float result = 0;
+           //semanal
+            if(cmbCH.SelectedIndex == 0) 
+            {
+                result = acumulada * 52;
+            }
+            //mensual
+            else if (cmbCH.SelectedIndex == 1)
+            {
+                result = acumulada * 12;
+            }
+            //anual
+            else if (cmbCH.SelectedIndex == 2)
+            {
+                result = acumulada;
+            }
+            return result;
+        }
+
+        private float Costo_H()
+        {
+            float result = 0;
+            if (rbtPorcentual.Checked)
+            {
+               result = (float.Parse(txtCosto_Mantenimiento.Text)/100) * float.Parse(txtCosto_Producto.Text);
+            }
+            else if (rbtH.Checked)
+            {
+                result = float.Parse(txtCosto_Mantenimiento.Text);
+            }
+
+            return result;
+        }
+
+        private float Cantidad_H (float H)
+        {
+            float result = 0;
+            //semanal
+            if (cmbTipo_Demanda.SelectedIndex == 0)
+            {
+                result = H * 52;
+            }
+            //mensual
+            else if (cmbTipo_Demanda.SelectedIndex == 1)
+            {
+                result = H * 12;
+            }
+            //anual
+            else if (cmbTipo_Demanda.SelectedIndex == 2)
+            {
+                result = H;
+            }
+
+            return result;
         }
     }
 }

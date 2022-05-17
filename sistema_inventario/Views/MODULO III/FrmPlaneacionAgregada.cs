@@ -84,7 +84,7 @@ namespace Views.Planeacion_Agregada
         private void btnCalcular_Click(object sender, EventArgs e)
         {
             //LLAMAR VALIDACION DE TABLA NULA
-            if (ValidateGrid().Equals(true))
+            if (ValidateGrid().Equals(false))
             {
                 MessageBox.Show("Debe ingresar datos a la tabla, debe poner ceros si no hay dato");
                 return;
@@ -627,6 +627,16 @@ namespace Views.Planeacion_Agregada
                 }
             }
             return false;
+        }
+
+        private void txtPeriodos_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
