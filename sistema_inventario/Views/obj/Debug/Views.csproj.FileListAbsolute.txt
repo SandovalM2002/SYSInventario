@@ -100,7 +100,6 @@ D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\Views\obj\Debu
 D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\Views\obj\Debug\Views.csproj.CopyComplete
 D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\Views\obj\Debug\Views.exe
 D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\Views\obj\Debug\Views.pdb
-<<<<<<< HEAD
 D:\Proyectos\sistema produccion lll\SYSInventario\sistema_inventario\Views\bin\Debug\Views.exe.config
 D:\Proyectos\sistema produccion lll\SYSInventario\sistema_inventario\Views\bin\Debug\Views.exe
 D:\Proyectos\sistema produccion lll\SYSInventario\sistema_inventario\Views\bin\Debug\Views.pdb
@@ -119,7 +118,6 @@ D:\Proyectos\sistema produccion lll\SYSInventario\sistema_inventario\Views\obj\D
 D:\Proyectos\sistema produccion lll\SYSInventario\sistema_inventario\Views\obj\Debug\Views.csproj.CopyComplete
 D:\Proyectos\sistema produccion lll\SYSInventario\sistema_inventario\Views\obj\Debug\Views.exe
 D:\Proyectos\sistema produccion lll\SYSInventario\sistema_inventario\Views\obj\Debug\Views.pdb
-=======
 C:\Users\DELL\Source\Repos\SandovalM2002\SYSInventario\sistema_inventario\Views\bin\Debug\Views.exe.config
 C:\Users\DELL\Source\Repos\SandovalM2002\SYSInventario\sistema_inventario\Views\bin\Debug\Views.exe
 C:\Users\DELL\Source\Repos\SandovalM2002\SYSInventario\sistema_inventario\Views\bin\Debug\Views.pdb
@@ -140,5 +138,5 @@ C:\Users\DELL\Source\Repos\SandovalM2002\SYSInventario\sistema_inventario\Views\
 C:\Users\DELL\Source\Repos\SandovalM2002\SYSInventario\sistema_inventario\Views\obj\Debug\Views.pdb
 C:\Users\DELL\Source\Repos\SandovalM2002\SYSInventario\sistema_inventario\Views\obj\Debug\Views.principal.resources
 C:\Users\50588\Desktop\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.principal.resources
->>>>>>> 9f961963dda2f08b4db3cac7d0906c3f90ac390a
 D:\Proyectos\sistema produccion lll\SYSInventario\sistema_inventario\Views\obj\Debug\Views.principal.resources
+C:\Users\50588\Desktop\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.csproj.AssemblyReference.cache
