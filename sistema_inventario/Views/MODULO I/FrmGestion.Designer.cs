@@ -30,19 +30,19 @@ namespace Views.Modelo_EOQ_ABCC
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -74,6 +74,20 @@ namespace Views.Modelo_EOQ_ABCC
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dgvABC = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.rbPrecios2 = new System.Windows.Forms.RadioButton();
+            this.gbPrecios2 = new System.Windows.Forms.GroupBox();
+            this.txtSobrante = new System.Windows.Forms.TextBox();
+            this.txtFaltante = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.rbPrecios1 = new System.Windows.Forms.RadioButton();
+            this.gbPrecios1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtPrCompra = new System.Windows.Forms.TextBox();
+            this.txtPrVenta = new System.Windows.Forms.TextBox();
+            this.txtPrReventa = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvAM = new System.Windows.Forms.DataGridView();
             this.lblAm = new System.Windows.Forms.Label();
@@ -90,27 +104,13 @@ namespace Views.Modelo_EOQ_ABCC
             this.txtDesvPU = new System.Windows.Forms.TextBox();
             this.txtDemPU = new System.Windows.Forms.TextBox();
             this.btnCalcularPU = new System.Windows.Forms.Button();
-            this.txtPrReventa = new System.Windows.Forms.TextBox();
-            this.txtPrVenta = new System.Windows.Forms.TextBox();
-            this.txtPrCompra = new System.Windows.Forms.TextBox();
             this.lblCOPU = new System.Windows.Forms.Label();
             this.lblPS = new System.Windows.Forms.Label();
             this.lblPF = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.gbPrecios1 = new System.Windows.Forms.GroupBox();
-            this.rbPrecios1 = new System.Windows.Forms.RadioButton();
-            this.gbPrecios2 = new System.Windows.Forms.GroupBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.rbPrecios2 = new System.Windows.Forms.RadioButton();
-            this.txtFaltante = new System.Windows.Forms.TextBox();
-            this.txtSobrante = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -119,11 +119,11 @@ namespace Views.Modelo_EOQ_ABCC
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvABC)).BeginInit();
             this.tabPage3.SuspendLayout();
+            this.gbPrecios2.SuspendLayout();
+            this.gbPrecios1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosAM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.gbPrecios1.SuspendLayout();
-            this.gbPrecios2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -203,26 +203,26 @@ namespace Views.Modelo_EOQ_ABCC
             this.GraficaEOQ.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.GraficaEOQ.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.GraficaEOQ.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.GraficaEOQ.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.GraficaEOQ.Legends.Add(legend2);
             this.GraficaEOQ.Location = new System.Drawing.Point(339, 25);
             this.GraficaEOQ.Margin = new System.Windows.Forms.Padding(2);
             this.GraficaEOQ.Name = "GraficaEOQ";
             this.GraficaEOQ.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            series1.Legend = "Legend1";
-            series1.Name = "ModeloQ";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Color = System.Drawing.Color.Red;
-            series2.Legend = "Legend1";
-            series2.Name = "ROP";
-            this.GraficaEOQ.Series.Add(series1);
-            this.GraficaEOQ.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            series3.Legend = "Legend1";
+            series3.Name = "ModeloQ";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Color = System.Drawing.Color.Red;
+            series4.Legend = "Legend1";
+            series4.Name = "ROP";
+            this.GraficaEOQ.Series.Add(series3);
+            this.GraficaEOQ.Series.Add(series4);
             this.GraficaEOQ.Size = new System.Drawing.Size(542, 238);
             this.GraficaEOQ.TabIndex = 50;
             this.GraficaEOQ.Text = "chart1";
@@ -539,25 +539,25 @@ namespace Views.Modelo_EOQ_ABCC
             this.dgvABC.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvABC.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dgvABC.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvABC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvABC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvABC.ColumnHeadersHeight = 42;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvABC.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvABC.DefaultCellStyle = dataGridViewCellStyle16;
             this.dgvABC.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvABC.EnableHeadersVisualStyles = false;
             this.dgvABC.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
@@ -566,25 +566,25 @@ namespace Views.Modelo_EOQ_ABCC
             this.dgvABC.Name = "dgvABC";
             this.dgvABC.ReadOnly = true;
             this.dgvABC.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvABC.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvABC.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvABC.RowHeadersVisible = false;
             this.dgvABC.RowHeadersWidth = 56;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvABC.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvABC.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvABC.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvABC.Size = new System.Drawing.Size(730, 458);
             this.dgvABC.TabIndex = 13;
@@ -626,6 +626,160 @@ namespace Views.Modelo_EOQ_ABCC
             this.tabPage3.Text = "Pedido Unico   ";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // rbPrecios2
+            // 
+            this.rbPrecios2.AutoSize = true;
+            this.rbPrecios2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbPrecios2.Location = new System.Drawing.Point(35, 299);
+            this.rbPrecios2.Name = "rbPrecios2";
+            this.rbPrecios2.Size = new System.Drawing.Size(123, 28);
+            this.rbPrecios2.TabIndex = 6;
+            this.rbPrecios2.TabStop = true;
+            this.rbPrecios2.Text = "Precios FS";
+            this.rbPrecios2.UseVisualStyleBackColor = true;
+            this.rbPrecios2.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // gbPrecios2
+            // 
+            this.gbPrecios2.Controls.Add(this.txtSobrante);
+            this.gbPrecios2.Controls.Add(this.txtFaltante);
+            this.gbPrecios2.Controls.Add(this.label19);
+            this.gbPrecios2.Controls.Add(this.label18);
+            this.gbPrecios2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbPrecios2.Location = new System.Drawing.Point(35, 328);
+            this.gbPrecios2.Name = "gbPrecios2";
+            this.gbPrecios2.Size = new System.Drawing.Size(315, 100);
+            this.gbPrecios2.TabIndex = 7;
+            this.gbPrecios2.TabStop = false;
+            this.gbPrecios2.Text = "Precios";
+            // 
+            // txtSobrante
+            // 
+            this.txtSobrante.Location = new System.Drawing.Point(168, 69);
+            this.txtSobrante.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSobrante.Name = "txtSobrante";
+            this.txtSobrante.Size = new System.Drawing.Size(131, 28);
+            this.txtSobrante.TabIndex = 9;
+            // 
+            // txtFaltante
+            // 
+            this.txtFaltante.Location = new System.Drawing.Point(168, 34);
+            this.txtFaltante.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFaltante.Name = "txtFaltante";
+            this.txtFaltante.Size = new System.Drawing.Size(131, 28);
+            this.txtFaltante.TabIndex = 8;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(16, 69);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(178, 24);
+            this.label19.TabIndex = 3;
+            this.label19.Text = "Precio del sobrante:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(16, 34);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(163, 24);
+            this.label18.TabIndex = 2;
+            this.label18.Text = "Precio del faltante:";
+            // 
+            // rbPrecios1
+            // 
+            this.rbPrecios1.AutoSize = true;
+            this.rbPrecios1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbPrecios1.Location = new System.Drawing.Point(35, 86);
+            this.rbPrecios1.Name = "rbPrecios1";
+            this.rbPrecios1.Size = new System.Drawing.Size(138, 28);
+            this.rbPrecios1.TabIndex = 1;
+            this.rbPrecios1.TabStop = true;
+            this.rbPrecios1.Text = "Precios CVR";
+            this.rbPrecios1.UseVisualStyleBackColor = true;
+            this.rbPrecios1.CheckedChanged += new System.EventHandler(this.rbPrecios1_CheckedChanged);
+            // 
+            // gbPrecios1
+            // 
+            this.gbPrecios1.Controls.Add(this.label9);
+            this.gbPrecios1.Controls.Add(this.label10);
+            this.gbPrecios1.Controls.Add(this.label11);
+            this.gbPrecios1.Controls.Add(this.txtPrCompra);
+            this.gbPrecios1.Controls.Add(this.txtPrVenta);
+            this.gbPrecios1.Controls.Add(this.txtPrReventa);
+            this.gbPrecios1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbPrecios1.Location = new System.Drawing.Point(35, 122);
+            this.gbPrecios1.Name = "gbPrecios1";
+            this.gbPrecios1.Size = new System.Drawing.Size(315, 171);
+            this.gbPrecios1.TabIndex = 2;
+            this.gbPrecios1.TabStop = false;
+            this.gbPrecios1.Text = "Precios";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(14, 43);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(168, 24);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Precio de Compra:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(14, 79);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(150, 24);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Precio de Venta:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(14, 119);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(170, 24);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Precio de Reventa:";
+            // 
+            // txtPrCompra
+            // 
+            this.txtPrCompra.Location = new System.Drawing.Point(168, 45);
+            this.txtPrCompra.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPrCompra.Name = "txtPrCompra";
+            this.txtPrCompra.Size = new System.Drawing.Size(131, 28);
+            this.txtPrCompra.TabIndex = 3;
+            this.txtPrCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
+            // 
+            // txtPrVenta
+            // 
+            this.txtPrVenta.Location = new System.Drawing.Point(168, 80);
+            this.txtPrVenta.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPrVenta.Name = "txtPrVenta";
+            this.txtPrVenta.Size = new System.Drawing.Size(131, 28);
+            this.txtPrVenta.TabIndex = 4;
+            this.txtPrVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
+            // 
+            // txtPrReventa
+            // 
+            this.txtPrReventa.Location = new System.Drawing.Point(168, 121);
+            this.txtPrReventa.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPrReventa.Name = "txtPrReventa";
+            this.txtPrReventa.Size = new System.Drawing.Size(131, 28);
+            this.txtPrReventa.TabIndex = 5;
+            this.txtPrReventa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -648,23 +802,23 @@ namespace Views.Modelo_EOQ_ABCC
             this.dgvAM.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAM.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvAM.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvAM.ColumnHeadersHeight = 39;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAM.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAM.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvAM.EnableHeadersVisualStyles = false;
             this.dgvAM.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
             this.dgvAM.Location = new System.Drawing.Point(476, 389);
@@ -713,24 +867,24 @@ namespace Views.Modelo_EOQ_ABCC
             this.dgvDatosAM.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
             this.dgvDatosAM.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvDatosAM.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(54)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDatosAM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(41)))), ((int)(((byte)(54)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDatosAM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvDatosAM.ColumnHeadersHeight = 39;
             this.dgvDatosAM.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(48)))), ((int)(((byte)(65)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDatosAM.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(48)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDatosAM.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgvDatosAM.EnableHeadersVisualStyles = false;
             this.dgvDatosAM.GridColor = System.Drawing.Color.DimGray;
             this.errorProvider1.SetIconAlignment(this.dgvDatosAM, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
@@ -739,11 +893,11 @@ namespace Views.Modelo_EOQ_ABCC
             this.dgvDatosAM.Name = "dgvDatosAM";
             this.dgvDatosAM.RowHeadersVisible = false;
             this.dgvDatosAM.RowHeadersWidth = 51;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvDatosAM.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(55)))), ((int)(((byte)(66)))));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(105)))), ((int)(((byte)(248)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvDatosAM.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvDatosAM.RowTemplate.Height = 24;
             this.dgvDatosAM.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvDatosAM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -760,7 +914,7 @@ namespace Views.Modelo_EOQ_ABCC
             this.btnGenerarTabla.Margin = new System.Windows.Forms.Padding(2);
             this.btnGenerarTabla.Name = "btnGenerarTabla";
             this.btnGenerarTabla.Size = new System.Drawing.Size(109, 35);
-            this.btnGenerarTabla.TabIndex = 15;
+            this.btnGenerarTabla.TabIndex = 16;
             this.btnGenerarTabla.Text = "Generar";
             this.btnGenerarTabla.UseVisualStyleBackColor = false;
             this.btnGenerarTabla.Click += new System.EventHandler(this.btnGenerarTabla_Click);
@@ -782,7 +936,7 @@ namespace Views.Modelo_EOQ_ABCC
             this.txtCantDatos.Margin = new System.Windows.Forms.Padding(2);
             this.txtCantDatos.Name = "txtCantDatos";
             this.txtCantDatos.Size = new System.Drawing.Size(104, 28);
-            this.txtCantDatos.TabIndex = 13;
+            this.txtCantDatos.TabIndex = 15;
             this.txtCantDatos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosEnteros);
             // 
             // txtPSAM
@@ -791,7 +945,7 @@ namespace Views.Modelo_EOQ_ABCC
             this.txtPSAM.Margin = new System.Windows.Forms.Padding(2);
             this.txtPSAM.Name = "txtPSAM";
             this.txtPSAM.Size = new System.Drawing.Size(104, 28);
-            this.txtPSAM.TabIndex = 12;
+            this.txtPSAM.TabIndex = 14;
             this.txtPSAM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
             // txtPFAM
@@ -800,7 +954,7 @@ namespace Views.Modelo_EOQ_ABCC
             this.txtPFAM.Margin = new System.Windows.Forms.Padding(2);
             this.txtPFAM.Name = "txtPFAM";
             this.txtPFAM.Size = new System.Drawing.Size(104, 28);
-            this.txtPFAM.TabIndex = 11;
+            this.txtPFAM.TabIndex = 13;
             this.txtPFAM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
             // label14
@@ -842,7 +996,7 @@ namespace Views.Modelo_EOQ_ABCC
             this.txtDesvPU.Margin = new System.Windows.Forms.Padding(2);
             this.txtDesvPU.Name = "txtDesvPU";
             this.txtDesvPU.Size = new System.Drawing.Size(131, 28);
-            this.txtDesvPU.TabIndex = 7;
+            this.txtDesvPU.TabIndex = 10;
             this.txtDesvPU.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
             // txtDemPU
@@ -851,7 +1005,7 @@ namespace Views.Modelo_EOQ_ABCC
             this.txtDemPU.Margin = new System.Windows.Forms.Padding(2);
             this.txtDemPU.Name = "txtDemPU";
             this.txtDemPU.Size = new System.Drawing.Size(131, 28);
-            this.txtDemPU.TabIndex = 6;
+            this.txtDemPU.TabIndex = 11;
             this.txtDemPU.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
             // btnCalcularPU
@@ -865,37 +1019,10 @@ namespace Views.Modelo_EOQ_ABCC
             this.btnCalcularPU.Margin = new System.Windows.Forms.Padding(2);
             this.btnCalcularPU.Name = "btnCalcularPU";
             this.btnCalcularPU.Size = new System.Drawing.Size(100, 35);
-            this.btnCalcularPU.TabIndex = 5;
+            this.btnCalcularPU.TabIndex = 12;
             this.btnCalcularPU.Text = "Calcular";
             this.btnCalcularPU.UseVisualStyleBackColor = false;
             this.btnCalcularPU.Click += new System.EventHandler(this.btnCalcularPU_Click);
-            // 
-            // txtPrReventa
-            // 
-            this.txtPrReventa.Location = new System.Drawing.Point(168, 121);
-            this.txtPrReventa.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPrReventa.Name = "txtPrReventa";
-            this.txtPrReventa.Size = new System.Drawing.Size(131, 28);
-            this.txtPrReventa.TabIndex = 4;
-            this.txtPrReventa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
-            // 
-            // txtPrVenta
-            // 
-            this.txtPrVenta.Location = new System.Drawing.Point(168, 80);
-            this.txtPrVenta.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPrVenta.Name = "txtPrVenta";
-            this.txtPrVenta.Size = new System.Drawing.Size(131, 28);
-            this.txtPrVenta.TabIndex = 3;
-            this.txtPrVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
-            // 
-            // txtPrCompra
-            // 
-            this.txtPrCompra.Location = new System.Drawing.Point(168, 45);
-            this.txtPrCompra.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPrCompra.Name = "txtPrCompra";
-            this.txtPrCompra.Size = new System.Drawing.Size(131, 28);
-            this.txtPrCompra.TabIndex = 2;
-            this.txtPrCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
             // lblCOPU
             // 
@@ -952,39 +1079,6 @@ namespace Views.Modelo_EOQ_ABCC
             this.label16.TabIndex = 1;
             this.label16.Text = "Desviacion Estandar:";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(14, 119);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(170, 24);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Precio de Reventa:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(14, 79);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(150, 24);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Precio de Venta:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(14, 43);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(168, 24);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Precio de Compra:";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -1000,100 +1094,6 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
-            // 
-            // gbPrecios1
-            // 
-            this.gbPrecios1.Controls.Add(this.label9);
-            this.gbPrecios1.Controls.Add(this.label10);
-            this.gbPrecios1.Controls.Add(this.label11);
-            this.gbPrecios1.Controls.Add(this.txtPrCompra);
-            this.gbPrecios1.Controls.Add(this.txtPrVenta);
-            this.gbPrecios1.Controls.Add(this.txtPrReventa);
-            this.gbPrecios1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPrecios1.Location = new System.Drawing.Point(35, 122);
-            this.gbPrecios1.Name = "gbPrecios1";
-            this.gbPrecios1.Size = new System.Drawing.Size(315, 171);
-            this.gbPrecios1.TabIndex = 21;
-            this.gbPrecios1.TabStop = false;
-            this.gbPrecios1.Text = "Precios";
-            // 
-            // rbPrecios1
-            // 
-            this.rbPrecios1.AutoSize = true;
-            this.rbPrecios1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbPrecios1.Location = new System.Drawing.Point(35, 86);
-            this.rbPrecios1.Name = "rbPrecios1";
-            this.rbPrecios1.Size = new System.Drawing.Size(138, 28);
-            this.rbPrecios1.TabIndex = 22;
-            this.rbPrecios1.TabStop = true;
-            this.rbPrecios1.Text = "Precios CVR";
-            this.rbPrecios1.UseVisualStyleBackColor = true;
-            this.rbPrecios1.CheckedChanged += new System.EventHandler(this.rbPrecios1_CheckedChanged);
-            // 
-            // gbPrecios2
-            // 
-            this.gbPrecios2.Controls.Add(this.txtSobrante);
-            this.gbPrecios2.Controls.Add(this.txtFaltante);
-            this.gbPrecios2.Controls.Add(this.label19);
-            this.gbPrecios2.Controls.Add(this.label18);
-            this.gbPrecios2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPrecios2.Location = new System.Drawing.Point(35, 328);
-            this.gbPrecios2.Name = "gbPrecios2";
-            this.gbPrecios2.Size = new System.Drawing.Size(315, 100);
-            this.gbPrecios2.TabIndex = 23;
-            this.gbPrecios2.TabStop = false;
-            this.gbPrecios2.Text = "Precios";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(16, 34);
-            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(163, 24);
-            this.label18.TabIndex = 2;
-            this.label18.Text = "Precio del faltante:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(16, 69);
-            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(178, 24);
-            this.label19.TabIndex = 3;
-            this.label19.Text = "Precio del sobrante:";
-            // 
-            // rbPrecios2
-            // 
-            this.rbPrecios2.AutoSize = true;
-            this.rbPrecios2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbPrecios2.Location = new System.Drawing.Point(35, 299);
-            this.rbPrecios2.Name = "rbPrecios2";
-            this.rbPrecios2.Size = new System.Drawing.Size(123, 28);
-            this.rbPrecios2.TabIndex = 24;
-            this.rbPrecios2.TabStop = true;
-            this.rbPrecios2.Text = "Precios FS";
-            this.rbPrecios2.UseVisualStyleBackColor = true;
-            this.rbPrecios2.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // txtFaltante
-            // 
-            this.txtFaltante.Location = new System.Drawing.Point(168, 34);
-            this.txtFaltante.Margin = new System.Windows.Forms.Padding(2);
-            this.txtFaltante.Name = "txtFaltante";
-            this.txtFaltante.Size = new System.Drawing.Size(131, 28);
-            this.txtFaltante.TabIndex = 4;
-            // 
-            // txtSobrante
-            // 
-            this.txtSobrante.Location = new System.Drawing.Point(168, 69);
-            this.txtSobrante.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSobrante.Name = "txtSobrante";
-            this.txtSobrante.Size = new System.Drawing.Size(131, 28);
-            this.txtSobrante.TabIndex = 5;
             // 
             // FrmGestion
             // 
@@ -1121,13 +1121,13 @@ namespace Views.Modelo_EOQ_ABCC
             ((System.ComponentModel.ISupportInitialize)(this.dgvABC)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.gbPrecios2.ResumeLayout(false);
+            this.gbPrecios2.PerformLayout();
+            this.gbPrecios1.ResumeLayout(false);
+            this.gbPrecios1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosAM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.gbPrecios1.ResumeLayout(false);
-            this.gbPrecios1.PerformLayout();
-            this.gbPrecios2.ResumeLayout(false);
-            this.gbPrecios2.PerformLayout();
             this.ResumeLayout(false);
 
         }

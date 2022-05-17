@@ -28,3 +28,8 @@ D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\DataAcces\obj\
 D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.dll
 D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.pdb
 D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.csproj.AssemblyReference.cache
+D:\Proyectos\sistema produccion lll\SYSInventario\sistema_inventario\DataAcces\bin\Debug\DataAcces.dll
+D:\Proyectos\sistema produccion lll\SYSInventario\sistema_inventario\DataAcces\bin\Debug\DataAcces.pdb
+D:\Proyectos\sistema produccion lll\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.csproj.CoreCompileInputs.cache
+D:\Proyectos\sistema produccion lll\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.dll
+D:\Proyectos\sistema produccion lll\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.pdb
