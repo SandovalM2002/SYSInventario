@@ -628,5 +628,15 @@ namespace Views.Planeacion_Agregada
             }
             return false;
         }
+
+        private void txtPeriodos_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

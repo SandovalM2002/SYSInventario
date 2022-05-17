@@ -264,9 +264,36 @@ namespace Views.MRP
             }
         }
 
-        private void tvArbol_AfterSelect(object sender, TreeViewEventArgs e)
+        private void btnGenerar_Periodos_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtPeriodo_TL.Text))
+                {
+                    MessageBox.Show("No debe dejar campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
+
+                int periodos = int.Parse(txtPeriodo_TL.Text);
+                dgvTL_Datos.RowCount = 1;
+                dgvTL_Datos.ColumnCount = periodos;
+
+                dgvTL_Datos.Rows[0].HeaderCell.Value = "Demanda";
+
+                for (int i = 0; i < periodos; i++)
+                {
+                    dgvTL_Datos.Columns[i].Name = "Periodo " + (i + 1);
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("Ha ocurido un error" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurido un error" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

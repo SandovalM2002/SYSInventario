@@ -56,6 +56,7 @@ namespace Views.Planeacion_Agregada
             this.txtDespedir = new System.Windows.Forms.TextBox();
             this.lblCosto = new System.Windows.Forms.Label();
             this.gbDatosGenerales = new System.Windows.Forms.GroupBox();
+            this.cbxSS = new System.Windows.Forms.CheckBox();
             this.txtCostoUnitario = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtValorHora = new System.Windows.Forms.TextBox();
@@ -74,7 +75,6 @@ namespace Views.Planeacion_Agregada
             this.label12 = new System.Windows.Forms.Label();
             this.dgvPlanificacion = new System.Windows.Forms.DataGridView();
             this.dgvDYD = new System.Windows.Forms.DataGridView();
-            this.cbxSS = new System.Windows.Forms.CheckBox();
             this.gbDatosGenerales.SuspendLayout();
             this.gbPersecucion.SuspendLayout();
             this.gbFuerzaN.SuspendLayout();
@@ -90,9 +90,10 @@ namespace Views.Planeacion_Agregada
             this.label2.Location = new System.Drawing.Point(4, 37);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(195, 24);
+            this.label2.Size = new System.Drawing.Size(152, 18);
             this.label2.TabIndex = 48;
             this.label2.Text = "Cantidad de periodos:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -101,7 +102,7 @@ namespace Views.Planeacion_Agregada
             this.label1.Location = new System.Drawing.Point(372, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(309, 32);
+            this.label1.Size = new System.Drawing.Size(235, 26);
             this.label1.TabIndex = 47;
             this.label1.Text = "Planificacion Agregada";
             // 
@@ -112,8 +113,9 @@ namespace Views.Planeacion_Agregada
             this.txtPeriodos.Margin = new System.Windows.Forms.Padding(2);
             this.txtPeriodos.MaxLength = 2;
             this.txtPeriodos.Name = "txtPeriodos";
-            this.txtPeriodos.Size = new System.Drawing.Size(76, 26);
+            this.txtPeriodos.Size = new System.Drawing.Size(76, 22);
             this.txtPeriodos.TabIndex = 49;
+            this.txtPeriodos.TextChanged += new System.EventHandler(this.txtPeriodos_TextChanged);
             this.txtPeriodos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosEnteros);
             // 
             // btnGenerar
@@ -135,7 +137,7 @@ namespace Views.Planeacion_Agregada
             this.label3.Location = new System.Drawing.Point(4, 72);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 24);
+            this.label3.Size = new System.Drawing.Size(115, 18);
             this.label3.TabIndex = 53;
             this.label3.Text = "Inventario Inicial:\r\n";
             // 
@@ -145,7 +147,7 @@ namespace Views.Planeacion_Agregada
             this.txtInvIni.Location = new System.Drawing.Point(163, 72);
             this.txtInvIni.Margin = new System.Windows.Forms.Padding(2);
             this.txtInvIni.Name = "txtInvIni";
-            this.txtInvIni.Size = new System.Drawing.Size(76, 26);
+            this.txtInvIni.Size = new System.Drawing.Size(76, 22);
             this.txtInvIni.TabIndex = 54;
             this.txtInvIni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
@@ -155,7 +157,7 @@ namespace Views.Planeacion_Agregada
             this.txtSS.Location = new System.Drawing.Point(163, 101);
             this.txtSS.Margin = new System.Windows.Forms.Padding(2);
             this.txtSS.Name = "txtSS";
-            this.txtSS.Size = new System.Drawing.Size(76, 26);
+            this.txtSS.Size = new System.Drawing.Size(76, 22);
             this.txtSS.TabIndex = 55;
             this.txtSS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
@@ -166,7 +168,7 @@ namespace Views.Planeacion_Agregada
             this.label4.Location = new System.Drawing.Point(4, 103);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(169, 24);
+            this.label4.Size = new System.Drawing.Size(133, 18);
             this.label4.TabIndex = 56;
             this.label4.Text = "stock de seguridad";
             // 
@@ -189,7 +191,7 @@ namespace Views.Planeacion_Agregada
             this.label5.Location = new System.Drawing.Point(4, 132);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(155, 24);
+            this.label5.Size = new System.Drawing.Size(122, 18);
             this.label5.TabIndex = 58;
             this.label5.Text = "Horas requeridas";
             // 
@@ -199,7 +201,7 @@ namespace Views.Planeacion_Agregada
             this.txtHoras.Location = new System.Drawing.Point(163, 132);
             this.txtHoras.Margin = new System.Windows.Forms.Padding(2);
             this.txtHoras.Name = "txtHoras";
-            this.txtHoras.Size = new System.Drawing.Size(76, 26);
+            this.txtHoras.Size = new System.Drawing.Size(76, 22);
             this.txtHoras.TabIndex = 59;
             this.txtHoras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
@@ -210,7 +212,7 @@ namespace Views.Planeacion_Agregada
             this.label6.Location = new System.Drawing.Point(16, 31);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(198, 24);
+            this.label6.Size = new System.Drawing.Size(155, 18);
             this.label6.TabIndex = 60;
             this.label6.Text = "Trabajadores Actuales\r\n";
             // 
@@ -220,7 +222,7 @@ namespace Views.Planeacion_Agregada
             this.txtTrabajadores.Location = new System.Drawing.Point(180, 31);
             this.txtTrabajadores.Margin = new System.Windows.Forms.Padding(2);
             this.txtTrabajadores.Name = "txtTrabajadores";
-            this.txtTrabajadores.Size = new System.Drawing.Size(122, 26);
+            this.txtTrabajadores.Size = new System.Drawing.Size(122, 22);
             this.txtTrabajadores.TabIndex = 61;
             this.txtTrabajadores.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
@@ -231,7 +233,7 @@ namespace Views.Planeacion_Agregada
             this.label7.Location = new System.Drawing.Point(15, 65);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(162, 24);
+            this.label7.Size = new System.Drawing.Size(132, 18);
             this.label7.TabIndex = 62;
             this.label7.Text = "Costo de contratar";
             // 
@@ -242,7 +244,7 @@ namespace Views.Planeacion_Agregada
             this.label8.Location = new System.Drawing.Point(16, 101);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(164, 24);
+            this.label8.Size = new System.Drawing.Size(129, 18);
             this.label8.TabIndex = 63;
             this.label8.Text = "Costo de despedir\r\n";
             // 
@@ -252,7 +254,7 @@ namespace Views.Planeacion_Agregada
             this.txtContratar.Location = new System.Drawing.Point(180, 65);
             this.txtContratar.Margin = new System.Windows.Forms.Padding(2);
             this.txtContratar.Name = "txtContratar";
-            this.txtContratar.Size = new System.Drawing.Size(122, 26);
+            this.txtContratar.Size = new System.Drawing.Size(122, 22);
             this.txtContratar.TabIndex = 65;
             this.txtContratar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
@@ -262,7 +264,7 @@ namespace Views.Planeacion_Agregada
             this.txtDespedir.Location = new System.Drawing.Point(180, 101);
             this.txtDespedir.Margin = new System.Windows.Forms.Padding(2);
             this.txtDespedir.Name = "txtDespedir";
-            this.txtDespedir.Size = new System.Drawing.Size(122, 26);
+            this.txtDespedir.Size = new System.Drawing.Size(122, 22);
             this.txtDespedir.TabIndex = 66;
             this.txtDespedir.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
@@ -273,7 +275,7 @@ namespace Views.Planeacion_Agregada
             this.lblCosto.Location = new System.Drawing.Point(374, 49);
             this.lblCosto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCosto.Name = "lblCosto";
-            this.lblCosto.Size = new System.Drawing.Size(114, 24);
+            this.lblCosto.Size = new System.Drawing.Size(94, 18);
             this.lblCosto.TabIndex = 68;
             this.lblCosto.Text = "Costo Total: ";
             // 
@@ -303,13 +305,23 @@ namespace Views.Planeacion_Agregada
             this.gbDatosGenerales.TabStop = false;
             this.gbDatosGenerales.Text = "Datos Generales";
             // 
+            // cbxSS
+            // 
+            this.cbxSS.AutoSize = true;
+            this.cbxSS.Location = new System.Drawing.Point(247, 100);
+            this.cbxSS.Name = "cbxSS";
+            this.cbxSS.Size = new System.Drawing.Size(40, 22);
+            this.cbxSS.TabIndex = 78;
+            this.cbxSS.Text = "%";
+            this.cbxSS.UseVisualStyleBackColor = true;
+            // 
             // txtCostoUnitario
             // 
             this.txtCostoUnitario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCostoUnitario.Location = new System.Drawing.Point(163, 185);
             this.txtCostoUnitario.Margin = new System.Windows.Forms.Padding(2);
             this.txtCostoUnitario.Name = "txtCostoUnitario";
-            this.txtCostoUnitario.Size = new System.Drawing.Size(76, 26);
+            this.txtCostoUnitario.Size = new System.Drawing.Size(76, 22);
             this.txtCostoUnitario.TabIndex = 77;
             this.txtCostoUnitario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
@@ -320,7 +332,7 @@ namespace Views.Planeacion_Agregada
             this.label13.Location = new System.Drawing.Point(4, 188);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(167, 24);
+            this.label13.Size = new System.Drawing.Size(131, 18);
             this.label13.TabIndex = 77;
             this.label13.Text = "Costo de la unidad\r\n";
             // 
@@ -330,7 +342,7 @@ namespace Views.Planeacion_Agregada
             this.txtValorHora.Location = new System.Drawing.Point(163, 159);
             this.txtValorHora.Margin = new System.Windows.Forms.Padding(2);
             this.txtValorHora.Name = "txtValorHora";
-            this.txtValorHora.Size = new System.Drawing.Size(76, 26);
+            this.txtValorHora.Size = new System.Drawing.Size(76, 22);
             this.txtValorHora.TabIndex = 69;
             this.txtValorHora.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
@@ -341,7 +353,7 @@ namespace Views.Planeacion_Agregada
             this.label9.Location = new System.Drawing.Point(4, 162);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(182, 24);
+            this.label9.Size = new System.Drawing.Size(147, 18);
             this.label9.TabIndex = 68;
             this.label9.Text = "Costo hora trabajada\r\n";
             // 
@@ -369,7 +381,7 @@ namespace Views.Planeacion_Agregada
             this.rbPersecucion.Location = new System.Drawing.Point(17, 302);
             this.rbPersecucion.Margin = new System.Windows.Forms.Padding(2);
             this.rbPersecucion.Name = "rbPersecucion";
-            this.rbPersecucion.Size = new System.Drawing.Size(275, 28);
+            this.rbPersecucion.Size = new System.Drawing.Size(222, 22);
             this.rbPersecucion.TabIndex = 72;
             this.rbPersecucion.TabStop = true;
             this.rbPersecucion.Text = "Estrategia de persecución";
@@ -383,7 +395,7 @@ namespace Views.Planeacion_Agregada
             this.rbFuerzaNiv.Location = new System.Drawing.Point(18, 473);
             this.rbFuerzaNiv.Margin = new System.Windows.Forms.Padding(2);
             this.rbFuerzaNiv.Name = "rbFuerzaNiv";
-            this.rbFuerzaNiv.Size = new System.Drawing.Size(300, 28);
+            this.rbFuerzaNiv.Size = new System.Drawing.Size(243, 22);
             this.rbFuerzaNiv.TabIndex = 73;
             this.rbFuerzaNiv.TabStop = true;
             this.rbFuerzaNiv.Text = "Estrategia de fuerza nivelada";
@@ -411,7 +423,7 @@ namespace Views.Planeacion_Agregada
             this.txtMantener.Location = new System.Drawing.Point(178, 61);
             this.txtMantener.Margin = new System.Windows.Forms.Padding(2);
             this.txtMantener.Name = "txtMantener";
-            this.txtMantener.Size = new System.Drawing.Size(122, 26);
+            this.txtMantener.Size = new System.Drawing.Size(122, 22);
             this.txtMantener.TabIndex = 68;
             this.txtMantener.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
@@ -421,7 +433,7 @@ namespace Views.Planeacion_Agregada
             this.txtEscasez.Location = new System.Drawing.Point(178, 28);
             this.txtEscasez.Margin = new System.Windows.Forms.Padding(2);
             this.txtEscasez.Name = "txtEscasez";
-            this.txtEscasez.Size = new System.Drawing.Size(122, 26);
+            this.txtEscasez.Size = new System.Drawing.Size(122, 22);
             this.txtEscasez.TabIndex = 67;
             this.txtEscasez.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
@@ -432,7 +444,7 @@ namespace Views.Planeacion_Agregada
             this.label11.Location = new System.Drawing.Point(10, 61);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(170, 24);
+            this.label11.Size = new System.Drawing.Size(135, 18);
             this.label11.TabIndex = 62;
             this.label11.Text = "Costo de mantener\r\n";
             // 
@@ -443,7 +455,7 @@ namespace Views.Planeacion_Agregada
             this.label10.Location = new System.Drawing.Point(10, 28);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(159, 24);
+            this.label10.Size = new System.Drawing.Size(129, 18);
             this.label10.TabIndex = 61;
             this.label10.Text = "Costo de escasez\r\n";
             // 
@@ -454,7 +466,7 @@ namespace Views.Planeacion_Agregada
             this.rbOutS.Location = new System.Drawing.Point(18, 631);
             this.rbOutS.Margin = new System.Windows.Forms.Padding(2);
             this.rbOutS.Name = "rbOutS";
-            this.rbOutS.Size = new System.Drawing.Size(242, 28);
+            this.rbOutS.Size = new System.Drawing.Size(199, 22);
             this.rbOutS.TabIndex = 75;
             this.rbOutS.TabStop = true;
             this.rbOutS.Text = "Estrategia Outsoursing";
@@ -480,7 +492,7 @@ namespace Views.Planeacion_Agregada
             this.txtOutS.Location = new System.Drawing.Point(178, 32);
             this.txtOutS.Margin = new System.Windows.Forms.Padding(2);
             this.txtOutS.Name = "txtOutS";
-            this.txtOutS.Size = new System.Drawing.Size(122, 26);
+            this.txtOutS.Size = new System.Drawing.Size(122, 22);
             this.txtOutS.TabIndex = 63;
             this.txtOutS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.validarNumerosDecimales);
             // 
@@ -491,7 +503,7 @@ namespace Views.Planeacion_Agregada
             this.label12.Location = new System.Drawing.Point(10, 32);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(165, 24);
+            this.label12.Size = new System.Drawing.Size(134, 18);
             this.label12.TabIndex = 62;
             this.label12.Text = "Costo Outsoursing";
             // 
@@ -610,16 +622,6 @@ namespace Views.Planeacion_Agregada
             this.dgvDYD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvDYD.Size = new System.Drawing.Size(505, 85);
             this.dgvDYD.TabIndex = 78;
-            // 
-            // cbxSS
-            // 
-            this.cbxSS.AutoSize = true;
-            this.cbxSS.Location = new System.Drawing.Point(247, 100);
-            this.cbxSS.Name = "cbxSS";
-            this.cbxSS.Size = new System.Drawing.Size(47, 28);
-            this.cbxSS.TabIndex = 78;
-            this.cbxSS.Text = "%";
-            this.cbxSS.UseVisualStyleBackColor = true;
             // 
             // FrmPlaneacionAgregada
             // 

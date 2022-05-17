@@ -100,7 +100,6 @@ AS BEGIN
 		INSERT INTO PLAN_MAESTRO VALUES (@Nodo,@Demanda,@periodo)
 END;
 go
-
 CREATE OR ALTER PROC SP_UPDATE_PM
 (@ID int, @Nodo int, @Demanda int, @periodo int)
 AS BEGIN
@@ -109,8 +108,6 @@ IF EXISTS (SELECT id FROM PLAN_MAESTRO WHERE id=@ID)
 		UPDATE PLAN_MAESTRO SET demanda =@Demanda, periodo =@periodo WHERE id =@ID
 END;
 go
-
-
 CREATE OR ALTER PROC SP_DELETE_PM
 (@id int)
 AS BEGIN
@@ -129,8 +126,6 @@ AS BEGIN
 	FROM PLAN_MAESTRO PM INNER JOIN NODO N ON PM.Nodo = N.id_nodo
 END;
 go
-
-
 create or alter proc SP_ADD_RP
 (@nodo int, @periodo int, @cantidad int)
 as begin
@@ -138,7 +133,6 @@ as begin
 		insert into RECEPCION_PROGRAMADA values(@nodo,@periodo,@cantidad)
 end;
 go
-
 create or alter proc SP_UPDATE_RP
 (@id int,@nodo int, @periodo int, @cantidad int)
 as begin
@@ -147,7 +141,6 @@ as begin
 			update RECEPCION_PROGRAMADA set cantidad=@cantidad, periodo=@periodo where id=@id
 end;
 go
-
 create or alter proc SP_DELETE_RP
 (@id int)
 as begin
@@ -155,7 +148,6 @@ as begin
 		delete from RECEPCION_PROGRAMADA where id=@id
 end;
 go
-
 create or alter proc SP_VIEW_RP
 as begin
 	SELECT  
@@ -166,4 +158,7 @@ as begin
 		RP.periodo as [Periodo]
 	FROM RECEPCION_PROGRAMADA RP INNER JOIN NODO N ON RP.Nodo = N.id_nodo
 end;
+go
+/*METODOS DE CALCULO DE TAMANOS DE INVENTARIO*/
+SELECT * FROM PLAN_MAESTRO
 go
