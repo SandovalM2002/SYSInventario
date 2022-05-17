@@ -103,6 +103,14 @@ namespace Views.Modelo_EOQ_ABCC
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.gbPrecios1 = new System.Windows.Forms.GroupBox();
+            this.rbPrecios1 = new System.Windows.Forms.RadioButton();
+            this.gbPrecios2 = new System.Windows.Forms.GroupBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.rbPrecios2 = new System.Windows.Forms.RadioButton();
+            this.txtFaltante = new System.Windows.Forms.TextBox();
+            this.txtSobrante = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -114,6 +122,8 @@ namespace Views.Modelo_EOQ_ABCC
             ((System.ComponentModel.ISupportInitialize)(this.dgvAM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosAM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.gbPrecios1.SuspendLayout();
+            this.gbPrecios2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -581,6 +591,10 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.rbPrecios2);
+            this.tabPage3.Controls.Add(this.gbPrecios2);
+            this.tabPage3.Controls.Add(this.rbPrecios1);
+            this.tabPage3.Controls.Add(this.gbPrecios1);
             this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Controls.Add(this.dgvAM);
             this.tabPage3.Controls.Add(this.lblAm);
@@ -597,17 +611,11 @@ namespace Views.Modelo_EOQ_ABCC
             this.tabPage3.Controls.Add(this.txtDesvPU);
             this.tabPage3.Controls.Add(this.txtDemPU);
             this.tabPage3.Controls.Add(this.btnCalcularPU);
-            this.tabPage3.Controls.Add(this.txtPrReventa);
-            this.tabPage3.Controls.Add(this.txtPrVenta);
-            this.tabPage3.Controls.Add(this.txtPrCompra);
             this.tabPage3.Controls.Add(this.lblCOPU);
             this.tabPage3.Controls.Add(this.lblPS);
             this.tabPage3.Controls.Add(this.lblPF);
             this.tabPage3.Controls.Add(this.label15);
             this.tabPage3.Controls.Add(this.label16);
-            this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Controls.Add(this.label10);
-            this.tabPage3.Controls.Add(this.label9);
             this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Location = new System.Drawing.Point(4, 46);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
@@ -622,7 +630,7 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(29, 404);
+            this.label6.Location = new System.Drawing.Point(41, 564);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(158, 32);
@@ -830,7 +838,7 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             // txtDesvPU
             // 
-            this.txtDesvPU.Location = new System.Drawing.Point(194, 201);
+            this.txtDesvPU.Location = new System.Drawing.Point(206, 442);
             this.txtDesvPU.Margin = new System.Windows.Forms.Padding(2);
             this.txtDesvPU.Name = "txtDesvPU";
             this.txtDesvPU.Size = new System.Drawing.Size(131, 28);
@@ -839,7 +847,7 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             // txtDemPU
             // 
-            this.txtDemPU.Location = new System.Drawing.Point(194, 238);
+            this.txtDemPU.Location = new System.Drawing.Point(206, 479);
             this.txtDemPU.Margin = new System.Windows.Forms.Padding(2);
             this.txtDemPU.Name = "txtDemPU";
             this.txtDemPU.Size = new System.Drawing.Size(131, 28);
@@ -853,7 +861,7 @@ namespace Views.Modelo_EOQ_ABCC
             this.btnCalcularPU.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalcularPU.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalcularPU.ForeColor = System.Drawing.Color.White;
-            this.btnCalcularPU.Location = new System.Drawing.Point(43, 270);
+            this.btnCalcularPU.Location = new System.Drawing.Point(55, 511);
             this.btnCalcularPU.Margin = new System.Windows.Forms.Padding(2);
             this.btnCalcularPU.Name = "btnCalcularPU";
             this.btnCalcularPU.Size = new System.Drawing.Size(100, 35);
@@ -864,7 +872,7 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             // txtPrReventa
             // 
-            this.txtPrReventa.Location = new System.Drawing.Point(194, 164);
+            this.txtPrReventa.Location = new System.Drawing.Point(168, 121);
             this.txtPrReventa.Margin = new System.Windows.Forms.Padding(2);
             this.txtPrReventa.Name = "txtPrReventa";
             this.txtPrReventa.Size = new System.Drawing.Size(131, 28);
@@ -873,7 +881,7 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             // txtPrVenta
             // 
-            this.txtPrVenta.Location = new System.Drawing.Point(194, 123);
+            this.txtPrVenta.Location = new System.Drawing.Point(168, 80);
             this.txtPrVenta.Margin = new System.Windows.Forms.Padding(2);
             this.txtPrVenta.Name = "txtPrVenta";
             this.txtPrVenta.Size = new System.Drawing.Size(131, 28);
@@ -882,7 +890,7 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             // txtPrCompra
             // 
-            this.txtPrCompra.Location = new System.Drawing.Point(194, 88);
+            this.txtPrCompra.Location = new System.Drawing.Point(168, 45);
             this.txtPrCompra.Margin = new System.Windows.Forms.Padding(2);
             this.txtPrCompra.Name = "txtPrCompra";
             this.txtPrCompra.Size = new System.Drawing.Size(131, 28);
@@ -893,7 +901,7 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             this.lblCOPU.AutoSize = true;
             this.lblCOPU.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCOPU.Location = new System.Drawing.Point(31, 507);
+            this.lblCOPU.Location = new System.Drawing.Point(43, 667);
             this.lblCOPU.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCOPU.Name = "lblCOPU";
             this.lblCOPU.Size = new System.Drawing.Size(217, 24);
@@ -904,7 +912,7 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             this.lblPS.AutoSize = true;
             this.lblPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPS.Location = new System.Drawing.Point(31, 474);
+            this.lblPS.Location = new System.Drawing.Point(43, 634);
             this.lblPS.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPS.Name = "lblPS";
             this.lblPS.Size = new System.Drawing.Size(208, 24);
@@ -915,7 +923,7 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             this.lblPF.AutoSize = true;
             this.lblPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPF.Location = new System.Drawing.Point(31, 439);
+            this.lblPF.Location = new System.Drawing.Point(43, 599);
             this.lblPF.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPF.Name = "lblPF";
             this.lblPF.Size = new System.Drawing.Size(193, 24);
@@ -926,7 +934,7 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(37, 236);
+            this.label15.Location = new System.Drawing.Point(49, 477);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(149, 24);
@@ -937,7 +945,7 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(37, 200);
+            this.label16.Location = new System.Drawing.Point(49, 441);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(186, 24);
@@ -948,7 +956,7 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(40, 162);
+            this.label11.Location = new System.Drawing.Point(14, 119);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(170, 24);
@@ -959,7 +967,7 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(40, 122);
+            this.label10.Location = new System.Drawing.Point(14, 79);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(150, 24);
@@ -970,7 +978,7 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(40, 86);
+            this.label9.Location = new System.Drawing.Point(14, 43);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(168, 24);
@@ -992,6 +1000,100 @@ namespace Views.Modelo_EOQ_ABCC
             // 
             this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
+            // 
+            // gbPrecios1
+            // 
+            this.gbPrecios1.Controls.Add(this.label9);
+            this.gbPrecios1.Controls.Add(this.label10);
+            this.gbPrecios1.Controls.Add(this.label11);
+            this.gbPrecios1.Controls.Add(this.txtPrCompra);
+            this.gbPrecios1.Controls.Add(this.txtPrVenta);
+            this.gbPrecios1.Controls.Add(this.txtPrReventa);
+            this.gbPrecios1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbPrecios1.Location = new System.Drawing.Point(35, 122);
+            this.gbPrecios1.Name = "gbPrecios1";
+            this.gbPrecios1.Size = new System.Drawing.Size(315, 171);
+            this.gbPrecios1.TabIndex = 21;
+            this.gbPrecios1.TabStop = false;
+            this.gbPrecios1.Text = "Precios";
+            // 
+            // rbPrecios1
+            // 
+            this.rbPrecios1.AutoSize = true;
+            this.rbPrecios1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbPrecios1.Location = new System.Drawing.Point(35, 86);
+            this.rbPrecios1.Name = "rbPrecios1";
+            this.rbPrecios1.Size = new System.Drawing.Size(138, 28);
+            this.rbPrecios1.TabIndex = 22;
+            this.rbPrecios1.TabStop = true;
+            this.rbPrecios1.Text = "Precios CVR";
+            this.rbPrecios1.UseVisualStyleBackColor = true;
+            this.rbPrecios1.CheckedChanged += new System.EventHandler(this.rbPrecios1_CheckedChanged);
+            // 
+            // gbPrecios2
+            // 
+            this.gbPrecios2.Controls.Add(this.txtSobrante);
+            this.gbPrecios2.Controls.Add(this.txtFaltante);
+            this.gbPrecios2.Controls.Add(this.label19);
+            this.gbPrecios2.Controls.Add(this.label18);
+            this.gbPrecios2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbPrecios2.Location = new System.Drawing.Point(35, 328);
+            this.gbPrecios2.Name = "gbPrecios2";
+            this.gbPrecios2.Size = new System.Drawing.Size(315, 100);
+            this.gbPrecios2.TabIndex = 23;
+            this.gbPrecios2.TabStop = false;
+            this.gbPrecios2.Text = "Precios";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(16, 34);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(163, 24);
+            this.label18.TabIndex = 2;
+            this.label18.Text = "Precio del faltante:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(16, 69);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(178, 24);
+            this.label19.TabIndex = 3;
+            this.label19.Text = "Precio del sobrante:";
+            // 
+            // rbPrecios2
+            // 
+            this.rbPrecios2.AutoSize = true;
+            this.rbPrecios2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbPrecios2.Location = new System.Drawing.Point(35, 299);
+            this.rbPrecios2.Name = "rbPrecios2";
+            this.rbPrecios2.Size = new System.Drawing.Size(123, 28);
+            this.rbPrecios2.TabIndex = 24;
+            this.rbPrecios2.TabStop = true;
+            this.rbPrecios2.Text = "Precios FS";
+            this.rbPrecios2.UseVisualStyleBackColor = true;
+            this.rbPrecios2.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // txtFaltante
+            // 
+            this.txtFaltante.Location = new System.Drawing.Point(168, 34);
+            this.txtFaltante.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFaltante.Name = "txtFaltante";
+            this.txtFaltante.Size = new System.Drawing.Size(131, 28);
+            this.txtFaltante.TabIndex = 4;
+            // 
+            // txtSobrante
+            // 
+            this.txtSobrante.Location = new System.Drawing.Point(168, 69);
+            this.txtSobrante.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSobrante.Name = "txtSobrante";
+            this.txtSobrante.Size = new System.Drawing.Size(131, 28);
+            this.txtSobrante.TabIndex = 5;
             // 
             // FrmGestion
             // 
@@ -1022,6 +1124,10 @@ namespace Views.Modelo_EOQ_ABCC
             ((System.ComponentModel.ISupportInitialize)(this.dgvAM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosAM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.gbPrecios1.ResumeLayout(false);
+            this.gbPrecios1.PerformLayout();
+            this.gbPrecios2.ResumeLayout(false);
+            this.gbPrecios2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1088,5 +1194,13 @@ namespace Views.Modelo_EOQ_ABCC
         private System.Windows.Forms.DataGridView dgvABC;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox gbPrecios1;
+        private System.Windows.Forms.RadioButton rbPrecios1;
+        private System.Windows.Forms.GroupBox gbPrecios2;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.RadioButton rbPrecios2;
+        private System.Windows.Forms.TextBox txtSobrante;
+        private System.Windows.Forms.TextBox txtFaltante;
     }
 }

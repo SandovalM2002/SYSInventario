@@ -27,3 +27,4 @@ D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\DataAcces\bin\
 D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.csproj.CoreCompileInputs.cache
 D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.dll
 D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.pdb
+D:\Proyectos\Proyecto produccion\SYSInventario\sistema_inventario\DataAcces\obj\Debug\DataAcces.csproj.AssemblyReference.cache
