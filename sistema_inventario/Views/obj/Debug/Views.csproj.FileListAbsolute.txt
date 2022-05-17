@@ -141,3 +141,4 @@ C:\Users\DELL\Source\Repos\SandovalM2002\SYSInventario\sistema_inventario\Views\
 C:\Users\DELL\Source\Repos\SandovalM2002\SYSInventario\sistema_inventario\Views\obj\Debug\Views.principal.resources
 C:\Users\50588\Desktop\SYSPanaderia\sistema_inventario\Views\obj\Debug\Views.principal.resources
 >>>>>>> 9f961963dda2f08b4db3cac7d0906c3f90ac390a
+D:\Proyectos\sistema produccion lll\SYSInventario\sistema_inventario\Views\obj\Debug\Views.principal.resources
