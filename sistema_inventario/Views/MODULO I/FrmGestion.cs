@@ -19,6 +19,8 @@ namespace Views.Modelo_EOQ_ABCC
         {
             InitializeComponent();
             Graficar(500, 30);
+            gbPrecios1.Enabled = false;
+            gbPrecios2.Enabled = false;
         }
 
         //Validar solo numeros enteros
@@ -184,23 +186,63 @@ namespace Views.Modelo_EOQ_ABCC
             try
             {
 
-                if (string.IsNullOrWhiteSpace(txtPrCompra.Text) || string.IsNullOrWhiteSpace(txtPrVenta.Text)
-                    || string.IsNullOrWhiteSpace(txtPrReventa.Text) || string.IsNullOrWhiteSpace(txtDesvPU.Text)
+                if (string.IsNullOrWhiteSpace(txtDesvPU.Text)
                     || string.IsNullOrWhiteSpace(txtDemPU.Text))
                 {
                     MessageBox.Show("No debe dejar campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                double precioC = double.Parse(txtPrCompra.Text);
-                double precioV = double.Parse(txtPrVenta.Text);
-                double precioRV = double.Parse(txtPrReventa.Text);
+
+                if (!rbPrecios1.Checked && !rbPrecios2.Checked)
+                {
+                    MessageBox.Show("Seleccione el metodo de precio dados", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+
+                double precioC = 0;
+                double precioV = 0;
+                double precioRV = 0;
+                double excedente = 0;
+                double faltante = 0;
+
+                if (rbPrecios1.Checked)
+                {
+                    if (string.IsNullOrWhiteSpace(txtPrCompra.Text) || string.IsNullOrWhiteSpace(txtPrVenta.Text)
+                    || string.IsNullOrWhiteSpace(txtPrReventa.Text))
+                    {
+                        MessageBox.Show("No debe dejar campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        precioC = double.Parse(txtPrCompra.Text);
+                        precioV = double.Parse(txtPrVenta.Text);
+                        precioRV = double.Parse(txtPrReventa.Text);
+
+                        excedente = precioC - precioRV;
+                        faltante = precioV - precioC;
+                    }
+                }else if (rbPrecios2.Checked)
+                {
+
+                    if (string.IsNullOrWhiteSpace(txtFaltante.Text) || string.IsNullOrWhiteSpace(txtSobrante.Text))
+                    {
+                        MessageBox.Show("No debe dejar campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else
+                    {
+                        excedente = double.Parse(txtSobrante.Text);
+                        faltante = double.Parse(txtFaltante.Text);
+                    }
+
+                    
+                }
+
                 double desviacion = double.Parse(txtDesvPU.Text);
                 double demanda = double.Parse(txtDemPU.Text);
-
-                double excedente = precioC - precioRV;
-                double faltante = precioV - precioC;
-
                 double probabilidad = faltante / (faltante + excedente);
 
                 Chart mychart = new Chart();
@@ -243,6 +285,14 @@ namespace Views.Modelo_EOQ_ABCC
 
         private void btnAM_Click(object sender, EventArgs e)
         {
+
+            //LLAMAR VALIDACION DE TABLA NULA
+            if (ValidateGrid().Equals(true))
+            {
+                MessageBox.Show("Debe ingresar datos a la tabla, debe poner ceros si no hay dato");
+                return;
+            }
+
             try
             {
                 if (string.IsNullOrWhiteSpace(txtPFAM.Text) || string.IsNullOrWhiteSpace(txtPSAM.Text))
@@ -352,5 +402,31 @@ namespace Views.Modelo_EOQ_ABCC
             return "EOQ";
         }
 
+        private bool ValidateGrid()
+        {
+            for (int i = 0; i < dgvDatosAM.RowCount - 1; i++)
+            {
+                for (int j = 0; j < dgvDatosAM.ColumnCount; j++)
+                {
+                    if (dgvDatosAM.Rows[i].Cells[j].Value == null)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        private void rbPrecios1_CheckedChanged(object sender, EventArgs e)
+        {
+            gbPrecios1.Enabled = true;
+            gbPrecios2.Enabled = false;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            gbPrecios1.Enabled = false;
+            gbPrecios2.Enabled = true;
+        }
     }
 }
